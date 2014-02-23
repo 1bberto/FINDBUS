@@ -30,7 +30,7 @@ namespace FindBus.Models
                                join app in fn.tblaplicativo on ver.AplicativoID equals app.AplicativoID
                                join bas in fn.tblbase on ver.BaseID equals bas.BaseID
                                select new
-                               {                                   
+                               {
                                    VersaoAPK = app.VersaoAplicativo,
                                    VersaoBase = bas.VersaoBase,
                                    DataInclusaoRegistro = ver.DataInclusaoRegistro
@@ -67,6 +67,10 @@ namespace FindBus.Models
                     versoesBase.Add(new SelectListItem { Text = bas.VersaoBase.ToString(), Value = bas.BaseID.ToString(), Selected = false });
             }
             return versoesBase;
+        }
+        public string RetornaUrlRoot()
+        {
+            return string.Format("{0}://{1}:{2}", HttpContext.Current.Request.Url.Scheme, HttpContext.Current.Request.Url.Host, HttpContext.Current.Request.Url.Port);
         }
     }
 }

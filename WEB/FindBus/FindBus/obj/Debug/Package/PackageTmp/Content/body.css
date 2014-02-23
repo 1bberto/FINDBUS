@@ -1,7 +1,23 @@
-  body {
-            padding-top: 60px;
-            padding-bottom: 40px;
-          }
-  .form-control{
-      clear:both;
-  }
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+.form-control {
+    clear: both;
+}
+
+.Localizacoes {
+    overflow: scroll;
+    width: 200px;
+    height: 100px;
+}
+
+.Marker {
+    display: inline;
+}
+
+.MarkerRemover {
+    display: inline;
+    color: salmon;
+}

@@ -17,7 +17,22 @@ namespace FindBus.Controllers
             ver.RetornaVersao();
             return View(ver);
         }
-        
+        public FileResult RetornaVersaoApp()
+        {            
+            using (fn = new findbusEntities())
+            {
+                var versaoAtual = (from ver in fn.tblversao
+                                   join app in fn.tblaplicativo on ver.AplicativoID equals app.AplicativoID
+                                   select new
+                                   {
+                                       VersaoAPK = app.LocalAPK
+                                   }
+                        ).FirstOrDefault();
+
+                string contentType = "application/vnd.android.package-archive";
+                return File(string.Format("{0}",versaoAtual.VersaoAPK), contentType, "FindBus.apk");
+            }
+        }
         public ActionResult AlterarVersao()
         {
             return View();

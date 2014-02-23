@@ -16,7 +16,7 @@
     <div class="editor-field" id="Uf">@Html.DropDownListFor(model => model.Uf, new FindBus.Controllers.CidadeController().RetornaUf(), "Selecione um Estado", new { @class = "form-control" })</div>
 </div>
 <br />
-<input type="submit" class="btn btn-success" value="Salvar" onclick="AdicionaCidade('@Url.Action("Adicionar", "Cidade")    ');" />
+<input type="submit" class="btn btn-success" value="Salvar" onclick="AdicionaCidade('@Url.Action("Adicionar", "Cidade")');" />
 <a href="@Url.Action("Index", "Cidade")" class="btn btn-info">Voltar</a>
 
 @section Scripts {
