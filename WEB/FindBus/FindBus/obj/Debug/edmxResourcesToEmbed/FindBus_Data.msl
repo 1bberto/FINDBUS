@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="findbusStoreContainer" CdmEntityContainer="findbusEntities">
+    <EntitySetMapping Name="tblbairro">
+      <EntityTypeMapping TypeName="findbus.tblbairro">
+        <MappingFragment StoreEntitySet="tblbairro">
+          <ScalarProperty Name="BairroID" ColumnName="BairroID" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="DataInclusaoRegistro" ColumnName="DataInclusaoRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblbairrorua">
+      <EntityTypeMapping TypeName="findbus.tblbairrorua">
+        <MappingFragment StoreEntitySet="tblbairrorua">
+          <ScalarProperty Name="BairroRuaId" ColumnName="BairroRuaId" />
+          <ScalarProperty Name="BairroId" ColumnName="BairroId" />
+          <ScalarProperty Name="RuaId" ColumnName="RuaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblcidade">
+      <EntityTypeMapping TypeName="findbus.tblcidade">
+        <MappingFragment StoreEntitySet="tblcidade">
+          <ScalarProperty Name="CidadeId" ColumnName="CidadeId" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Uf" ColumnName="Uf" />
+          <ScalarProperty Name="DataInclusaoRegistro" ColumnName="DataInclusaoRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblcidadebairro">
+      <EntityTypeMapping TypeName="findbus.tblcidadebairro">
+        <MappingFragment StoreEntitySet="tblcidadebairro">
+          <ScalarProperty Name="CidadeBairroId" ColumnName="CidadeBairroId" />
+          <ScalarProperty Name="CidadeId" ColumnName="CidadeId" />
+          <ScalarProperty Name="BairroId" ColumnName="BairroId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbletinerario">
+      <EntityTypeMapping TypeName="findbus.tbletinerario">
+        <MappingFragment StoreEntitySet="tbletinerario">
+          <ScalarProperty Name="EtinerarioId" ColumnName="EtinerarioId" />
+          <ScalarProperty Name="DiaSemana" ColumnName="DiaSemana" />
+          <ScalarProperty Name="HoraSaida" ColumnName="HoraSaida" />
+          <ScalarProperty Name="HoraChegada" ColumnName="HoraChegada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbllogin">
+      <EntityTypeMapping TypeName="findbus.tbllogin">
+        <MappingFragment StoreEntitySet="tbllogin">
+          <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="UsuarioSenha" ColumnName="UsuarioSenha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblponto">
+      <EntityTypeMapping TypeName="findbus.tblponto">
+        <MappingFragment StoreEntitySet="tblponto">
+          <ScalarProperty Name="PontoId" ColumnName="PontoId" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="PontoParada" ColumnName="PontoParada" />
+          <ScalarProperty Name="DataInclusaoRegistro" ColumnName="DataInclusaoRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblrota">
+      <EntityTypeMapping TypeName="findbus.tblrota">
+        <MappingFragment StoreEntitySet="tblrota">
+          <ScalarProperty Name="RotaId" ColumnName="RotaId" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="DataInclusaoRegistro" ColumnName="DataInclusaoRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblrotaetinerario">
+      <EntityTypeMapping TypeName="findbus.tblrotaetinerario">
+        <MappingFragment StoreEntitySet="tblrotaetinerario">
+          <ScalarProperty Name="RotaEtinerarioId" ColumnName="RotaEtinerarioId" />
+          <ScalarProperty Name="EtinerarioId" ColumnName="EtinerarioId" />
+          <ScalarProperty Name="RotaId" ColumnName="RotaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblrotaponto">
+      <EntityTypeMapping TypeName="findbus.tblrotaponto">
+        <MappingFragment StoreEntitySet="tblrotaponto">
+          <ScalarProperty Name="RotaPontoId" ColumnName="RotaPontoId" />
+          <ScalarProperty Name="RotaId" ColumnName="RotaId" />
+          <ScalarProperty Name="PontoId" ColumnName="PontoId" />
+          <ScalarProperty Name="OrdemPonto" ColumnName="OrdemPonto" />
+          <ScalarProperty Name="Quilometragem" ColumnName="Quilometragem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblrua">
+      <EntityTypeMapping TypeName="findbus.tblrua">
+        <MappingFragment StoreEntitySet="tblrua">
+          <ScalarProperty Name="RuaId" ColumnName="RuaId" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="DataInclusaoRegistro" ColumnName="DataInclusaoRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblruaponto">
+      <EntityTypeMapping TypeName="findbus.tblruaponto">
+        <MappingFragment StoreEntitySet="tblruaponto">
+          <ScalarProperty Name="RuaPontoId" ColumnName="RuaPontoId" />
+          <ScalarProperty Name="RuaId" ColumnName="RuaId" />
+          <ScalarProperty Name="PontoId" ColumnName="PontoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblusuario">
+      <EntityTypeMapping TypeName="findbus.tblusuario">
+        <MappingFragment StoreEntitySet="tblusuario">
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="NomeUsuario" ColumnName="NomeUsuario" />
+          <ScalarProperty Name="UsuarioSenha" ColumnName="UsuarioSenha" />
+          <ScalarProperty Name="DataInclusaoRegistro" ColumnName="DataInclusaoRegistro" />
+          <ScalarProperty Name="NiveldoAcesso" ColumnName="NiveldoAcesso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

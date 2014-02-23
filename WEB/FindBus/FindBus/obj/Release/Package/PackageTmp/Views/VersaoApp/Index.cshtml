@@ -1,0 +1,28 @@
+﻿@model IEnumerable<FindBus.Models.VersaoApp>
+@{
+    ViewBag.Title = "Cadatro de Versão do Aplicativo";
+    Layout = "~/Views/Shared/_BootstrapLayout.basic.cshtml";
+    ViewBag.Pagina = "Versão Aplicativo";
+}
+
+<p style="text-align: right">
+    <a href="@Url.Action("AdicionarVersao", "VersaoApp")" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Adicionar</a>
+    <a onclick="window.history.back()" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Voltar</a>
+</p>
+<table class="table table-bordered table-striped responsive-utilities">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.AppID)</th>
+        <th>@Html.DisplayNameFor(model => model.versaoApp)</th>
+        <th>@Html.DisplayNameFor(model => model.Localapp)</th>
+        <th>@Html.DisplayNameFor(model => model.DataInclusaoRegistro)</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="width: 10% !important">@Html.DisplayFor(modelItem => item.AppID)</td>
+            <td style="width: 15% !important">@Html.DisplayFor(modelItem => item.versaoApp)</td>
+            <td style="width: 55% !important">@Html.DisplayFor(modelItem => item.Localapp)</td>
+            <td style="width: 20% !important">@Html.DisplayFor(modelItem => item.DataInclusaoRegistro)</td>
+        </tr>
+    }
+</table>

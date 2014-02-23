@@ -1,0 +1,32 @@
+﻿@model FindBus.Models.Usuario
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_BootstrapLayout.basic.cshtml";
+    ViewBag.Pagina = "Login";
+}
+
+@Html.ValidationSummary(true)
+<div class="row">
+    <div class="col-md-5 col-md-offset-3">
+        <div class="control-group">
+            <div class="controls">
+                <label for="@Html.LabelFor(model => model.NomeUsuario)" class="col-lg-2 control-label">@Html.LabelFor(model => model.NomeUsuario)</label>
+                <input type="text" class="form-control" id="Login" placeholder="Login">
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="@Html.LabelFor(model => model.Senha)" class="col-lg-2 control-label">@Html.LabelFor(model => model.Senha)</label>
+            <input type="password" class="form-control" id="Senha" placeholder="Senha">
+        </div>
+        <br />
+        <div class="col-md-offset-10">
+            <input type="submit" class="btn btn-large btn-success" value="Login" onclick="RealizaLogin('@Url.Action("RealizaLogin", "Login")    ');"/>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/Regras/FindBus.js")
+}

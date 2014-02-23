@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<installer-gui-script minSpecVersion='1'>
+    <platforms>
+        <Windows arch="intel"/>
+    </platforms>
+    <choices-outline>
+        <line choice='manual'/>
+    </choices-outline>
+    <title>SU_TITLE</title>
+    <choice id='manual' title="SU_TITLE">
+        <pkg-ref id='manual' auth='Root'>.</pkg-ref>
+    </choice>
+    <choice id='manual' title='SU_TITLE'/>
+    <choice id='manual' versStr='SU_VERS'/>
+    <choices-outline ui='SoftwareUpdate'>
+        <line choice='su'/>
+    </choices-outline>
+    <choice id='su' suDisabledGroupID='ODS'>
+        <pkg-ref id='com.apple.swu.ODSSetup'>ODSSetup.msi</pkg-ref>
+        <pkg-ref id='com.apple.swu.ODSSetupAdmin'>ODSSetupAdmin.exe</pkg-ref>
+        <pkg-ref enabled='InstallBonjour()' id='com.apple.swu.Bonjour'>Bonjour.msi</pkg-ref>
+    </choice>
+    <choice id='su' visible='visibleCheck()'/>
+    <choice id='su' title='SU_TITLE' versStr='SU_VERS'/>
+    <choice id='su' description='SU_DESCRIPTION' description-mime-type='text/html'/>
+    <script>
+    
+		function InstallBonjour()
+		{
+		  if ( productInVersionRange("Bonjour", "1.0.104.0", "255.255.65535") )
+		  {
+		    return false;
+		  }
+		  return true;
+  	}
+    
+    function visibleCheck()
+    { 
+        //Check windows version 
+        var windowsVersion = WindowsVersion();
+        if (windowsVersion == "5.1.2600")
+        {
+            // Running XP, check Service Pack level.
+            var spVersion = GetInstalledServicePackRegistry();
+            if (!spVersion || spVersion != "Service Pack 2")
+            {
+                // service pack 2 only
+                return false;
+            }
+        }
+        // Anything above XP
+        else if (compareVersionStrings(windowsVersion, "5.1.0.0.0") == 1)
+        {
+            // Only show up on 32-bit OS's
+            if ( isSixtyFourBitOS() )
+            {
+                return false;
+            }
+        }
+        // anything else
+        else
+        {
+          return false;
+        }
+
+				// require ASU 2.0.2 
+				if ( productInVersionRange("Apple Software Update", "0.0.0.0", "2.0.2.0") )
+				{
+				  return false;
+				}
+			  
+        // require ODS to be present
+				var odsPath = ASURegistryQueryStringValue("HKEY_LOCAL_MACHINE", "SOFTWARE\\Apple Inc.\\ODS", "ODSAgentPath");
+				if ( !odsPath )
+				{
+				  return false;
+				}
+        	
+				// require ODS prior to 1.0.1
+				var odsVersion = ASURegistryQueryStringValue("HKEY_LOCAL_MACHINE", "SOFTWARE\\Apple Inc.\\ODS", "ODSVersion");
+				// no key == 1.0
+        if ( !odsVersion || (compareVersionStrings(odsVersion, "1.0.1.0") == -1) )
+        {
+          return true;
+        }
+				
+        //System doesn't meet our conditions    
+        return false;
+    }
+
+		function isSixtyFourBitOS()
+		{
+				//Note. OSArchitecture only available on Vista+. Will return undef on XP.
+				var numItems = WMIExecQuery("SELECT OSArchitecture FROM Win32_OperatingSystem");                                            
+				
+				var OSArchitecture = WMIGetProperty(0, "OSArchitecture");
+				log("OSArch: '" + OSArchitecture + "'");
+				
+				return ( OSArchitecture == "64-bit" );
+		}
+		
+    function GetInstalledServicePackRegistry()
+    {
+        var spInstalled = RegistryQueryStringValue("HKEY_LOCAL_MACHINE", "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", "CSDVersion");
+        log("Installed Service Pack (Registry): " + spInstalled);
+        return spInstalled;
+    }
+    
+    function productInVersionRange(productName, minVersion, maxVersion) 
+    {
+        var i = 0;
+        var productIndex;
+        
+        do
+        {
+            productIndex = system.ASUEnumerateProducts(i++);
+            if (!productIndex) {
+              break;
+            }
+            var foundName = system.ASUGetProductInfo(productIndex,"ProductName");
+
+            system.log("found product: " + foundName);
+
+            if (foundName == productName) 
+            {
+                var foundVersion = system.ASUGetProductInfo(productIndex,"VersionString");
+
+                system.log("version of " + foundName + " is: " + foundVersion);
+
+                return(versionInRange(foundVersion, minVersion, maxVersion));
+            }
+        
+        } while(productIndex);
+        
+        // they do not already have it, but should get it
+        if(minVersion == "0.0.0.0.0") 
+        {
+            return true;
+        }
+
+        // otherwise, we require a minimum version
+        return false;
+        
+    }
+
+    function versionInRange(testVersion, minVersion, maxVersion) 
+    {
+        if ((-1 != compareVersionStrings(testVersion, minVersion)) &amp;&amp; (1 != compareVersionStrings(testVersion, maxVersion)))
+            return true;
+        else
+            return false;
+    }
+    
+    function compareVersionStrings(string1, string2) 
+    {
+        var parts1 = string1.split(".");
+        var parts2 = string2.split(".");
+
+        while(parts1.length &lt; parts2.length)
+            parts1[parts1.length] = "0";
+
+                while(parts2.length &lt; parts1.length)
+            parts2[parts2.length] = "0";
+
+        for( var i in parts1 ) 
+        {
+            var sub1 = 1*parts1[i];
+            var sub2 = 1*parts2[i];
+
+            if( sub1 != sub2 )
+            {
+                if( sub1 > sub2 )
+                    return 1;
+                else
+                    return -1;
+            }
+        }
+
+        return 0;
+    }
+
+    </script>
+    <localization>
+        <strings language="pt_PT"><![CDATA["SU_TITLE" = "Actualização da Configuração da Partilha de DVD ou CD";
+"SU_VERS" = "1.0";
+"SU_SERVERCOMMENT" = "Para sistemas Windows";
+
+"SU_DESCRIPTION"='<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="949">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times}
+  </style>
+</head>
+<body>
+<p class="p1">Esta actualização instala software que permite a partilha de discos remota e o restauro de software do sistema para o MacBook Air.</p>
+</body>
+</html>
+';
+]]></strings>
+    </localization>
+</installer-gui-script>

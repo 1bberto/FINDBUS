@@ -1,0 +1,103 @@
+create database FindBus;
+use FindBus;
+
+create table tblUsuario
+(UsuarioId int not null AUTO_INCREMENT,
+NomeUsuario varchar(50) not null,
+UsuarioSenha varchar(32) not null,
+DataInclusaoRegistro DATETIME not null,
+NiveldoAcesso int not null,
+Constraint PK_tblUsuario primary key (UsuarioId));
+
+create table tblLogin
+(LoginId int not null AUTO_INCREMENT,
+UsuarioId int not null,
+UsuarioSenha varchar(32) not null,
+Constraint PK_tblLogin primary key (LoginId),
+Constraint FK_tblLogin foreign key (UsuarioId) references tblUsuario (UsuarioId));
+
+create table tblRua
+(RuaId int not null AUTO_INCREMENT,
+Descricao varchar(50) not null,
+DataInclusaoRegistro DATETIME not null,
+Constraint PK_tblRua primary key (RuaId));
+
+create table tblBairro
+(BairroId int not null AUTO_INCREMENT,
+Descricao varchar(50) not null,
+DataInclusaoRegistro DATETIME not null,
+Constraint PK_tblBairro primary key (BairroId));
+
+create table tblBairroRua
+(BairroRuaId int not null AUTO_INCREMENT,
+BairroId int not null,
+RuaId int not null,
+Constraint PK_tblBairroRua primary key (BairroRuaId,BairroId,RuaId),
+Constraint FK_tblBairroRua foreign key (BairroId) references tblBairro (BairroId),
+Constraint FK_tblBairroRua2 foreign key (RuaId) references tblRua (RuaId));
+
+create table tblCidade
+(CidadeId int not null AUTO_INCREMENT,
+Descricao varchar(50) not null,
+Uf varchar(50) not null,
+DataInclusaoRegistro DATETIME not null,
+Constraint PK_tblCidade primary key (CidadeId));
+
+create table tblCidadeBairro
+(CidadeBairroId int not null AUTO_INCREMENT,
+CidadeId int not null,
+BairroId int not null,
+Constraint PK_tblCidadeBairro primary key (CidadeBairroId,CidadeId,BairroId),
+Constraint FK_tblCidadeBairro foreign key (CidadeId) references tblCidade (CidadeId),
+Constraint FK_tblCidadeBairro2 foreign key (BairroId) references tblBairro (BairroId));
+
+
+create table tblPonto
+(PontoId int not null AUTO_INCREMENT,
+Latitude DOUBLE(17,15) not null,
+Longitude DOUBLE(17,15) not null,
+PontoParada BOOLEAN not null,
+DataInclusaoRegistro DATETIME not null,
+Constraint PK_tblPonto primary key (PontoId));
+
+create table tblRota
+(RotaId int not null AUTO_INCREMENT,
+Descricao varchar(50) not null,
+DataInclusaoRegistro DATETIME not null,
+Constraint PK_Rota primary key (RotaId));
+
+create table tblRotaPonto
+(RotaPontoId int not null AUTO_INCREMENT,
+RotaId int not null,
+PontoId int not null,
+OrdemPonto int not null,
+Quilometragem decimal not null,
+Constraint PK_tblRotaPonto primary Key (RotaPontoId,RotaId,PontoId),
+Constraint FK_tblRotaPonto foreign key (RotaId) references tblRota (RotaId),
+Constraint FK_tblRotaPonto2 foreign key (PontoId) references tblPonto (PontoId));
+
+create table tblEtinerario
+(EtinerarioId int not null AUTO_INCREMENT,
+DiaSemana varchar(20) not null,
+HoraSaida decimal not null,
+HoraChegada decimal not null,
+Constraint PK_tblEtinerario primary key (EtinerarioId));
+
+create table tblRotaEtinerario
+(RotaEtinerarioId int not null AUTO_INCREMENT,
+EtinerarioId int not null,
+RotaId int not null,
+Constraint PK_tblRotaEtinerario primary key (RotaEtinerarioId,EtinerarioId,RotaId),
+Constraint FK_tblRotaEtinerario foreign key (EtinerarioId) references tblEtinerario (EtinerarioId),
+Constraint FK_tblRotaEtinerario2 foreign key (RotaId) references tblRota (RotaId));
+
+create table tblRuaPonto
+(RuaPontoId int not null AUTO_INCREMENT,
+RuaId int not null,
+PontoId int not null,
+Constraint PK_tblRuaPonto primary key (RuaPontoId,RuaId,PontoId),
+Constraint FK_tblRuaPonto foreign key (RuaId) references tblRua (RuaId),
+Constraint FK_tblRuaPonto2 foreign key (PontoId) references tblPonto (PontoId));
+
+
+

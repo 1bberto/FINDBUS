@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="findbusModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="findbusModelStoreContainer">
+    <EntitySet Name="tblaplicativo" EntityType="findbusModel.Store.tblaplicativo" store:Type="Tables" Schema="findbus" />
+    <EntitySet Name="tblbairro" EntityType="findbusModel.Store.tblbairro" store:Type="Tables" Schema="findbus" />
+    <EntitySet Name="tblbairrorua" EntityType="findbusModel.Store.tblbairrorua" store:Type="Tables" Schema="findbus" />
+    <EntitySet Name="tblbase" EntityType="findbusModel.Store.tblbase" store:Type="Tables" Schema="findbus" />
+    <EntitySet Name="tblcidade" EntityType="findbusModel.Store.tblcidade" store:Type="Tables" Schema="findbus" />
+    <EntitySet Name="tblcidadebairro" EntityType="findbusModel.Store.tblcidadebairro" store:Type="Tables" Schema="findbus" />
+    <EntitySet Name="tbletinerario" EntityType="findbusModel.Store.tbletinerario" store:Type="Tables" Schema="findbus" />
+    <EntitySet Name="tbllogin" EntityType="findbusModel.Store.tbllogin" store:Type="Tables" Schema="findbus" />
+    <EntitySet Name="tblponto" EntityType="findbusModel.Store.tblponto" store:Type="Tables" Schema="findbus" />
+    <EntitySet Name="tblrota" EntityType="findbusModel.Store.tblrota" store:Type="Tables" Schema="findbus" />
+    <EntitySet Name="tblrotaetinerario" EntityType="findbusModel.Store.tblrotaetinerario" store:Type="Tables" Schema="findbus" />
+    <EntitySet Name="tblrotaponto" EntityType="findbusModel.Store.tblrotaponto" store:Type="Tables" Schema="findbus" />
+    <EntitySet Name="tblrua" EntityType="findbusModel.Store.tblrua" store:Type="Tables" Schema="findbus" />
+    <EntitySet Name="tblruaponto" EntityType="findbusModel.Store.tblruaponto" store:Type="Tables" Schema="findbus" />
+    <EntitySet Name="tblusuario" EntityType="findbusModel.Store.tblusuario" store:Type="Tables" Schema="findbus" />
+    <EntitySet Name="tblversao" EntityType="findbusModel.Store.tblversao" store:Type="Tables" Schema="findbus" />
+    <AssociationSet Name="FK_tblAplicativo_AplicativoID" Association="findbusModel.Store.FK_tblAplicativo_AplicativoID">
+      <End Role="tblaplicativo" EntitySet="tblaplicativo" />
+      <End Role="tblversao" EntitySet="tblversao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBairroRua" Association="findbusModel.Store.FK_tblBairroRua">
+      <End Role="tblbairro" EntitySet="tblbairro" />
+      <End Role="tblbairrorua" EntitySet="tblbairrorua" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBairroRua2" Association="findbusModel.Store.FK_tblBairroRua2">
+      <End Role="tblrua" EntitySet="tblrua" />
+      <End Role="tblbairrorua" EntitySet="tblbairrorua" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBase_BaseID" Association="findbusModel.Store.FK_tblBase_BaseID">
+      <End Role="tblbase" EntitySet="tblbase" />
+      <End Role="tblversao" EntitySet="tblversao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCidadeBairro" Association="findbusModel.Store.FK_tblCidadeBairro">
+      <End Role="tblcidade" EntitySet="tblcidade" />
+      <End Role="tblcidadebairro" EntitySet="tblcidadebairro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCidadeBairro2" Association="findbusModel.Store.FK_tblCidadeBairro2">
+      <End Role="tblbairro" EntitySet="tblbairro" />
+      <End Role="tblcidadebairro" EntitySet="tblcidadebairro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblLogin" Association="findbusModel.Store.FK_tblLogin">
+      <End Role="tblusuario" EntitySet="tblusuario" />
+      <End Role="tbllogin" EntitySet="tbllogin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblRotaEtinerario" Association="findbusModel.Store.FK_tblRotaEtinerario">
+      <End Role="tbletinerario" EntitySet="tbletinerario" />
+      <End Role="tblrotaetinerario" EntitySet="tblrotaetinerario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblRotaEtinerario2" Association="findbusModel.Store.FK_tblRotaEtinerario2">
+      <End Role="tblrota" EntitySet="tblrota" />
+      <End Role="tblrotaetinerario" EntitySet="tblrotaetinerario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblRotaPonto" Association="findbusModel.Store.FK_tblRotaPonto">
+      <End Role="tblrota" EntitySet="tblrota" />
+      <End Role="tblrotaponto" EntitySet="tblrotaponto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblRotaPonto2" Association="findbusModel.Store.FK_tblRotaPonto2">
+      <End Role="tblponto" EntitySet="tblponto" />
+      <End Role="tblrotaponto" EntitySet="tblrotaponto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblRuaPonto" Association="findbusModel.Store.FK_tblRuaPonto">
+      <End Role="tblrua" EntitySet="tblrua" />
+      <End Role="tblruaponto" EntitySet="tblruaponto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblRuaPonto2" Association="findbusModel.Store.FK_tblRuaPonto2">
+      <End Role="tblponto" EntitySet="tblponto" />
+      <End Role="tblruaponto" EntitySet="tblruaponto" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tblaplicativo">
+    <Key>
+      <PropertyRef Name="AplicativoID" />
+    </Key>
+    <Property Name="AplicativoID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LocalAPK" Type="varchar" Nullable="false" MaxLength="300" />
+    <Property Name="DataInclusaoRegistro" Type="timestamp" Nullable="false" Precision="0" />
+    <Property Name="VersaoAplicativo" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tblbairro">
+    <Key>
+      <PropertyRef Name="BairroID" />
+    </Key>
+    <Property Name="BairroID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DataInclusaoRegistro" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblbairrorua">
+    <Key>
+      <PropertyRef Name="BairroRuaId" />
+      <PropertyRef Name="BairroId" />
+      <PropertyRef Name="RuaId" />
+    </Key>
+    <Property Name="BairroRuaId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BairroId" Type="int" Nullable="false" />
+    <Property Name="RuaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblbase">
+    <Key>
+      <PropertyRef Name="BaseID" />
+    </Key>
+    <Property Name="BaseID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LocalBase" Type="varchar" Nullable="false" MaxLength="300" />
+    <Property Name="DataInclusaoRegistro" Type="timestamp" Nullable="false" Precision="0" />
+    <Property Name="VersaoBase" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tblcidade">
+    <Key>
+      <PropertyRef Name="CidadeId" />
+    </Key>
+    <Property Name="CidadeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Uf" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DataInclusaoRegistro" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblcidadebairro">
+    <Key>
+      <PropertyRef Name="CidadeBairroId" />
+      <PropertyRef Name="CidadeId" />
+      <PropertyRef Name="BairroId" />
+    </Key>
+    <Property Name="CidadeBairroId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CidadeId" Type="int" Nullable="false" />
+    <Property Name="BairroId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbletinerario">
+    <Key>
+      <PropertyRef Name="EtinerarioId" />
+    </Key>
+    <Property Name="EtinerarioId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DiaSemana" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="HoraSaida" Type="decimal" Nullable="false" />
+    <Property Name="HoraChegada" Type="decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbllogin">
+    <Key>
+      <PropertyRef Name="LoginId" />
+    </Key>
+    <Property Name="LoginId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
+    <Property Name="UsuarioSenha" Type="varchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="tblponto">
+    <Key>
+      <PropertyRef Name="PontoId" />
+    </Key>
+    <Property Name="PontoId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Latitude" Type="double" Nullable="false" />
+    <Property Name="Longitude" Type="double" Nullable="false" />
+    <Property Name="PontoParada" Type="bool" Nullable="false" />
+    <Property Name="DataInclusaoRegistro" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblrota">
+    <Key>
+      <PropertyRef Name="RotaId" />
+    </Key>
+    <Property Name="RotaId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DataInclusaoRegistro" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblrotaetinerario">
+    <Key>
+      <PropertyRef Name="RotaEtinerarioId" />
+      <PropertyRef Name="EtinerarioId" />
+      <PropertyRef Name="RotaId" />
+    </Key>
+    <Property Name="RotaEtinerarioId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EtinerarioId" Type="int" Nullable="false" />
+    <Property Name="RotaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblrotaponto">
+    <Key>
+      <PropertyRef Name="RotaPontoId" />
+      <PropertyRef Name="RotaId" />
+      <PropertyRef Name="PontoId" />
+    </Key>
+    <Property Name="RotaPontoId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RotaId" Type="int" Nullable="false" />
+    <Property Name="PontoId" Type="int" Nullable="false" />
+    <Property Name="OrdemPonto" Type="int" Nullable="false" />
+    <Property Name="Quilometragem" Type="decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblrua">
+    <Key>
+      <PropertyRef Name="RuaId" />
+    </Key>
+    <Property Name="RuaId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DataInclusaoRegistro" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblruaponto">
+    <Key>
+      <PropertyRef Name="RuaPontoId" />
+      <PropertyRef Name="RuaId" />
+      <PropertyRef Name="PontoId" />
+    </Key>
+    <Property Name="RuaPontoId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RuaId" Type="int" Nullable="false" />
+    <Property Name="PontoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblusuario">
+    <Key>
+      <PropertyRef Name="UsuarioId" />
+    </Key>
+    <Property Name="UsuarioId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NomeUsuario" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="UsuarioSenha" Type="varchar" Nullable="false" MaxLength="32" />
+    <Property Name="DataInclusaoRegistro" Type="datetime" Nullable="false" />
+    <Property Name="NiveldoAcesso" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblversao">
+    <Key>
+      <PropertyRef Name="AplicativoID" />
+      <PropertyRef Name="BaseID" />
+    </Key>
+    <Property Name="AplicativoID" Type="int" Nullable="false" />
+    <Property Name="BaseID" Type="int" Nullable="false" />
+    <Property Name="DataInclusaoRegistro" Type="timestamp" Nullable="false" Precision="0" />
+  </EntityType>
+  <Association Name="FK_tblAplicativo_AplicativoID">
+    <End Role="tblaplicativo" Type="findbusModel.Store.tblaplicativo" Multiplicity="1" />
+    <End Role="tblversao" Type="findbusModel.Store.tblversao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblaplicativo">
+        <PropertyRef Name="AplicativoID" />
+      </Principal>
+      <Dependent Role="tblversao">
+        <PropertyRef Name="AplicativoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBairroRua">
+    <End Role="tblbairro" Type="findbusModel.Store.tblbairro" Multiplicity="1" />
+    <End Role="tblbairrorua" Type="findbusModel.Store.tblbairrorua" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblbairro">
+        <PropertyRef Name="BairroID" />
+      </Principal>
+      <Dependent Role="tblbairrorua">
+        <PropertyRef Name="BairroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBairroRua2">
+    <End Role="tblrua" Type="findbusModel.Store.tblrua" Multiplicity="1" />
+    <End Role="tblbairrorua" Type="findbusModel.Store.tblbairrorua" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblrua">
+        <PropertyRef Name="RuaId" />
+      </Principal>
+      <Dependent Role="tblbairrorua">
+        <PropertyRef Name="RuaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBase_BaseID">
+    <End Role="tblbase" Type="findbusModel.Store.tblbase" Multiplicity="1" />
+    <End Role="tblversao" Type="findbusModel.Store.tblversao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblbase">
+        <PropertyRef Name="BaseID" />
+      </Principal>
+      <Dependent Role="tblversao">
+        <PropertyRef Name="BaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCidadeBairro">
+    <End Role="tblcidade" Type="findbusModel.Store.tblcidade" Multiplicity="1" />
+    <End Role="tblcidadebairro" Type="findbusModel.Store.tblcidadebairro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblcidade">
+        <PropertyRef Name="CidadeId" />
+      </Principal>
+      <Dependent Role="tblcidadebairro">
+        <PropertyRef Name="CidadeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCidadeBairro2">
+    <End Role="tblbairro" Type="findbusModel.Store.tblbairro" Multiplicity="1" />
+    <End Role="tblcidadebairro" Type="findbusModel.Store.tblcidadebairro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblbairro">
+        <PropertyRef Name="BairroID" />
+      </Principal>
+      <Dependent Role="tblcidadebairro">
+        <PropertyRef Name="BairroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblLogin">
+    <End Role="tblusuario" Type="findbusModel.Store.tblusuario" Multiplicity="1" />
+    <End Role="tbllogin" Type="findbusModel.Store.tbllogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblusuario">
+        <PropertyRef Name="UsuarioId" />
+      </Principal>
+      <Dependent Role="tbllogin">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblRotaEtinerario">
+    <End Role="tbletinerario" Type="findbusModel.Store.tbletinerario" Multiplicity="1" />
+    <End Role="tblrotaetinerario" Type="findbusModel.Store.tblrotaetinerario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbletinerario">
+        <PropertyRef Name="EtinerarioId" />
+      </Principal>
+      <Dependent Role="tblrotaetinerario">
+        <PropertyRef Name="EtinerarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblRotaEtinerario2">
+    <End Role="tblrota" Type="findbusModel.Store.tblrota" Multiplicity="1" />
+    <End Role="tblrotaetinerario" Type="findbusModel.Store.tblrotaetinerario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblrota">
+        <PropertyRef Name="RotaId" />
+      </Principal>
+      <Dependent Role="tblrotaetinerario">
+        <PropertyRef Name="RotaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblRotaPonto">
+    <End Role="tblrota" Type="findbusModel.Store.tblrota" Multiplicity="1" />
+    <End Role="tblrotaponto" Type="findbusModel.Store.tblrotaponto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblrota">
+        <PropertyRef Name="RotaId" />
+      </Principal>
+      <Dependent Role="tblrotaponto">
+        <PropertyRef Name="RotaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblRotaPonto2">
+    <End Role="tblponto" Type="findbusModel.Store.tblponto" Multiplicity="1" />
+    <End Role="tblrotaponto" Type="findbusModel.Store.tblrotaponto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblponto">
+        <PropertyRef Name="PontoId" />
+      </Principal>
+      <Dependent Role="tblrotaponto">
+        <PropertyRef Name="PontoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblRuaPonto">
+    <End Role="tblrua" Type="findbusModel.Store.tblrua" Multiplicity="1" />
+    <End Role="tblruaponto" Type="findbusModel.Store.tblruaponto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblrua">
+        <PropertyRef Name="RuaId" />
+      </Principal>
+      <Dependent Role="tblruaponto">
+        <PropertyRef Name="RuaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblRuaPonto2">
+    <End Role="tblponto" Type="findbusModel.Store.tblponto" Multiplicity="1" />
+    <End Role="tblruaponto" Type="findbusModel.Store.tblruaponto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblponto">
+        <PropertyRef Name="PontoId" />
+      </Principal>
+      <Dependent Role="tblruaponto">
+        <PropertyRef Name="PontoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
