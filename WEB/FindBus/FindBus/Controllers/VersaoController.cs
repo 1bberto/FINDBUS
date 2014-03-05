@@ -13,9 +13,7 @@ namespace FindBus.Controllers
         // GET: /Versao/        
         public ActionResult Index()
         {
-            Versao ver = new Versao();
-            ver.RetornaVersao();
-            return View(ver);
+            return View(new Versao().RetornaVersao());
         }
         public FileResult RetornaVersaoApp()
         {            

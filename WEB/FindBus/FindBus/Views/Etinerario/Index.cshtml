@@ -1,0 +1,37 @@
+﻿@model IEnumerable<FindBus.Models.RotaEtinerario>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BootstrapLayout.basic.cshtml";
+    ViewBag.Pagina = "Etinerário";
+}
+<p style="text-align: right">
+    <a href="@Url.Action("Adicionar", "Etinerario")" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Adicionar</a>
+    <a onclick="window.history.back()" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Voltar</a>
+</p>
+<table class="table table-bordered table-striped responsive-utilities">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.RotaEtinerarioID)</th>
+        <th>@Html.DisplayNameFor(model => model.Rota.Descricao)</th>
+        <th>Ações</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="width: 10% !important">@Html.DisplayFor(modelItem => item.RotaEtinerarioID)</td>
+            <td style="width: 35% !important">@Html.DisplayFor(modelItem => item.Rota.Descricao)</td>
+            <td style="width: 15% !important; text-align: center">
+                <div class="btn-group">
+                    <a class="btn btn-primary btn-large" onclick="VisualizarEtinerarioRota(@Html.DisplayFor(modelItem => item.RotaEtinerarioID))">Visualizar</a>
+                    <a href="@Url.Action("Edit", "Etinerario", new { id = item.RotaEtinerarioID })" class="btn btn-success btn-large"><i class="icon-white icon-pencil"></i>Editar</a>
+                    <a href="@Url.Action("Excluir", "Etinerario", new { id = item.RotaEtinerarioID })" class="btn btn-danger btn-large"><i class="icon-white icon-pencil"></i>Excluir</a>
+                </div>
+            </td>
+        </tr>
+    }
+</table>
+@section Scripts{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/Regras/Etinerario.js")
+}

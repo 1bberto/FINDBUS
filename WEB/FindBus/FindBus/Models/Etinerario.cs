@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FindBus.Models
 {
-    class Etinerario
+    public class Etinerario
     {
         // Atributos
         private int etinerarioID;

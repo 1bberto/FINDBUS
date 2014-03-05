@@ -134,6 +134,7 @@
     <Compile Include="Controllers\AtualizacaoController.cs" />
     <Compile Include="Controllers\BootstrapBaseController.cs" />
     <Compile Include="Controllers\CidadeController.cs" />
+    <Compile Include="Controllers\EtinerarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocalizacaoController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="Models\Bairro.cs" />
     <Compile Include="Models\Cidade.cs" />
     <Compile Include="Models\Etinerario.cs" />
+    <Compile Include="Models\RotaEtinerario.cs" />
     <Compile Include="Models\Localizacao.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -310,6 +312,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\Libs\bootstrap.js" />
     <Content Include="Scripts\Libs\bootstrap.min.js" />
+    <Content Include="Scripts\Regras\Etinerario.js" />
     <Content Include="Scripts\Regras\FindBus.js" />
     <Content Include="Scripts\Regras\Localizacao.js" />
     <Content Include="Scripts\Regras\Principal.js" />
@@ -391,6 +394,7 @@
     <Content Include="Views\VersaoApp\Index.cshtml" />
     <Content Include="Views\VersaoApp\AdicionarVersao.cshtml" />
     <Content Include="Views\Localizacao\Index.cshtml" />
+    <Content Include="Views\Etinerario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
