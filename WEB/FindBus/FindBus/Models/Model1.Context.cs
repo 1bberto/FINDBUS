@@ -31,7 +31,6 @@ namespace FindBus.Models
         public DbSet<tblcidadebairro> tblcidadebairro { get; set; }
         public DbSet<tbletinerario> tbletinerario { get; set; }
         public DbSet<tbllogin> tbllogin { get; set; }
-        public DbSet<tblponto> tblponto { get; set; }
         public DbSet<tblrota> tblrota { get; set; }
         public DbSet<tblrotaetinerario> tblrotaetinerario { get; set; }
         public DbSet<tblrotaponto> tblrotaponto { get; set; }
@@ -41,5 +40,6 @@ namespace FindBus.Models
         public DbSet<tblaplicativo> tblaplicativo { get; set; }
         public DbSet<tblbase> tblbase { get; set; }
         public DbSet<tblversao> tblversao { get; set; }
+        public DbSet<tblponto> tblponto { get; set; }
     }
 }

@@ -11,7 +11,6 @@
         <EntityTypeShape EntityType="findbusModel.tblcidadebairro" Width="1.5" PointX="8" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="findbusModel.tbletinerario" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
         <EntityTypeShape EntityType="findbusModel.tbllogin" Width="1.5" PointX="5" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="findbusModel.tblponto" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="findbusModel.tblrota" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="findbusModel.tblrotaetinerario" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="findbusModel.tblrotaponto" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
@@ -24,8 +23,6 @@
         <AssociationConnector Association="findbusModel.FK_tblCidadeBairro" ManuallyRouted="false" />
         <AssociationConnector Association="findbusModel.FK_tblRotaEtinerario" ManuallyRouted="false" />
         <AssociationConnector Association="findbusModel.FK_tblLogin" ManuallyRouted="false" />
-        <AssociationConnector Association="findbusModel.FK_tblRotaPonto2" ManuallyRouted="false" />
-        <AssociationConnector Association="findbusModel.FK_tblRuaPonto2" ManuallyRouted="false" />
         <AssociationConnector Association="findbusModel.FK_tblRotaEtinerario2" ManuallyRouted="false" />
         <AssociationConnector Association="findbusModel.FK_tblRotaPonto" ManuallyRouted="false" />
         <AssociationConnector Association="findbusModel.FK_tblRuaPonto" ManuallyRouted="false" />
@@ -34,6 +31,9 @@
         <EntityTypeShape EntityType="findbusModel.tblversao" Width="1.5" PointX="9.625" PointY="12.625" />
         <AssociationConnector Association="findbusModel.FK_tblAplicativo_AplicativoID" />
         <AssociationConnector Association="findbusModel.FK_tblBase_BaseID" />
+        <EntityTypeShape EntityType="findbusModel.tblponto" Width="1.5" PointX="3.7024725320294838" PointY="0.54120652402807334" />
+        <AssociationConnector Association="findbusModel.FK_tblRotaPonto2" />
+        <AssociationConnector Association="findbusModel.FK_tblRuaPonto2" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -21,8 +21,8 @@ namespace FindBus.Models
         }
     
         public int PontoId { get; set; }
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
         public bool PontoParada { get; set; }
         public System.DateTime DataInclusaoRegistro { get; set; }
     

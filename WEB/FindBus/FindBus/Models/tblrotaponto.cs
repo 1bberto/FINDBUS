@@ -20,7 +20,7 @@ namespace FindBus.Models
         public int OrdemPonto { get; set; }
         public decimal Quilometragem { get; set; }
     
-        public virtual tblponto tblponto { get; set; }
         public virtual tblrota tblrota { get; set; }
+        public virtual tblponto tblponto { get; set; }
     }
 }

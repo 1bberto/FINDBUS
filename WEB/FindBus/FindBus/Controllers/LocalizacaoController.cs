@@ -18,10 +18,18 @@ namespace FindBus.Controllers
         }
         public ActionResult VerificaLocalizacao(string Lat, string Long)
         {
-            Localizacao localizacao = new Localizacao(Lat,Long);
+            Localizacao localizacao = new Localizacao(Lat, Long);
 
             return Json(localizacao);
         }
-
+        public ActionResult InserirRota(List<PontoLocalizacao> pontos)
+        {
+            foreach (PontoLocalizacao ponto in pontos)
+            {
+                Localizacao localizacao = new Localizacao(ponto.Latitude, ponto.Longitude);
+                localizacao.InserirLocalizacao();
+            }
+            return Json("MAOIIIIIIII");
+        }
     }
 }

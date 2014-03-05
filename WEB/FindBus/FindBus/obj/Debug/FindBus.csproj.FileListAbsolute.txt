@@ -275,3 +275,4 @@ C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\bin\System.Web.We
 C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\obj\Debug\FindBus.csprojResolveAssemblyReference.cache
 C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\obj\Debug\FindBus.dll
 C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\obj\Debug\FindBus.pdb
+F:\TCC\FINDBUS\WEB\FindBus\FindBus\bin\FindBus.dll.config

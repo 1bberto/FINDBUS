@@ -164,6 +164,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Ponto.cs" />
+    <Compile Include="Models\PontoLocalizacao.cs" />
     <Compile Include="Models\Rota.cs" />
     <Compile Include="Models\RotaPonto.cs" />
     <Compile Include="Models\Rua.cs" />
@@ -233,6 +234,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\bus %281%29.png" />
     <Content Include="Content\images\bus %282%29.png" />
     <Content Include="Content\images\bus.png" />
@@ -310,6 +312,7 @@
     <Content Include="Scripts\Libs\bootstrap.min.js" />
     <Content Include="Scripts\Regras\FindBus.js" />
     <Content Include="Scripts\Regras\Localizacao.js" />
+    <Content Include="Scripts\Regras\Principal.js" />
     <Content Include="Scripts\Regras\VersaoApp.js" />
     <Content Include="Scripts\Regras\VersaoBase.js" />
     <Content Include="Scripts\Libs\html5shiv.js" />

@@ -14,12 +14,15 @@
     <link href="~/Content/images/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
 <body>
+    <div class="modal" style="background: rgba(203, 200, 200, 0.50) url('/Content/images/ajax-loader.gif') 50% 50% no-repeat;" title="Carregando">
+        
+    </div>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="@Url.Action("Index", "Home")">
                     <img src="~/Content/images/Flaticon_14179%20(1).png" height="25" />
-                    FindBus
+                    FindBus.com.br
                 </a>
             </div>
             <div class="navbar-collapse collapse">
@@ -51,7 +54,7 @@
     </div>
     @Scripts.Render("~/js")
     @RenderSection("Scripts", required: false)
-
+    <script type="text/javascript" src="~/Scripts/Regras/Principal.js"></script>
 </body>
 </html>
 

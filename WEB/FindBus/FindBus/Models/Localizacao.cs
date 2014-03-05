@@ -34,6 +34,7 @@ namespace FindBus.Models
             }
             JObject obj = JObject.Parse(jsonresponse);
             if (((Newtonsoft.Json.Linq.JValue)(((Newtonsoft.Json.Linq.JProperty)(obj.Last)).Value)).Value.Equals("OK"))
+            {
                 foreach (JToken json in (obj["results"][0]["address_components"] as Newtonsoft.Json.Linq.JArray))
                 {
                     foreach (JToken Tipo in ((json["types"] as Newtonsoft.Json.Linq.JArray)))
@@ -56,6 +57,28 @@ namespace FindBus.Models
                         }
                     }
                 }
+                this.Latitude = Lat;
+                this.Longitude = Long;
+            }
+        }
+        public void InserirLocalizacao()
+        {
+            using (findbusEntities bd = new findbusEntities())
+            {
+                tblponto ponto = bd.tblponto.SingleOrDefault(x => x.Latitude.Equals(this.Latitude) && x.Longitude.Equals(this.Longitude));
+                if (ponto != null)
+                {
+ 
+                }
+
+
+
+
+                tblcidade cidade = bd.tblcidade.SingleOrDefault(x => x.Uf.Equals(this.Estado) && x.Descricao.Equals(this.Cidade));
+                tblbairro bairro = bd.tblbairro.SingleOrDefault(x => x.Descricao.Equals(this.Bairro));
+                tblrua rua = bd.tblrua.SingleOrDefault(x => x.Descricao.Equals(this.Rua));
+            }
+
         }
     }
 }

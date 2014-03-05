@@ -16,10 +16,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/13/2013 20:32:24</publishTime>
     </File>
     <File Include="bin/FindBus.dll">
-      <publishTime>02/23/2014 19:53:43</publishTime>
+      <publishTime>02/28/2014 22:20:28</publishTime>
     </File>
     <File Include="bin/FindBus.pdb">
-      <publishTime>02/23/2014 19:53:43</publishTime>
+      <publishTime>02/28/2014 22:20:28</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>11/13/2013 20:33:02</publishTime>
@@ -28,7 +28,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2013 04:00:32</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>02/12/2014 20:29:42</publishTime>
+      <publishTime>12/02/2014 20:29:42</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>11/13/2013 20:33:06</publishTime>
@@ -64,7 +64,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/13/2013 20:33:34</publishTime>
     </File>
     <File Include="Content/body.css">
-      <publishTime>02/18/2014 20:14:16</publishTime>
+      <publishTime>03/01/2014 02:54:10</publishTime>
     </File>
     <File Include="Content/bootstrap-mvc-validation.css">
       <publishTime>11/19/2013 04:01:18</publishTime>
@@ -81,6 +81,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/bootstrap.min.css">
       <publishTime>01/17/2014 23:56:40</publishTime>
     </File>
+    <File Include="Content/images/ajax-loader.gif">
+      <publishTime>02/28/2014 22:18:52</publishTime>
+    </File>
     <File Include="Content/images/bus %281%29.png">
       <publishTime>01/18/2014 21:10:50</publishTime>
     </File>
@@ -91,16 +94,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/18/2014 21:12:38</publishTime>
     </File>
     <File Include="Content/images/favicon.ico">
-      <publishTime>06/09/2013 03:42:58</publishTime>
+      <publishTime>09/06/2013 03:42:58</publishTime>
     </File>
     <File Include="Content/images/findbus.png">
-      <publishTime>06/09/2013 03:15:42</publishTime>
+      <publishTime>09/06/2013 03:15:42</publishTime>
     </File>
     <File Include="Content/images/Flaticon_14179 %281%29.png">
       <publishTime>01/18/2014 21:20:38</publishTime>
     </File>
     <File Include="Content/images/underconstruction.jpg">
-      <publishTime>06/09/2013 03:54:02</publishTime>
+      <publishTime>09/06/2013 03:54:02</publishTime>
     </File>
     <File Include="Content/Site.css">
       <publishTime>02/17/2014 01:25:34</publishTime>
@@ -313,7 +316,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/14/2014 08:01:12</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>02/12/2014 20:29:48</publishTime>
+      <publishTime>12/02/2014 20:29:48</publishTime>
     </File>
     <File Include="Scripts/Libs/bootstrap.js">
       <publishTime>01/17/2014 23:56:40</publishTime>
@@ -382,28 +385,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/22/2014 02:20:42</publishTime>
     </File>
     <File Include="Scripts/Regras/Localizacao.js">
-      <publishTime>02/23/2014 20:13:14</publishTime>
+      <publishTime>02/28/2014 22:29:58</publishTime>
+    </File>
+    <File Include="Scripts/Regras/Principal.js">
+      <publishTime>02/28/2014 22:13:18</publishTime>
     </File>
     <File Include="Scripts/Regras/VersaoApp.js">
-      <publishTime>02/03/2014 00:59:20</publishTime>
+      <publishTime>03/02/2014 00:59:20</publishTime>
     </File>
     <File Include="Scripts/Regras/VersaoBase.js">
-      <publishTime>02/03/2014 00:43:06</publishTime>
+      <publishTime>03/02/2014 00:43:06</publishTime>
     </File>
     <File Include="Views/Cidade/Adicionar.cshtml">
-      <publishTime>02/12/2014 20:50:14</publishTime>
+      <publishTime>12/02/2014 20:50:14</publishTime>
     </File>
     <File Include="Views/Cidade/Index.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>02/23/2014 20:02:46</publishTime>
+      <publishTime>02/23/2014 20:02:48</publishTime>
     </File>
     <File Include="Views/Localizacao/Index.cshtml">
-      <publishTime>02/20/2014 20:10:22</publishTime>
+      <publishTime>02/26/2014 19:28:12</publishTime>
     </File>
     <File Include="Views/Login/Index.cshtml">
-      <publishTime>02/06/2014 05:36:46</publishTime>
+      <publishTime>06/02/2014 05:36:46</publishTime>
     </File>
     <File Include="Views/Shared/Create.cshtml">
       <publishTime>11/20/2013 16:20:54</publishTime>
@@ -421,7 +427,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/20/2013 16:23:02</publishTime>
     </File>
     <File Include="Views/Shared/_BootstrapLayout.basic.cshtml">
-      <publishTime>01/21/2014 03:00:44</publishTime>
+      <publishTime>02/28/2014 22:14:56</publishTime>
     </File>
     <File Include="Views/Shared/_BootstrapLayout.empty.cshtml">
       <publishTime>11/20/2013 16:23:02</publishTime>
@@ -439,16 +445,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2013 04:00:42</publishTime>
     </File>
     <File Include="Views/Versao/AlterarVersao.cshtml">
-      <publishTime>02/03/2014 06:03:06</publishTime>
+      <publishTime>03/02/2014 06:03:06</publishTime>
     </File>
     <File Include="Views/Versao/Index.cshtml">
       <publishTime>01/18/2014 00:50:10</publishTime>
     </File>
     <File Include="Views/VersaoApp/AdicionarVersao.cshtml">
-      <publishTime>02/03/2014 04:23:58</publishTime>
+      <publishTime>03/02/2014 04:23:58</publishTime>
     </File>
     <File Include="Views/VersaoApp/Index.cshtml">
-      <publishTime>02/03/2014 01:00:58</publishTime>
+      <publishTime>03/02/2014 01:00:58</publishTime>
     </File>
     <File Include="Views/VersaoBase/AdicionarVersao.cshtml">
       <publishTime>02/02/2014 22:38:26</publishTime>
@@ -463,7 +469,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2013 04:01:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/23/2014 18:46:04</publishTime>
+      <publishTime>03/01/2014 03:01:07</publishTime>
     </File>
   </ItemGroup>
 </Project>

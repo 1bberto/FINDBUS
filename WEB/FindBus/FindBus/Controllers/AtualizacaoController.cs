@@ -25,5 +25,6 @@ namespace FindBus.Controllers
             String strUrl = HttpContext.Current.Request.Url.AbsoluteUri.Replace(strPathAndQuery, "/");
             return new Atualizacao(VersaoApp, VersaoBase, strUrl);
         }
+        
     }
 }

@@ -1,5 +1,10 @@
 ﻿/// <reference path="../Libs/jquery-2.0.3.js" />
 $(function () {
+    $body = $("body");
+    $(document).on({
+        ajaxStart: function () { $body.addClass("loading"); console.log("AJAX INICIADO"); },
+        ajaxStop: function () { $body.removeClass("loading"); console.log("AJAX ENCERRADO"); }
+    })
     iniciarMapa();
 });
 var infowindow = null;
@@ -14,6 +19,8 @@ var directionsService = new google.maps.DirectionsService();
 var directionsDisplay;
 var geocoder;
 var urlpost = null;
+var posicoesLista = "";
+var spinnerVisible = false;
 function VeriricaLocalizacao(url) {
     urlpost = url;
     $.ajax({
@@ -83,8 +90,7 @@ function placeMarker(location) {
     marker = new google.maps.Marker({
         position: location,
         map: map,
-        icon: image,
-        title: 'ponto' + markers.length
+        icon: image
     });
     markers.push(marker);
     addInfoMarker(marker);
@@ -172,9 +178,9 @@ function FocoMarker(index) {
     map.setCenter(position);
     $("#Latitude").val(position['d']);
     $("#Longitude").val(position['e']);
-    VerificaGeolocalizacaoReversaPonto('Localizacao/VerificaLocalizacao');
+    VerificaGeolocalizacaoPonto('Localizacao/VerificaLocalizacao');
 }
-function VerificaGeolocalizacaoReversaPonto(url) {
+function VerificaGeolocalizacaoPonto(url) {
     $.ajax({
         type: 'POST',
         url: url,
@@ -216,17 +222,31 @@ function RemoverMarkerLista(index) {
 function atualizaPosicoesMarkersLista() {
     $('#ListPosicoes').find('div').remove();
     for (var i = 0; i < markers.length; i++) {
-        VerificaGeolocalizacaoReversaPonto('Localizacao/VerificaLocalizacao', markers[i]).done(function (data) { retorno = data});
-        console.log(retorno);
         if (i == 0)
-            $("#ListPosicoes").append("<div id=divmarker" + i + "><div onclick=FocoMarker(" + i + ") class=Marker>Bairro: teste" +//+ retorno['Bairro'] +
-              "<br/>Rua: teste" +//+ retorno['Rua'] +
-              "</div> <div class=MarkerRemover style='float:right' onclick=RemoveMarkerListaMapa(" + i + ")><b>X</b></div></div>");
-        else {
-            $("#ListPosicoes").append("<div id=divmarker" + i + "><div onclick=FocoMarker(" + i + ") class=Marker>Marker " + i + "<br/>Distancia do ponto Anterior - " + google.maps.geometry.spherical.computeDistanceBetween(markers[i].getPosition(), markers[i - 1].getPosition()).toFixed(2) + " Metros</div> <div class=MarkerRemover style='float:right' onclick=RemoveMarkerListaMapa(" + i + ")><b>X</b></div></div>");
-        }
-    }
+            ProcuraLocalizacao(markers[i], i, null)
+        else
+            ProcuraLocalizacao(markers[i], i, markers[i - 1]);
+    }    
     montaRota();
+    $("#ListPosicoes").append("<div id=totalKmRota class=Marker> Distancia Total : " + verificaTotalKmPontos().toFixed(2) + " Metros </div>");
+    $.ajax({ async: true });        
+}
+function ProcuraLocalizacao(mark, i, mark2) {
+    var marker = mark.getPosition();
+    $.ajax({ async: false });
+    $.post(window.location.origin + '/Localizacao/VerificaLocalizacao', { Lat: marker.d, Long: marker.e }, (function (data) {
+        if (i == 0) {
+            $('#ListPosicoes').append("<div id=divmarker" + i + " class=blocoMarker><div onclick=FocoMarker(" + i + ") class=Marker>Bairro: " + data.Bairro +
+              "<br/>Rua: " + data.Rua +
+              "</div> <div class=MarkerRemover style='float:right' onclick=RemoveMarkerListaMapa(" + i + ")><b>X</b></div></div>");
+        }
+        else {
+            $('#ListPosicoes').append("<div id=divmarker" + i + "  class=blocoMarker><div onclick=FocoMarker(" + i + ") class=Marker>Bairro: " + data.Bairro +
+            "<br/>Rua: " + data.Rua + "<br/>Distancia do ponto Anterior - " + google.maps.geometry.spherical.computeDistanceBetween(mark.getPosition(), mark2.getPosition()).toFixed(2) + " Metros</div> " +
+            "<div class=MarkerRemover style='float:right' onclick=RemoveMarkerListaMapa(" + i + ")><b>X</b></div></div></div>");
+        }
+    }));
+    $.ajax({ async: true });
 }
 function RemoveMarkerListaMapa(ind) {
     RemoveMarker(ind);
@@ -236,7 +256,7 @@ function RemoveMarkerListaMapa(ind) {
     console.log(markers.length);
     atualizaPosicoesMarkersLista();
 }
-function montaRota() {
+function montaRota() {    
     geocoder = new google.maps.Geocoder();
     if (markers.length > 1) {
         var start = markers[0].getPosition();
@@ -250,14 +270,13 @@ function montaRota() {
                 });
             }
             for (var a = 0; a < pontos.length; a++)
-                console.log(pontos[a]);
-            var request = {
-                origin: start,
-                destination: end,
-                waypoints: pontos,
-                optimizeWaypoints: false,
-                travelMode: google.maps.TravelMode.DRIVING
-            };
+                var request = {
+                    origin: start,
+                    destination: end,
+                    waypoints: pontos,
+                    optimizeWaypoints: false,
+                    travelMode: google.maps.TravelMode.DRIVING
+                };
         }
         else {
             var request = {
@@ -270,16 +289,15 @@ function montaRota() {
         directionsDisplay.setMap(map);
         directionsService.route(request, function (response, status) {
             if (status == google.maps.DirectionsStatus.OK) {
-                console.log(response);
                 directionsDisplay.setDirections(response);
                 map.setZoom(15);
             }
         });
-        $("#ListPosicoes").append("<div id=totalKmRota class=Marker> Distancia Total : " + verificaTotalKmPontos().toFixed(2) + " Metros </div>");;
     }
     else {
         directionsDisplay.setMap(null);
     }
+        
 }
 function DefineTipoImagemPonto() {
     image = imageponto;

@@ -57,17 +57,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tblponto">
-      <EntityTypeMapping TypeName="findbusModel.tblponto">
-        <MappingFragment StoreEntitySet="tblponto">
-          <ScalarProperty Name="PontoId" ColumnName="PontoId" />
-          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-          <ScalarProperty Name="PontoParada" ColumnName="PontoParada" />
-          <ScalarProperty Name="DataInclusaoRegistro" ColumnName="DataInclusaoRegistro" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tblrota">
       <EntityTypeMapping TypeName="findbusModel.tblrota">
         <MappingFragment StoreEntitySet="tblrota">
@@ -152,6 +141,17 @@
           <ScalarProperty Name="DataInclusaoRegistro" ColumnName="DataInclusaoRegistro" />
           <ScalarProperty Name="BaseID" ColumnName="BaseID" />
           <ScalarProperty Name="AplicativoID" ColumnName="AplicativoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblponto">
+      <EntityTypeMapping TypeName="findbusModel.tblponto">
+        <MappingFragment StoreEntitySet="tblponto">
+          <ScalarProperty Name="DataInclusaoRegistro" ColumnName="DataInclusaoRegistro" />
+          <ScalarProperty Name="PontoParada" ColumnName="PontoParada" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="PontoId" ColumnName="PontoId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
