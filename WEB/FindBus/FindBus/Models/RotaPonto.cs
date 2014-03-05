@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FindBus.Models
 {
-    class RotaPonto
+    public class RotaPonto
     {
         // Atributos
         private int rotaPontoID;

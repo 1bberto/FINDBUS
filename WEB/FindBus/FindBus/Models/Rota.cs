@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FindBus.Models
 {
-    class Rota
+    public class Rota
     {
         // Atributos
-        private int rotaID;
+        private int rotaID;        
         private string descricao;
         private DateTime dataInclusaoRegistro;
         private List<Etinerario> etinerario;
@@ -28,7 +29,7 @@ namespace FindBus.Models
             get { return rotaID; }
             set { rotaID = value; }
         }
-
+        [Display(Name = "Rota")]
         public string Descricao
         {
             get { return descricao; }
@@ -44,6 +45,10 @@ namespace FindBus.Models
         {
             get { return etinerario; }
             set { etinerario = value; }
+        }
+        public Rota()
+        {
+
         }
     }
 }
