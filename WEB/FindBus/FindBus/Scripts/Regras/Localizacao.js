@@ -1,10 +1,4 @@
 ﻿/// <reference path="../Libs/jquery-2.0.3.js" />
-$(function () {
-    iniciarMapa();
-    $("#btnSalvarRota").click(function () {
-        InserirPontos();
-    });
-});
 var infowindow = null;
 var contentString = null;
 var marker = null;
@@ -19,6 +13,12 @@ var geocoder;
 var urlpost = null;
 var posicoesLista = "";
 var spinnerVisible = false;
+$(function () {
+    iniciarMapa();
+    $("#btnSalvarRota").click(function () {
+        InserirPontos();
+    });
+});
 function InserirPontos() {
     var pontos = [];
     for (var i = 0 ; i < markers.length; i++) {
@@ -172,32 +172,6 @@ function verificaKmPontos(lat1, lon1, lat2, lon2) {
     var d = R * c; // Distance in km
     return d;
 }
-//function verificaTotalKmPontos() {
-//    var R = 6371; // Radius of the earth in km
-//    var dLat = null;// deg2rad(lat2 - lat1);  // deg2rad below
-//    var dLon = null;// deg2rad(lon2 - lon1);
-//    var a = null;
-//    var c = null;
-//    var d = 0;
-//    var marker1 = null;
-//    var marker2 = null;
-//    for (var i = 0; i < markers.length - 1; i++) {
-//        console.log(markers[i].getIcon());
-//        marker1 = markers[i].getPosition();
-//        marker2 = markers[i + 1].getPosition();
-//        console.log("markers");
-//        console.log(marker1);
-//        console.log(marker2);
-//        dLat = deg2rad(marker2['d'] - marker1['d']);
-//        dLon = deg2rad(marker2['e'] - marker1['e']);
-//        a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-//            Math.cos(deg2rad(marker1['d'])) * Math.cos(deg2rad(marker2['d'])) *
-//            Math.sin(dLon / 2) * Math.sin(dLon / 2);
-//        c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-//        d = d + (R * c); // Distance in km        
-//    }
-//    return d;
-//}
 function verificaTotalKmPontos() {
     var d = 0;
     for (var i = 0; i < markers.length - 1; i++) {
