@@ -7,7 +7,6 @@
     <EntitySet Name="tblcidadebairro" EntityType="findbusModel.tblcidadebairro" />
     <EntitySet Name="tbletinerario" EntityType="findbusModel.tbletinerario" />
     <EntitySet Name="tbllogin" EntityType="findbusModel.tbllogin" />
-    <EntitySet Name="tblponto" EntityType="findbusModel.tblponto" />
     <EntitySet Name="tblrota" EntityType="findbusModel.tblrota" />
     <EntitySet Name="tblrotaetinerario" EntityType="findbusModel.tblrotaetinerario" />
     <EntitySet Name="tblrotaponto" EntityType="findbusModel.tblrotaponto" />
@@ -38,14 +37,6 @@
       <End Role="tblusuario" EntitySet="tblusuario" />
       <End Role="tbllogin" EntitySet="tbllogin" />
     </AssociationSet>
-    <AssociationSet Name="FK_tblRotaPonto2" Association="findbusModel.FK_tblRotaPonto2">
-      <End Role="tblponto" EntitySet="tblponto" />
-      <End Role="tblrotaponto" EntitySet="tblrotaponto" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tblRuaPonto2" Association="findbusModel.FK_tblRuaPonto2">
-      <End Role="tblponto" EntitySet="tblponto" />
-      <End Role="tblruaponto" EntitySet="tblruaponto" />
-    </AssociationSet>
     <AssociationSet Name="FK_tblRotaEtinerario2" Association="findbusModel.FK_tblRotaEtinerario2">
       <End Role="tblrota" EntitySet="tblrota" />
       <End Role="tblrotaetinerario" EntitySet="tblrotaetinerario" />
@@ -68,6 +59,15 @@
     <AssociationSet Name="FK_tblBase_BaseID" Association="findbusModel.FK_tblBase_BaseID">
       <End Role="tblbase" EntitySet="tblbase" />
       <End Role="tblversao" EntitySet="tblversao" />
+    </AssociationSet>
+    <EntitySet Name="tblponto" EntityType="findbusModel.tblponto" />
+    <AssociationSet Name="FK_tblRotaPonto2" Association="findbusModel.FK_tblRotaPonto2">
+      <End Role="tblponto" EntitySet="tblponto" />
+      <End Role="tblrotaponto" EntitySet="tblrotaponto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblRuaPonto2" Association="findbusModel.FK_tblRuaPonto2">
+      <End Role="tblponto" EntitySet="tblponto" />
+      <End Role="tblruaponto" EntitySet="tblruaponto" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="tblbairro">
@@ -133,18 +133,6 @@
     <Property Name="UsuarioSenha" Type="String" Nullable="false" />
     <NavigationProperty Name="tblusuario" Relationship="findbusModel.FK_tblLogin" FromRole="tbllogin" ToRole="tblusuario" />
   </EntityType>
-  <EntityType Name="tblponto">
-    <Key>
-      <PropertyRef Name="PontoId" />
-    </Key>
-    <Property Name="PontoId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="Latitude" Type="Double" Nullable="false" />
-    <Property Name="Longitude" Type="Double" Nullable="false" />
-    <Property Name="PontoParada" Type="Boolean" Nullable="false" />
-    <Property Name="DataInclusaoRegistro" Type="DateTime" Nullable="false" />
-    <NavigationProperty Name="tblrotaponto" Relationship="findbusModel.FK_tblRotaPonto2" FromRole="tblponto" ToRole="tblrotaponto" />
-    <NavigationProperty Name="tblruaponto" Relationship="findbusModel.FK_tblRuaPonto2" FromRole="tblponto" ToRole="tblruaponto" />
-  </EntityType>
   <EntityType Name="tblrota">
     <Key>
       <PropertyRef Name="RotaId" />
@@ -178,8 +166,8 @@
     <Property Name="PontoId" Type="Int32" Nullable="false" />
     <Property Name="OrdemPonto" Type="Int32" Nullable="false" />
     <Property Name="Quilometragem" Type="Decimal" Nullable="false" />
-    <NavigationProperty Name="tblponto" Relationship="findbusModel.FK_tblRotaPonto2" FromRole="tblrotaponto" ToRole="tblponto" />
     <NavigationProperty Name="tblrota" Relationship="findbusModel.FK_tblRotaPonto" FromRole="tblrotaponto" ToRole="tblrota" />
+    <NavigationProperty Name="tblponto" Relationship="findbusModel.FK_tblRotaPonto2" FromRole="tblrotaponto" ToRole="tblponto" />
   </EntityType>
   <EntityType Name="tblrua">
     <Key>
@@ -200,8 +188,8 @@
     <Property Name="RuaPontoId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="RuaId" Type="Int32" Nullable="false" />
     <Property Name="PontoId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="tblponto" Relationship="findbusModel.FK_tblRuaPonto2" FromRole="tblruaponto" ToRole="tblponto" />
     <NavigationProperty Name="tblrua" Relationship="findbusModel.FK_tblRuaPonto" FromRole="tblruaponto" ToRole="tblrua" />
+    <NavigationProperty Name="tblponto" Relationship="findbusModel.FK_tblRuaPonto2" FromRole="tblruaponto" ToRole="tblponto" />
   </EntityType>
   <EntityType Name="tblusuario">
     <Key>
@@ -283,30 +271,6 @@
       </Principal>
       <Dependent Role="tbllogin">
         <PropertyRef Name="UsuarioId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_tblRotaPonto2">
-    <End Role="tblponto" Type="findbusModel.tblponto" Multiplicity="1" />
-    <End Role="tblrotaponto" Type="findbusModel.tblrotaponto" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblponto">
-        <PropertyRef Name="PontoId" />
-      </Principal>
-      <Dependent Role="tblrotaponto">
-        <PropertyRef Name="PontoId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_tblRuaPonto2">
-    <End Role="tblponto" Type="findbusModel.tblponto" Multiplicity="1" />
-    <End Role="tblruaponto" Type="findbusModel.tblruaponto" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblponto">
-        <PropertyRef Name="PontoId" />
-      </Principal>
-      <Dependent Role="tblruaponto">
-        <PropertyRef Name="PontoId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -398,6 +362,42 @@
       </Principal>
       <Dependent Role="tblversao">
         <PropertyRef Name="BaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblponto">
+    <Key>
+      <PropertyRef Name="PontoId" />
+    </Key>
+    <Property Type="Int32" Name="PontoId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Latitude" Nullable="false" />
+    <Property Type="String" Name="Longitude" Nullable="false" />
+    <Property Type="Boolean" Name="PontoParada" Nullable="false" />
+    <Property Type="DateTime" Name="DataInclusaoRegistro" Nullable="false" />
+    <NavigationProperty Name="tblrotaponto" Relationship="findbusModel.FK_tblRotaPonto2" FromRole="tblponto" ToRole="tblrotaponto" />
+    <NavigationProperty Name="tblruaponto" Relationship="findbusModel.FK_tblRuaPonto2" FromRole="tblponto" ToRole="tblruaponto" />
+  </EntityType>
+  <Association Name="FK_tblRotaPonto2">
+    <End Type="findbusModel.tblponto" Role="tblponto" Multiplicity="1" />
+    <End Type="findbusModel.tblrotaponto" Role="tblrotaponto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblponto">
+        <PropertyRef Name="PontoId" />
+      </Principal>
+      <Dependent Role="tblrotaponto">
+        <PropertyRef Name="PontoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblRuaPonto2">
+    <End Type="findbusModel.tblponto" Role="tblponto" Multiplicity="1" />
+    <End Type="findbusModel.tblruaponto" Role="tblruaponto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblponto">
+        <PropertyRef Name="PontoId" />
+      </Principal>
+      <Dependent Role="tblruaponto">
+        <PropertyRef Name="PontoId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

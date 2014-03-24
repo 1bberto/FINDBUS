@@ -147,8 +147,8 @@
       <PropertyRef Name="PontoId" />
     </Key>
     <Property Name="PontoId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Latitude" Type="double" Nullable="false" />
-    <Property Name="Longitude" Type="double" Nullable="false" />
+    <Property Name="Latitude" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Longitude" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="PontoParada" Type="bool" Nullable="false" />
     <Property Name="DataInclusaoRegistro" Type="datetime" Nullable="false" />
   </EntityType>
