@@ -276,9 +276,7 @@ C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\obj\Debug\FindBus
 C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\obj\Debug\FindBus.dll
 C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\obj\Debug\FindBus.pdb
 <<<<<<< HEAD
-<<<<<<< HEAD
 F:\TCC\FINDBUS\WEB\FindBus\FindBus\bin\FindBus.dll.config
-=======
 =======
 >>>>>>> 7f33ce7275bd0ceb0f35e38e247657ea841ec7d0
 C:\Users\Lud\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\bin\FindBus.dll
@@ -312,7 +310,3 @@ C:\Users\Lud\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\bin\System.Web.WebPage
 C:\Users\Lud\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\obj\Debug\FindBus.csprojResolveAssemblyReference.cache
 C:\Users\Lud\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\obj\Debug\FindBus.dll
 C:\Users\Lud\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\obj\Debug\FindBus.pdb
-<<<<<<< HEAD
->>>>>>> 7f33ce7275bd0ceb0f35e38e247657ea841ec7d0
-=======
->>>>>>> 7f33ce7275bd0ceb0f35e38e247657ea841ec7d0
