@@ -1,9 +1,14 @@
 ﻿/// <reference path="../Libs/jquery-2.0.3.js" />
 $(function () {
+    $body = $("body");
+    $(document).on({
+        ajaxStart: function () { $body.addClass("loading"); },
+        ajaxStop: function () { $body.removeClass("loading"); }
+    })
     $("#btnSalvarVersaoBase").click(function () {
         var request = new XMLHttpRequest();
         var f = new FormData();
-        var files = $("#arquivo").get(0).files[0];
+        var files = "a";// $("#arquivo").get(0).files[0];
         var versao = $("#versao").val()
         console.log(versao.length);
         if (versao.length == 0) {

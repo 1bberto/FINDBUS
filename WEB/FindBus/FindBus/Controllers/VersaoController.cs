@@ -1,6 +1,7 @@
 ﻿using FindBus.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -15,8 +16,8 @@ namespace FindBus.Controllers
         {
             return View(new Versao().RetornaVersao());
         }
-        public FileResult RetornaVersaoApp()
-        {            
+        public ActionResult RetornaVersaoApp()
+        {
             using (fn = new findbusEntities())
             {
                 var versaoAtual = (from ver in fn.tblversao
@@ -27,8 +28,15 @@ namespace FindBus.Controllers
                                    }
                         ).FirstOrDefault();
 
-                string contentType = "application/vnd.android.package-archive";
-                return File(string.Format("{0}",versaoAtual.VersaoAPK), contentType, "FindBus.apk");
+                if (versaoAtual != null)
+                {
+                    return new FileStreamResult(new FileStream(string.Format("{0}{1}",Server.MapPath("/"), versaoAtual.VersaoAPK), FileMode.Open), "application/vnd.android.package-archive")
+                    {
+                        FileDownloadName = "FindBus.apk"
+                    };
+                }
+                else
+                    return RedirectToAction("Index", "Home");
             }
         }
         public ActionResult AlterarVersao()

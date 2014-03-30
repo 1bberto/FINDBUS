@@ -20,7 +20,7 @@ namespace FindBus.Models
             this.tblcidadebairro = new HashSet<tblcidadebairro>();
         }
     
-        public int BairroID { get; set; }
+        public int BairroId { get; set; }
         public string Descricao { get; set; }
         public System.DateTime DataInclusaoRegistro { get; set; }
     

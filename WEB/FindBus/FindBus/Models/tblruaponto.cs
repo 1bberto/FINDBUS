@@ -18,7 +18,7 @@ namespace FindBus.Models
         public int RuaId { get; set; }
         public int PontoId { get; set; }
     
-        public virtual tblrua tblrua { get; set; }
         public virtual tblponto tblponto { get; set; }
+        public virtual tblrua tblrua { get; set; }
     }
 }

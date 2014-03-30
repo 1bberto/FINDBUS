@@ -10,17 +10,8 @@
 namespace FindBus.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class tblrotaponto
+    public partial class USP_SEL_Itinerario_Result
     {
-        public int RotaPontoId { get; set; }
-        public int RotaId { get; set; }
-        public int PontoId { get; set; }
-        public int OrdemPonto { get; set; }
-        public decimal Quilometragem { get; set; }
-    
-        public virtual tblponto tblponto { get; set; }
-        public virtual tblrota tblrota { get; set; }
     }
 }

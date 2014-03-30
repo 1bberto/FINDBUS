@@ -8,7 +8,7 @@ namespace FindBus.Models
 {
     public class RotaEtinerario
     {
-        [Display(Name="Código")]
+        [Display(Name="Código")]        
         public int RotaEtinerarioID { get; set; }
         public Rota Rota { get; set; }
         public List<Etinerario> Etinerario { get; set; }
@@ -25,10 +25,11 @@ namespace FindBus.Models
             using (findbusEntities db = new findbusEntities())
             {
                 var Rotas = (from rota in db.tblrota
-                             join etinerario in db.tblrotaetinerario on rota.RotaId equals etinerario.RotaId
+                             join etinerario in db.tblitinerario on rota.RotaId equals etinerario.RotaId into et
+                             from iti in et.DefaultIfEmpty()
                              select new
                              {
-                                 rotaEtinerarioID = etinerario.RotaEtinerarioId,
+                                 rotaEtinerarioID = iti == null ? 0 : iti.ItinerarioId,
                                  rotaNome = rota.Descricao
                              }).ToList().OrderBy(x => x.rotaEtinerarioID);
                 foreach (var rota in Rotas)

@@ -10,17 +10,9 @@
             <label for="@Html.LabelFor(model => model.versaoBase)" class="col-lg-2 control-label">@Html.LabelFor(model => model.versaoBase)</label>
             <input type="text" class="form-control" id="versao" placeholder="Versão Base">
         </div>
-    </div>
-    <div class="control-group">
-        <label for="@Html.LabelFor(model => model.LocalBase)" class="col-lg-2 control-label">@Html.LabelFor(model => model.LocalBase)</label>
-    </div>
-    <br />
-    <div style="float: left; width: 100%; position: relative">
-        <input type="file" title="Selecione a Versao da Base" id="arquivo" />
-    </div>
-    <br />
-    <br />
-    <input type="button" class="btn btn-success" value="Salvar" id="btnSalvarVersaoBase" />
+    </div>    
+    <br />    
+    <input type="button" class="btn btn-success" value="Gerar Base" id="btnSalvarVersaoBase" />
     <a href="@Url.Action("Index", "VersaoBase")" class="btn btn-info">Voltar</a>
 }
 

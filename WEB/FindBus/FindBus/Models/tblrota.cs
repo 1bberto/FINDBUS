@@ -16,7 +16,7 @@ namespace FindBus.Models
     {
         public tblrota()
         {
-            this.tblrotaetinerario = new HashSet<tblrotaetinerario>();
+            this.tblitinerario = new HashSet<tblitinerario>();
             this.tblrotaponto = new HashSet<tblrotaponto>();
         }
     
@@ -24,7 +24,7 @@ namespace FindBus.Models
         public string Descricao { get; set; }
         public System.DateTime DataInclusaoRegistro { get; set; }
     
-        public virtual ICollection<tblrotaetinerario> tblrotaetinerario { get; set; }
+        public virtual ICollection<tblitinerario> tblitinerario { get; set; }
         public virtual ICollection<tblrotaponto> tblrotaponto { get; set; }
     }
 }

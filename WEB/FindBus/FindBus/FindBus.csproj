@@ -134,7 +134,7 @@
     <Compile Include="Controllers\AtualizacaoController.cs" />
     <Compile Include="Controllers\BootstrapBaseController.cs" />
     <Compile Include="Controllers\CidadeController.cs" />
-    <Compile Include="Controllers\EtinerarioController.cs" />
+    <Compile Include="Controllers\ItinerarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocalizacaoController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -145,78 +145,91 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Atualizacao.cs" />
-    <Compile Include="Models\Bairro.cs" />
+    <Compile Include="Models\Banco.cs" />
     <Compile Include="Models\Cidade.cs" />
     <Compile Include="Models\Etinerario.cs" />
+    <Compile Include="Models\Repositorio.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Repositorio.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repositorio.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Repositorio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repositorio.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Repositorio.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\RotaEtinerario.cs" />
     <Compile Include="Models\Localizacao.cs" />
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Ponto.cs" />
     <Compile Include="Models\PontoLocalizacao.cs" />
     <Compile Include="Models\Rota.cs" />
     <Compile Include="Models\RotaPonto.cs" />
-    <Compile Include="Models\Rua.cs" />
     <Compile Include="Models\tblaplicativo.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\tblaplicativoDTO.cs" />
     <Compile Include="Models\tblbairro.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\tblbairroDTO.cs" />
     <Compile Include="Models\tblbairrorua.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\tblbairroruaDTO.cs" />
     <Compile Include="Models\tblbase.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\tblbaseDTO.cs" />
     <Compile Include="Models\tblcidade.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblcidadebairro.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\tbletinerario.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="DTO\tblcidadebairroDTO.cs" />
+    <Compile Include="DTO\tblcidadeDTO.cs" />
+    <Compile Include="Models\tblitinerario.cs">
+      <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\tblitinerarioDTO.cs" />
     <Compile Include="Models\tbllogin.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\tblloginDTO.cs" />
     <Compile Include="Models\tblponto.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\tblpontoDTO.cs" />
     <Compile Include="Models\tblrota.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\tblrotaetinerario.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
+    <Compile Include="DTO\tblrotaDTO.cs" />
     <Compile Include="Models\tblrotaponto.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\tblrotapontoDTO.cs" />
     <Compile Include="Models\tblrua.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\tblruaDTO.cs" />
     <Compile Include="Models\tblruaponto.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\tblruapontoDTO.cs" />
     <Compile Include="Models\tblusuario.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\tblusuarioDTO.cs" />
     <Compile Include="Models\tblversao.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Repositorio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\tblversaoDTO.cs" />
+    <Compile Include="Models\USP_SEL_Itinerario_Result.cs">
+      <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Versao.cs" />
@@ -312,33 +325,33 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\Libs\bootstrap.js" />
     <Content Include="Scripts\Libs\bootstrap.min.js" />
-    <Content Include="Scripts\Regras\Etinerario.js" />
+    <Content Include="Scripts\Regras\Itinerario.js" />
     <Content Include="Scripts\Regras\FindBus.js" />
     <Content Include="Scripts\Regras\Localizacao.js" />
     <Content Include="Scripts\Regras\Principal.js" />
     <Content Include="Scripts\Regras\VersaoApp.js" />
     <Content Include="Scripts\Regras\VersaoBase.js" />
     <Content Include="Scripts\Libs\html5shiv.js" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <EntityDeploy Include="Models\Repositorio.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Repositorio.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Repositorio.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Repositorio.edmx</DependentUpon>
+      <LastGenOutput>Repositorio.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Repositorio.edmx.diagram">
+      <DependentUpon>Repositorio.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Repositorio.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Repositorio.edmx</DependentUpon>
+      <LastGenOutput>Repositorio.cs</LastGenOutput>
+    </Content>
     <None Include="Properties\PublishProfiles\findbus.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\Libs\jquery-2.0.3.intellisense.js" />
@@ -394,7 +407,7 @@
     <Content Include="Views\VersaoApp\Index.cshtml" />
     <Content Include="Views\VersaoApp\AdicionarVersao.cshtml" />
     <Content Include="Views\Localizacao\Index.cshtml" />
-    <Content Include="Views\Etinerario\Index.cshtml" />
+    <Content Include="Views\Itinerario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
