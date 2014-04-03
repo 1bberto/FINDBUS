@@ -273,6 +273,10 @@ function atualizaPosicoesMarkersLista() {
     }
     if (markers.length <= 10)
         montaRota(0, markers.length - 1);
+    else
+    {
+        montaRota(markers.length - 10, markers.length - 1);
+    }
     $("#ListPosicoes").each(function () {
         var $this = $(this);
         $this.append($this.find(".blocoMarker").get().sort(function (a, b) {
@@ -284,23 +288,23 @@ function atualizaPosicoesMarkersLista() {
 }
 function ProcuraLocalizacao(mark, i, mark2) {
     var marker = mark.getPosition();
-    $.ajax({ async: false });
-    $.post(window.location.origin + '/Localizacao/VerificaLocalizacao', { Lat: marker.lat(), Long: marker.lng() }, (function (data) {
-        if (i == 0) {
-            $('#ListPosicoes').append("<div id=divmarker" + i + " class=blocoMarker data-sort=" + (i + 1) + "><div onclick=FocoMarker(" + i + ") class=Marker>Bairro: " + data.Bairro +
-              "<br/>Rua: " + data.Rua +
-              "</div> <div class=MarkerRemover style='float:right' onclick=RemoveMarkerListaMapa(" + i + ")><b>X</b></div></div>");
+    jQuery.ajax({
+        url: window.location.origin + '/Localizacao/VerificaLocalizacao',
+        data: { Lat: marker.lat(), Long: marker.lng() },
+        sucess: function (data) {
+            console.log("deu sucess");
+            if (i == 0) {
+                $('#ListPosicoes').append("<div id=divmarker" + i + " class=blocoMarker data-sort=" + (i + 1) + "><div onclick=FocoMarker(" + i + ") class=Marker>Bairro: " + data.Bairro +
+                  "<br/>Rua: " + data.Rua +
+                  "</div> <div class=MarkerRemover style='float:right' onclick=RemoveMarkerListaMapa(" + i + ")><b>X</b></div></div>");
+            }
+            else {
+                $("<div id=divmarker" + i + "  class=blocoMarker  data-sort=" + (i + 1) + " ><div onclick=FocoMarker(" + i + ") class=Marker>Bairro: " + data.Bairro +
+                "<br/>Rua: " + data.Rua + "<br/>Distancia do ponto Anterior - " + google.maps.geometry.spherical.computeDistanceBetween(mark.getPosition(), mark2.getPosition()).toFixed(2) + " Metros</div> " +
+                "<div class=MarkerRemover style='float:right' onclick=RemoveMarkerListaMapa(" + i + ")><b>X</b></div></div></div>").insertAfter("#divmarker" + (i - 1));
+            }
         }
-        else {
-            //$('#ListPosicoes').("<div id=divmarker" + i + "  class=blocoMarker  data-sort=" + (i + 1) + " ><div onclick=FocoMarker(" + i + ") class=Marker>Bairro: " + data.Bairro +
-            //"<br/>Rua: " + data.Rua + "<br/>Distancia do ponto Anterior - " + google.maps.geometry.spherical.computeDistanceBetween(mark.getPosition(), mark2.getPosition()).toFixed(2) + " Metros</div> " +
-            //"<div class=MarkerRemover style='float:right' onclick=RemoveMarkerListaMapa(" + i + ")><b>X</b></div></div></div>");
-            $("<div id=divmarker" + i + "  class=blocoMarker  data-sort=" + (i + 1) + " ><div onclick=FocoMarker(" + i + ") class=Marker>Bairro: " + data.Bairro +
-            "<br/>Rua: " + data.Rua + "<br/>Distancia do ponto Anterior - " + google.maps.geometry.spherical.computeDistanceBetween(mark.getPosition(), mark2.getPosition()).toFixed(2) + " Metros</div> " +
-            "<div class=MarkerRemover style='float:right' onclick=RemoveMarkerListaMapa(" + i + ")><b>X</b></div></div></div>").insertAfter("#divmarker" + (i - 1));
-        }
-    }));
-    $.ajax({ async: true });
+    });
 }
 function RemoveMarkerListaMapa(ind) {
     RemoveMarker(ind);
@@ -310,29 +314,77 @@ function RemoveMarkerListaMapa(ind) {
     console.log(markers.length);
     atualizaPosicoesMarkersLista();
 }
-function montaRota(ini, end) {
+//function montaRota(ini, end) {
+//    geocoder = new google.maps.Geocoder();
+//    if (markers.length > 1) {
+//        var start = markers[ini].getPosition();
+//        var end = markers[end].getPosition();
+//        if (markers.length > 2) {
+//            var pontos = [];
+//            for (var i = ini; i <= end; i++) {
+//                if (markers[i] != null) {
+//                    pontos.push({
+//                        location: markers[i].getPosition(),
+//                        stopover: false
+//                    });
+//                }
+//            }
+//            for (var a = 0; a < pontos.length; a++)
+//                var request = {
+//                    origin: start,
+//                    destination: end,
+//                    waypoints: pontos,
+//                    optimizeWaypoints: false,
+//                    travelMode: google.maps.TravelMode.DRIVING
+//                };
+//        }
+//        else {
+//            var request = {
+//                origin: start,
+//                destination: end,
+//                optimizeWaypoints: false,
+//                travelMode: google.maps.TravelMode.DRIVING
+//            };
+//        }
+//        directionsDisplay.setMap(map);
+//        directionsService.route(request, function (response, status) {
+//            if (status == google.maps.DirectionsStatus.OK) {
+//                directionsDisplay.setDirections(response);
+//                map.setZoom(15);
+//            }
+//        });
+//    }
+//    else {
+//        directionsDisplay.setMap(null);
+//    }
+//}
+function montaRota(ini, fin) {
+    console.log(ini + " " + fin);
     geocoder = new google.maps.Geocoder();
     if (markers.length > 1) {
+        console.log("Marker.length " + markers.length);
         var start = markers[ini].getPosition();
-        var end = markers[end].getPosition();
-        if (markers.length > 2) {
+        console.log("start :" + start);
+        var end = markers[fin].getPosition();
+        if (fin - ini > 1) {
+            console.log("Marker.length " + markers.length);
             var pontos = [];
-            for (var i = ini; i <= end; i++) {
-                if (markers[i] != null) {
-                    pontos.push({
-                        location: markers[i].getPosition(),
-                        stopover: false
-                    });
-                }
+            for (var i = ini + 1; i <= fin - 1; i++) {
+                pontos.push({
+                    location: markers[i].getPosition(),
+                    stopover: false
+                });
+                console.log("Pontos passagem: " + pontos);
             }
-            for (var a = 0; a < pontos.length; a++)
-                var request = {
-                    origin: start,
-                    destination: end,
-                    waypoints: pontos,
-                    optimizeWaypoints: false,
-                    travelMode: google.maps.TravelMode.DRIVING
-                };
+            //for (var a = 0; a < pontos.length; a++)
+            var request = {
+                origin: start,
+                destination: end,
+                waypoints: pontos,
+                optimizeWaypoints: false,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+            console.log(request);
         }
         else {
             var request = {
