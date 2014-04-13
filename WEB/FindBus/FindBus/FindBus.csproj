@@ -325,6 +325,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\Libs\bootstrap.js" />
     <Content Include="Scripts\Libs\bootstrap.min.js" />
+    <Content Include="Scripts\Libs\jquery.tinysort.js" />
+    <Content Include="Scripts\Libs\jquery.tinysort.min.js" />
     <Content Include="Scripts\Regras\Itinerario.js" />
     <Content Include="Scripts\Regras\FindBus.js" />
     <Content Include="Scripts\Regras\Localizacao.js" />

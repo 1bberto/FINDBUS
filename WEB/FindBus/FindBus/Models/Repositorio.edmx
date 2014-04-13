@@ -358,7 +358,7 @@
           <Parameter Name="CodigoRota" Type="int" Mode="In" />
         </Function>
         <!--Errors Found During Generation:
-      warning 6013: The table/view 'def.findbus.itinerarioview' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      warning 6013: The table/view 'def.findbus.itinerarioview' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.-->
       
       <EntityType Name="itinerarioview">
         <Property Name="Descricao" Type="varchar" MaxLength="20" />
@@ -371,7 +371,7 @@
         <Property Name="SextaFeira" Type="binary" MaxLength="1" />
         <Property Name="Sabado" Type="binary" MaxLength="1" />
         <Property Name="Domingo" Type="binary" MaxLength="1" />
-      </EntityType>-->
+      </EntityType>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->

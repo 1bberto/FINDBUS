@@ -53,5 +53,8 @@ ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix {
 }
 .ui-widget-header {
     border: 1px solid #aaaaaa/*{borderColorHeader}*/ !important;
-    background:  #acbae1/*{bgColorHeader}*/ !important;/*url(images/ui-bg_highlight-soft_75_cccccc_1x100.png)/*{bgImgUrlHeader}*/ 50%/*{bgHeaderXPos}*/ 50%/*{bgHeaderYPos}*/ repeat-x/*{bgHeaderRepeat}*/*/
+    background:  #acbae1/*{bgColorHeader}*/ !important;
+}
+.pagination-centered {
+  text-align: center !important;
 }

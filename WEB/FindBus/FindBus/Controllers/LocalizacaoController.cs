@@ -16,18 +16,22 @@ namespace FindBus.Controllers
         {
             return View();
         }
+        [HttpGet()]
         public ActionResult VerificaLocalizacao(string Lat, string Long)
         {
             Localizacao localizacao = new Localizacao(Lat, Long);
 
-            return Json(localizacao);
+            return Json(localizacao,JsonRequestBehavior.AllowGet);
         }
-        public ActionResult InserirRota(List<PontoLocalizacao> pontos)
+        public ActionResult InserirRota(List<PontoLocalizacao> pontos,string NomeRota)
         {
-            foreach (PontoLocalizacao ponto in pontos)
+            if (pontos != null)
             {
-                Localizacao localizacao = new Localizacao(ponto.Latitude, ponto.Longitude);
-                localizacao.InserirLocalizacao();
+                foreach (PontoLocalizacao ponto in pontos)
+                {
+                    Localizacao localizacao = new Localizacao(ponto.Latitude, ponto.Longitude);
+                    localizacao.InserirLocalizacao();
+                }
             }
             return Json("MAOIIIIIIII");
         }
