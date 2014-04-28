@@ -23,9 +23,9 @@ namespace FindBus.Models
 
         public void GerarBaseDados(string local)
         {
-            using (findbusEntities fn = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                using (StreamWriter outfile = new StreamWriter(string.Format("{0}\\{1}", local, "data.json")))
+                using (StreamWriter outfile = new StreamWriter(string.Format(@"{0}\{1}", local, "data.json")))
                     outfile.Write(JsonConvert.SerializeObject(new Banco()));
             }
         }

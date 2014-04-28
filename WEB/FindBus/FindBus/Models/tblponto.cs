@@ -12,21 +12,21 @@ namespace FindBus.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tblponto
+    public partial class tblPonto
     {
-        public tblponto()
+        public tblPonto()
         {
-            this.tblrotaponto = new HashSet<tblrotaponto>();
-            this.tblruaponto = new HashSet<tblruaponto>();
+            this.tblRotaPonto = new HashSet<tblRotaPonto>();
+            this.tblRuaPonto = new HashSet<tblRuaPonto>();
         }
     
-        public int PontoId { get; set; }
+        public int PontoID { get; set; }
         public string Latitude { get; set; }
         public string Longitude { get; set; }
         public bool PontoParada { get; set; }
         public System.DateTime DataInclusaoRegistro { get; set; }
     
-        public virtual ICollection<tblrotaponto> tblrotaponto { get; set; }
-        public virtual ICollection<tblruaponto> tblruaponto { get; set; }
+        public virtual ICollection<tblRotaPonto> tblRotaPonto { get; set; }
+        public virtual ICollection<tblRuaPonto> tblRuaPonto { get; set; }
     }
 }

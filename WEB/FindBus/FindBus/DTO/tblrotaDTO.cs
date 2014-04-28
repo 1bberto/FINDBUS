@@ -9,6 +9,6 @@ namespace FindBus.DTO
     {
         public int RotaId { get; set; }
         public string Descricao { get; set; }
-        public System.DateTime DataInclusaoRegistro { get; set; }
+        public string DataInclusaoRegistro { get; set; }
     }
 }

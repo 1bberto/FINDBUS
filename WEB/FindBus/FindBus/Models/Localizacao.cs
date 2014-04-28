@@ -1,9 +1,12 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 
 namespace FindBus.Models
@@ -17,6 +20,7 @@ namespace FindBus.Models
         public string Bairro { get; set; }
         public string Rua { get; set; }
         private string urlGoogle = "http://maps.googleapis.com/maps/api/geocode/json?latlng={0},{1}&sensor=true";
+        private int pontoId;
         public Localizacao(string Lat, string Long)
         {
             if (!string.IsNullOrEmpty(Lat) && !string.IsNullOrEmpty(Long))
@@ -64,24 +68,35 @@ namespace FindBus.Models
                 }
             }
         }
-        public void InserirLocalizacao()
+        public void InserirLocalizacao(PontoLocalizacao ponto, string NomeRota)
         {
-            using (findbusEntities bd = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                tblponto ponto = bd.tblponto.SingleOrDefault(x => x.Latitude.Equals(this.Latitude) && x.Longitude.Equals(this.Longitude));
-                if (ponto != null)
-                {
-
+                try
+                {                    
+                    var parameters = new DbParameter[] { 
+                        new SqlParameter { ParameterName = "Rua", Value = this.Rua },
+                        new SqlParameter { ParameterName = "Cidade", Value = this.Cidade },
+                        new SqlParameter { ParameterName = "UF", Value = this.Estado },
+                        new SqlParameter { ParameterName = "Bairro", Value = this.Bairro },
+                        new SqlParameter { ParameterName = "Rota", Value =NomeRota },
+                        new SqlParameter { ParameterName = "Latitude", Value = ponto.Latitude },
+                        new SqlParameter { ParameterName = "Longitude", Value = ponto.Longitude },
+                        new SqlParameter { ParameterName = "PontoParada", Value = ponto.PontoParada }
+                    };
+                    this.pontoId = fn.Database.SqlQuery<int>("exec [dbo].[USP_INS_PONTO] @Rua,@Cidade,@UF,@Bairro,@Rota,@Latitude,@Longitude,@PontoParada", parameters).ToList<int>()[0];                    
+                    fn.tblRotaPonto.Add(new tblRotaPonto()
+                    {
+                        RotaId = fn.tblRota.First(x => x.Descricao == NomeRota).RotaID,
+                        PontoId = this.pontoId,
+                        DistanciaPontoAnterior = ponto.DistanciaProximoPonto,
+                        OrdemPonto = ponto.OrdemPonto,
+                    });
+                    fn.SaveChanges();
                 }
-
-
-
-
-                tblcidade cidade = bd.tblcidade.SingleOrDefault(x => x.Uf.Equals(this.Estado) && x.Descricao.Equals(this.Cidade));
-                tblbairro bairro = bd.tblbairro.SingleOrDefault(x => x.Descricao.Equals(this.Bairro));
-                tblrua rua = bd.tblrua.SingleOrDefault(x => x.Descricao.Equals(this.Rua));
+                catch (Exception ex)
+                { }
             }
-
         }
     }
 }

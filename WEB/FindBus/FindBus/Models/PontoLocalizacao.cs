@@ -11,6 +11,6 @@ namespace FindBus.Models
         public string Longitude { get; set; }
         public bool PontoParada { get; set; }
         public int OrdemPonto { get; set; }
-        public string DistanciaProximoPonto { get; set; }
+        public decimal DistanciaProximoPonto { get; set; }
     }
 }

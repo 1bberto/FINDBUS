@@ -16,7 +16,7 @@ namespace FindBus.Models
         [DisplayName("Data Ultima Atualização")]
         public DateTime? DataInclusaoRegistro { get; set; }
 
-        findbusEntities fn = new findbusEntities();
+        FindBusEntities fn = new FindBusEntities();
 
         public Versao()
         {
@@ -26,9 +26,9 @@ namespace FindBus.Models
         }
         public Versao RetornaVersao()
         {
-            var versaoAtual = (from ver in fn.tblversao
-                               join app in fn.tblaplicativo on ver.AplicativoID equals app.AplicativoID
-                               join bas in fn.tblbase on ver.BaseID equals bas.BaseID
+            var versaoAtual = (from ver in fn.tblVersao
+                               join app in fn.tblAplicativo on ver.AplicativoID equals app.AplicativoID
+                               join bas in fn.tblBase on ver.BaseID equals bas.BaseID
                                select new
                                {
                                    VersaoAPK = app.VersaoAplicativo,
@@ -47,9 +47,9 @@ namespace FindBus.Models
         public List<SelectListItem> RetornaVersoesApp()
         {
             List<SelectListItem> versoesApp = new List<SelectListItem>();
-            foreach (tblaplicativo app in fn.tblaplicativo.ToList())
+            foreach (tblAplicativo app in fn.tblAplicativo.ToList())
             {
-                if (app.AplicativoID == (fn.tblversao.Count() == 0 ? 0 : fn.tblversao.First().AplicativoID))
+                if (app.AplicativoID == (fn.tblVersao.Count() == 0 ? 0 : fn.tblVersao.First().AplicativoID))
                     versoesApp.Add(new SelectListItem { Text = app.VersaoAplicativo.ToString(), Value = app.AplicativoID.ToString(), Selected = true });
                 else
                     versoesApp.Add(new SelectListItem { Text = app.VersaoAplicativo.ToString(), Value = app.AplicativoID.ToString(), Selected = false });
@@ -59,9 +59,9 @@ namespace FindBus.Models
         public List<SelectListItem> RetornaVersoesBase()
         {
             List<SelectListItem> versoesBase = new List<SelectListItem>();
-            foreach (tblbase bas in fn.tblbase.ToList())
+            foreach (tblBase bas in fn.tblBase.ToList())
             {
-                if (bas.BaseID == (fn.tblversao.Count() == 0 ? 0 : fn.tblversao.First().BaseID))
+                if (bas.BaseID == (fn.tblVersao.Count() == 0 ? 0 : fn.tblVersao.First().BaseID))
                     versoesBase.Add(new SelectListItem { Text = bas.VersaoBase.ToString(), Value = bas.BaseID.ToString(), Selected = true });
                 else
                     versoesBase.Add(new SelectListItem { Text = bas.VersaoBase.ToString(), Value = bas.BaseID.ToString(), Selected = false });

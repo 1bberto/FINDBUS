@@ -10,7 +10,7 @@ namespace FindBus.Controllers
 {
     public class VersaoController : Controller
     {
-        findbusEntities fn = new findbusEntities();
+        FindBusEntities fn = new FindBusEntities();
         // GET: /Versao/        
         public ActionResult Index()
         {
@@ -18,10 +18,10 @@ namespace FindBus.Controllers
         }
         public ActionResult RetornaVersaoApp()
         {
-            using (fn = new findbusEntities())
+            using (fn = new FindBusEntities())
             {
-                var versaoAtual = (from ver in fn.tblversao
-                                   join app in fn.tblaplicativo on ver.AplicativoID equals app.AplicativoID
+                var versaoAtual = (from ver in fn.tblVersao
+                                   join app in fn.tblAplicativo on ver.AplicativoID equals app.AplicativoID
                                    select new
                                    {
                                        VersaoAPK = app.LocalAPK
@@ -48,11 +48,11 @@ namespace FindBus.Controllers
         {
             try
             {
-                tblversao versaoAtual = fn.tblversao.SingleOrDefault();
+                tblVersao versaoAtual = fn.tblVersao.SingleOrDefault();
                 if (versaoAtual != null)
                 {
-                    fn.tblversao.Remove(versaoAtual);
-                    fn.tblversao.Add(new tblversao
+                    fn.tblVersao.Remove(versaoAtual);
+                    fn.tblVersao.Add(new tblVersao
                     {
                         AplicativoID = Convert.ToInt32(VersaoAPK),
                         BaseID = Convert.ToInt32(VersaoBase),
@@ -62,7 +62,7 @@ namespace FindBus.Controllers
                 }
                 else
                 {
-                    fn.tblversao.Add(new tblversao
+                    fn.tblVersao.Add(new tblVersao
                     {
                         AplicativoID = Convert.ToInt32(VersaoAPK),
                         BaseID = Convert.ToInt32(VersaoBase),

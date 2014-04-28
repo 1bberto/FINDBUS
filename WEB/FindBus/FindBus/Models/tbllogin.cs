@@ -12,12 +12,12 @@ namespace FindBus.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tbllogin
+    public partial class tblLogin
     {
-        public int LoginId { get; set; }
-        public int UsuarioId { get; set; }
+        public int LoginID { get; set; }
+        public int UsuarioID { get; set; }
         public string UsuarioSenha { get; set; }
     
-        public virtual tblusuario tblusuario { get; set; }
+        public virtual tblUsuario tblUsuario { get; set; }
     }
 }

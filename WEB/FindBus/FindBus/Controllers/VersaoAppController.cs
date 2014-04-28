@@ -12,13 +12,13 @@ namespace FindBus.Controllers
     {
         //
         // GET: /VersaoBase/
-        findbusEntities fn;
+        FindBusEntities fn;
         List<VersaoApp> versoesBase;
         public ActionResult Index()
         {
-            fn = new findbusEntities();
+            fn = new FindBusEntities();
             versoesBase = new List<VersaoApp>();
-            foreach (tblaplicativo vapp in fn.tblaplicativo.ToList())
+            foreach (tblAplicativo vapp in fn.tblAplicativo.ToList())
             {
                 versoesBase.Add(new VersaoApp() { AppID = vapp.AplicativoID, versaoApp = vapp.VersaoAplicativo, Localapp = vapp.LocalAPK, DataInclusaoRegistro = vapp.DataInclusaoRegistro });
             }
@@ -33,11 +33,11 @@ namespace FindBus.Controllers
         {
             try
             {
-                fn = new findbusEntities();
+                fn = new FindBusEntities();
                 string versao = Request.Form["versao"];
-                tblaplicativo novabase = (from bas in fn.tblaplicativo
+                tblAplicativo novabase = (from bas in fn.tblAplicativo
                                           where bas.VersaoAplicativo.Contains(versao)
-                                          select bas).FirstOrDefault<tblaplicativo>();
+                                          select bas).FirstOrDefault<tblAplicativo>();
                 if (novabase == null)
                 {
                     HttpPostedFileBase baseFile = Request.Files[0];
@@ -48,7 +48,7 @@ namespace FindBus.Controllers
                         if (!Directory.Exists(path))
                             Directory.CreateDirectory(path);
                         baseFile.SaveAs(string.Format("{0}/{1}", path, fileName));
-                        fn.tblaplicativo.Add(new tblaplicativo() { VersaoAplicativo = Request.Form["versao"].ToString(), LocalAPK = string.Format(@"/Mobile/App/{0}/{1}", Request.Form["versao"].ToString(), fileName), DataInclusaoRegistro = DateTime.Now });
+                        fn.tblAplicativo.Add(new tblAplicativo() { VersaoAplicativo = Request.Form["versao"].ToString(), LocalAPK = string.Format(@"/Mobile/App/{0}/{1}", Request.Form["versao"].ToString(), fileName), DataInclusaoRegistro = DateTime.Now });
                         fn.SaveChanges();
                     }
                     return Json("Versão do App Inserida com Sucesso");

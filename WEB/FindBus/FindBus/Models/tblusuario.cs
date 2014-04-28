@@ -12,19 +12,19 @@ namespace FindBus.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tblusuario
+    public partial class tblUsuario
     {
-        public tblusuario()
+        public tblUsuario()
         {
-            this.tbllogin = new HashSet<tbllogin>();
+            this.tblLogin = new HashSet<tblLogin>();
         }
     
-        public int UsuarioId { get; set; }
+        public int UsuarioID { get; set; }
         public string NomeUsuario { get; set; }
         public string UsuarioSenha { get; set; }
         public System.DateTime DataInclusaoRegistro { get; set; }
         public int NiveldoAcesso { get; set; }
     
-        public virtual ICollection<tbllogin> tbllogin { get; set; }
+        public virtual ICollection<tblLogin> tblLogin { get; set; }
     }
 }

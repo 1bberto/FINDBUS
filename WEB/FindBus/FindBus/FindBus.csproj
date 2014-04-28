@@ -43,6 +43,14 @@
     <Reference Include="Microsoft.Web.Mvc">
       <HintPath>..\packages\Mvc4Futures.4.0.20710.0\lib\net40\Microsoft.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data">
+      <Private>True</Private>
+      <HintPath>..\packages\MySql.Data.6.7.4\lib\net40\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web">
+      <Private>True</Private>
+      <HintPath>..\packages\MySql.Web.6.7.4\lib\net40\MySql.Web.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -146,8 +154,9 @@
     </Compile>
     <Compile Include="Models\Atualizacao.cs" />
     <Compile Include="Models\Banco.cs" />
+    <Compile Include="Models\BDAcess.cs" />
     <Compile Include="Models\Cidade.cs" />
-    <Compile Include="Models\Etinerario.cs" />
+    <Compile Include="Models\Itinerario.cs" />
     <Compile Include="Models\Repositorio.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -168,66 +177,66 @@
     <Compile Include="Models\PontoLocalizacao.cs" />
     <Compile Include="Models\Rota.cs" />
     <Compile Include="Models\RotaPonto.cs" />
-    <Compile Include="Models\tblaplicativo.cs">
-      <DependentUpon>Repositorio.tt</DependentUpon>
-    </Compile>
     <Compile Include="DTO\tblaplicativoDTO.cs" />
-    <Compile Include="Models\tblbairro.cs">
-      <DependentUpon>Repositorio.tt</DependentUpon>
-    </Compile>
     <Compile Include="DTO\tblbairroDTO.cs" />
-    <Compile Include="Models\tblbairrorua.cs">
-      <DependentUpon>Repositorio.tt</DependentUpon>
-    </Compile>
     <Compile Include="DTO\tblbairroruaDTO.cs" />
-    <Compile Include="Models\tblbase.cs">
-      <DependentUpon>Repositorio.tt</DependentUpon>
-    </Compile>
     <Compile Include="DTO\tblbaseDTO.cs" />
-    <Compile Include="Models\tblcidade.cs">
-      <DependentUpon>Repositorio.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblcidadebairro.cs">
-      <DependentUpon>Repositorio.tt</DependentUpon>
-    </Compile>
     <Compile Include="DTO\tblcidadebairroDTO.cs" />
     <Compile Include="DTO\tblcidadeDTO.cs" />
-    <Compile Include="Models\tblitinerario.cs">
-      <DependentUpon>Repositorio.tt</DependentUpon>
-    </Compile>
     <Compile Include="DTO\tblitinerarioDTO.cs" />
-    <Compile Include="Models\tbllogin.cs">
-      <DependentUpon>Repositorio.tt</DependentUpon>
-    </Compile>
     <Compile Include="DTO\tblloginDTO.cs" />
-    <Compile Include="Models\tblponto.cs">
-      <DependentUpon>Repositorio.tt</DependentUpon>
-    </Compile>
     <Compile Include="DTO\tblpontoDTO.cs" />
-    <Compile Include="Models\tblrota.cs">
-      <DependentUpon>Repositorio.tt</DependentUpon>
-    </Compile>
     <Compile Include="DTO\tblrotaDTO.cs" />
-    <Compile Include="Models\tblrotaponto.cs">
-      <DependentUpon>Repositorio.tt</DependentUpon>
-    </Compile>
     <Compile Include="DTO\tblrotapontoDTO.cs" />
-    <Compile Include="Models\tblrua.cs">
-      <DependentUpon>Repositorio.tt</DependentUpon>
-    </Compile>
     <Compile Include="DTO\tblruaDTO.cs" />
-    <Compile Include="Models\tblruaponto.cs">
-      <DependentUpon>Repositorio.tt</DependentUpon>
-    </Compile>
     <Compile Include="DTO\tblruapontoDTO.cs" />
-    <Compile Include="Models\tblusuario.cs">
-      <DependentUpon>Repositorio.tt</DependentUpon>
-    </Compile>
     <Compile Include="DTO\tblusuarioDTO.cs" />
-    <Compile Include="Models\tblversao.cs">
+    <Compile Include="DTO\tblversaoDTO.cs" />
+    <Compile Include="Models\tblAplicativo.cs">
       <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>
-    <Compile Include="DTO\tblversaoDTO.cs" />
+    <Compile Include="Models\tblBairro.cs">
+      <DependentUpon>Repositorio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblBairroRua.cs">
+      <DependentUpon>Repositorio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblBase.cs">
+      <DependentUpon>Repositorio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblCidade.cs">
+      <DependentUpon>Repositorio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblCidadeBairro.cs">
+      <DependentUpon>Repositorio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblItinerario.cs">
+      <DependentUpon>Repositorio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblLogin.cs">
+      <DependentUpon>Repositorio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblPonto.cs">
+      <DependentUpon>Repositorio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblRota.cs">
+      <DependentUpon>Repositorio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblRotaPonto.cs">
+      <DependentUpon>Repositorio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblRua.cs">
+      <DependentUpon>Repositorio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblRuaPonto.cs">
+      <DependentUpon>Repositorio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUsuario.cs">
+      <DependentUpon>Repositorio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblVersao.cs">
+      <DependentUpon>Repositorio.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\USP_SEL_Itinerario_Result.cs">
       <DependentUpon>Repositorio.tt</DependentUpon>
     </Compile>

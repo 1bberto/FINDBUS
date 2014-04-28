@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FindBus.Models.RotaEtinerario>
+﻿@model IEnumerable<FindBus.Models.RotaItinerario>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_BootstrapLayout.basic.cshtml";
@@ -9,18 +9,18 @@
 </p>
 <table class="table table-bordered table-striped responsive-utilities">
     <tr>
-        <th>@Html.DisplayNameFor(model => model.RotaEtinerarioID)</th>
+        <th>@Html.DisplayNameFor(model => model.RotaItinerarioID)</th>
         <th>@Html.DisplayNameFor(model => model.Rota.Descricao)</th>
         <th>Ações</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
-            <td style="width: 10% !important">@Html.DisplayFor(modelItem => item.RotaEtinerarioID)</td>
+            <td style="width: 10% !important">@Html.DisplayFor(modelItem => item.RotaItinerarioID)</td>
             <td style="width: 35% !important">@Html.DisplayFor(modelItem => item.Rota.Descricao)</td>
             <td style="width: 15% !important; text-align: center">
                 <div class="btn-group">
-                    <a class="btn btn-primary btn-large" onclick="VisualizarItinerarioRota(@Html.DisplayFor(modelItem => item.RotaEtinerarioID))">Visualizar</a>                    
+                    <a class="btn btn-primary btn-large" onclick="VisualizarItinerarioRota(@Html.DisplayFor(modelItem => item.RotaItinerarioID))">Visualizar</a>                    
                 </div>
             </td>
         </tr>

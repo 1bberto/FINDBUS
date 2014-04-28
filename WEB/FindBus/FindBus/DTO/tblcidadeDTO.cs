@@ -10,6 +10,6 @@ namespace FindBus.DTO
         public int CidadeId { get; set; }
         public string Descricao { get; set; }
         public string Uf { get; set; }
-        public System.DateTime DataInclusaoRegistro { get; set; }
+        public string DataInclusaoRegistro { get; set; }
     }
 }

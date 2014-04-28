@@ -9,7 +9,7 @@ namespace FindBus.DTO
     {
         public int AplicativoID { get; set; }
         public string LocalAPK { get; set; }
-        public System.DateTime DataInclusaoRegistro { get; set; }
+        public string DataInclusaoRegistro { get; set; }
         public string VersaoAplicativo { get; set; }    
     }
 }

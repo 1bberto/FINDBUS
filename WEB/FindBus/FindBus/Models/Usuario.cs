@@ -54,15 +54,15 @@ namespace FindBus.Models
             DataInclusaoRegistro = DateTime.Now;
         }
 
-        findbusEntities fn = new findbusEntities();
+        FindBusEntities fn = new FindBusEntities();
         public Usuario Login(string login, string senha)
         {
-            var usuario = (from p in fn.tblusuario
+            var usuario = (from p in fn.tblUsuario
                            where p.NomeUsuario.Equals(login) && p.UsuarioSenha.Equals(senha)
                            select p).SingleOrDefault();
             if (usuario != null)
             {
-                this.usuarioID = usuario.UsuarioId;
+                this.usuarioID = usuario.UsuarioID;
                 this.NomeUsuario = usuario.NomeUsuario;
                 this.senha = usuario.UsuarioSenha;
                 this.nivelAcesso = usuario.NiveldoAcesso;

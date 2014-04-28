@@ -13,7 +13,7 @@ namespace FindBus.Models
         private int rotaID;        
         private string descricao;
         private DateTime dataInclusaoRegistro;
-        private List<Etinerario> etinerario;
+        private List<Itinerario> itinerario;
         private List<RotaPonto> pontos;
 
 
@@ -41,10 +41,10 @@ namespace FindBus.Models
             get { return dataInclusaoRegistro; }
             set { dataInclusaoRegistro = value; }
         }
-        public List<Etinerario> Etinerario
+        public List<Itinerario> Etinerario
         {
-            get { return etinerario; }
-            set { etinerario = value; }
+            get { return itinerario; }
+            set { itinerario = value; }
         }
         public Rota()
         {

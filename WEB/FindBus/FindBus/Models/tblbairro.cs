@@ -12,19 +12,19 @@ namespace FindBus.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tblbairro
+    public partial class tblBairro
     {
-        public tblbairro()
+        public tblBairro()
         {
-            this.tblbairrorua = new HashSet<tblbairrorua>();
-            this.tblcidadebairro = new HashSet<tblcidadebairro>();
+            this.tblBairroRua = new HashSet<tblBairroRua>();
+            this.tblCidadeBairro = new HashSet<tblCidadeBairro>();
         }
     
-        public int BairroId { get; set; }
+        public int BairroID { get; set; }
         public string Descricao { get; set; }
         public System.DateTime DataInclusaoRegistro { get; set; }
     
-        public virtual ICollection<tblbairrorua> tblbairrorua { get; set; }
-        public virtual ICollection<tblcidadebairro> tblcidadebairro { get; set; }
+        public virtual ICollection<tblBairroRua> tblBairroRua { get; set; }
+        public virtual ICollection<tblCidadeBairro> tblCidadeBairro { get; set; }
     }
 }

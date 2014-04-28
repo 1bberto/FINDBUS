@@ -30,10 +30,10 @@ namespace FindBus.Controllers
                 foreach (PontoLocalizacao ponto in pontos)
                 {
                     Localizacao localizacao = new Localizacao(ponto.Latitude, ponto.Longitude);
-                    localizacao.InserirLocalizacao();
+                    localizacao.InserirLocalizacao(ponto, NomeRota);                    
                 }
             }
-            return Json("MAOIIIIIIII");
+            return Json("Rota Inserida Com Sucesso!");
         }
     }
 }

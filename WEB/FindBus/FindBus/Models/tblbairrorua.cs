@@ -12,13 +12,13 @@ namespace FindBus.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tblbairrorua
+    public partial class tblBairroRua
     {
-        public int BairroRuaId { get; set; }
-        public int BairroId { get; set; }
-        public int RuaId { get; set; }
+        public int BairroRuaID { get; set; }
+        public int BairroID { get; set; }
+        public int RuaID { get; set; }
     
-        public virtual tblbairro tblbairro { get; set; }
-        public virtual tblrua tblrua { get; set; }
+        public virtual tblBairro tblBairro { get; set; }
+        public virtual tblRua tblRua { get; set; }
     }
 }

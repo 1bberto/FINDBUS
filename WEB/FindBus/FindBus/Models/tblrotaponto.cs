@@ -12,15 +12,15 @@ namespace FindBus.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tblrotaponto
+    public partial class tblRotaPonto
     {
-        public int RotaPontoId { get; set; }
+        public int RotaPontoID { get; set; }
         public int RotaId { get; set; }
         public int PontoId { get; set; }
         public int OrdemPonto { get; set; }
-        public decimal Quilometragem { get; set; }
+        public decimal DistanciaPontoAnterior { get; set; }
     
-        public virtual tblponto tblponto { get; set; }
-        public virtual tblrota tblrota { get; set; }
+        public virtual tblPonto tblPonto { get; set; }
+        public virtual tblRota tblRota { get; set; }
     }
 }

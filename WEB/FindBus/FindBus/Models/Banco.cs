@@ -45,15 +45,15 @@ namespace FindBus.Models
 
         private IEnumerable<tblversaoDTO> RetornaTblVersoes()
         {
-            using (findbusEntities fn = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                foreach (var item in fn.tblversao.ToList())
+                foreach (var item in fn.tblVersao.ToList())
                 {
                     yield return new tblversaoDTO()
                     {
                         AplicativoID = item.AplicativoID,
                         BaseID = item.BaseID,
-                        DataInclusaoRegistro = item.DataInclusaoRegistro
+                        DataInclusaoRegistro = item.DataInclusaoRegistro.ToString("yyyy-MM-dd HH:mm:ss")
                     };
                 }
             }
@@ -61,17 +61,17 @@ namespace FindBus.Models
 
         private IEnumerable<tblusuarioDTO> RetornaTblUsuarios()
         {
-            using (findbusEntities fn = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                foreach (var item in fn.tblusuario.ToList())
+                foreach (var item in fn.tblUsuario.ToList())
                 {
                     yield return new tblusuarioDTO()
                     {
-                        UsuarioId = item.UsuarioId,
+                        UsuarioId = item.UsuarioID,
                         NomeUsuario = item.NomeUsuario,
                         NiveldoAcesso = item.NiveldoAcesso,
                         UsuarioSenha = item.UsuarioSenha,
-                        DataInclusaoRegistro = item.DataInclusaoRegistro
+                        DataInclusaoRegistro = item.DataInclusaoRegistro.ToString("yyyy-MM-dd HH:mm:ss")
                     };
                 }
             }
@@ -79,15 +79,15 @@ namespace FindBus.Models
 
         private IEnumerable<tblruapontoDTO> RetornaTblRuaPontos()
         {
-            using (findbusEntities fn = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                foreach (var item in fn.tblruaponto.ToList())
+                foreach (var item in fn.tblRuaPonto.ToList())
                 {
                     yield return new tblruapontoDTO()
                     {
-                        RuaPontoId = item.RuaPontoId,
-                        PontoId = item.PontoId,
-                        RuaId = item.RuaId
+                        RuaPontoId = item.RuaPontoID,
+                        PontoId = item.PontoID,
+                        RuaId = item.RuaID
                     };
                 }
             }
@@ -95,15 +95,15 @@ namespace FindBus.Models
 
         private IEnumerable<tblruaDTO> RetornaTblRuas()
         {
-            using (findbusEntities fn = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                foreach (var item in fn.tblrua.ToList())
+                foreach (var item in fn.tblRua.ToList())
                 {
                     yield return new tblruaDTO()
                     {
-                        RuaId = item.RuaId,
+                        RuaId = item.RuaID,
                         Descricao = item.Descricao,
-                        DataInclusaoRegistro = item.DataInclusaoRegistro
+                        DataInclusaoRegistro = item.DataInclusaoRegistro.ToString("yyyy-MM-dd HH:mm:ss")
                     };
                 }
             }
@@ -111,16 +111,16 @@ namespace FindBus.Models
 
         private IEnumerable<tblrotapontoDTO> RetornaTblRotaPontos()
         {
-            using (findbusEntities fn = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                foreach (var item in fn.tblrotaponto.ToList())
+                foreach (var item in fn.tblRotaPonto.ToList())
                 {
                     yield return new tblrotapontoDTO()
                     {
-                        RotaPontoId = item.RotaPontoId,
+                        RotaPontoId = item.RotaPontoID,
                         PontoId = item.PontoId,
                         RotaId = item.RotaId,
-                        Quilometragem = item.Quilometragem,
+                        Quilometragem = item.DistanciaPontoAnterior,
                         OrdemPonto = item.OrdemPonto
                     };
                 }
@@ -129,15 +129,15 @@ namespace FindBus.Models
 
         private IEnumerable<tblrotaDTO> RetornaTblRotas()
         {
-            using (findbusEntities fn = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                foreach (var item in fn.tblrota.ToList())
+                foreach (var item in fn.tblRota.ToList())
                 {
                     yield return new tblrotaDTO()
                     {
-                        RotaId = item.RotaId,
+                        RotaId = item.RotaID,
                         Descricao = item.Descricao,
-                        DataInclusaoRegistro = item.DataInclusaoRegistro
+                        DataInclusaoRegistro = item.DataInclusaoRegistro.ToString("yyyy-MM-dd HH:mm:ss")
                     };
                 }
             }
@@ -145,17 +145,17 @@ namespace FindBus.Models
 
         private IEnumerable<tblpontoDTO> RetornaTblPonto()
         {
-            using (findbusEntities fn = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                foreach (var item in fn.tblponto.ToList())
+                foreach (var item in fn.tblPonto.ToList())
                 {
                     yield return new tblpontoDTO()
                     {
-                        PontoId = item.PontoId,
+                        PontoId = item.PontoID,
                         PontoParada = item.PontoParada,
                         Latitude = item.Latitude,
                         Longitude = item.Longitude,
-                        DataInclusaoRegistro = item.DataInclusaoRegistro
+                        DataInclusaoRegistro = item.DataInclusaoRegistro.ToString("yyyy-MM-dd HH:mm:ss")
                     };
                 }
             }
@@ -163,14 +163,14 @@ namespace FindBus.Models
 
         private IEnumerable<tblloginDTO> RetornaTblLogin()
         {
-            using (findbusEntities fn = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                foreach (var item in fn.tbllogin.ToList())
+                foreach (var item in fn.tblLogin.ToList())
                 {
                     yield return new tblloginDTO()
                     {
-                        LoginId = item.LoginId,
-                        UsuarioId = item.UsuarioId,
+                        LoginId = item.LoginID,
+                        UsuarioId = item.UsuarioID,
                         UsuarioSenha = item.UsuarioSenha
                     };
                 }
@@ -179,14 +179,14 @@ namespace FindBus.Models
 
         private IEnumerable<tblitinerarioDTO> RetornaTblItinerarios()
         {
-            using (findbusEntities fn = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                foreach (var item in fn.tblitinerario.ToList())
+                foreach (var item in fn.tblItinerario.ToList())
                 {
                     yield return new tblitinerarioDTO()
                     {
-                        ItinerarioId = item.ItinerarioId,
-                        RotaId = item.RotaId,
+                        ItinerarioId = item.ItinerarioID,
+                        RotaId = item.RotaID,
                         DiaSemana = item.DiaSemana,
                         HoraSaida = item.HoraSaida,
                         HoraChegada = item.HoraChegada
@@ -197,15 +197,15 @@ namespace FindBus.Models
 
         private IEnumerable<tblcidadebairroDTO> RetornaTblCidadeBairros()
         {
-            using (findbusEntities fn = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                foreach (var item in fn.tblcidadebairro.ToList())
+                foreach (var item in fn.tblCidadeBairro.ToList())
                 {
                     yield return new tblcidadebairroDTO()
                     {
-                        CidadeBairroId = item.CidadeBairroId,
-                        CidadeId = item.CidadeId,
-                        BairroId = item.BairroId
+                        CidadeBairroId = item.CidadeBairroID,
+                        CidadeId = item.CidadeID,
+                        BairroId = item.BairroID
                     };
                 }
             }
@@ -213,16 +213,16 @@ namespace FindBus.Models
 
         private IEnumerable<tblcidadeDTO> RetornaTblCidades()
         {
-            using (findbusEntities fn = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                foreach (var item in fn.tblcidade.ToList())
+                foreach (var item in fn.tblCidade.ToList())
                 {
                     yield return new tblcidadeDTO()
                     {
-                        CidadeId = item.CidadeId,
+                        CidadeId = item.CidadeID,
                         Descricao = item.Descricao,
-                        Uf = item.Uf,
-                        DataInclusaoRegistro = item.DataInclusaoRegistro
+                        Uf = item.UF,
+                        DataInclusaoRegistro = item.DataInclusaoRegistro.ToString("yyyy-MM-dd HH:mm:ss")
                     };
                 }
             }
@@ -230,16 +230,16 @@ namespace FindBus.Models
 
         private IEnumerable<tblbaseDTO> RetornaTblBases()
         {
-            using (findbusEntities fn = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                foreach (var item in fn.tblbase.ToList())
+                foreach (var item in fn.tblBase.ToList())
                 {
                     yield return new tblbaseDTO()
                     {
                         BaseID = item.BaseID,
                         LocalBase = item.LocalBase,
                         VersaoBase = item.VersaoBase,
-                        DataInclusaoRegistro = item.DataInclusaoRegistro
+                        DataInclusaoRegistro = item.DataInclusaoRegistro.ToString("yyyy-MM-dd HH:mm:ss")
                     };
                 }
             }
@@ -247,15 +247,15 @@ namespace FindBus.Models
 
         private IEnumerable<tblbairroruaDTO> RetornaTblBairroRuas()
         {
-            using (findbusEntities fn = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                foreach (var item in fn.tblbairrorua.ToList())
+                foreach (var item in fn.tblBairroRua.ToList())
                 {
                     yield return new tblbairroruaDTO()
                     {
-                        BairroRuaId = item.BairroRuaId,
-                        BairroId = item.BairroId,
-                        RuaId = item.RuaId
+                        BairroRuaId = item.BairroRuaID,
+                        BairroId = item.BairroID,
+                        RuaId = item.RuaID
                     };
                 }
             }
@@ -263,15 +263,15 @@ namespace FindBus.Models
 
         private IEnumerable<tblbairroDTO> RetornaTblBairros()
         {
-            using (findbusEntities fn = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                foreach (var item in fn.tblbairro.ToList())
+                foreach (var item in fn.tblBairro.ToList())
                 {
                     yield return new tblbairroDTO()
                     {
-                        BairroId = item.BairroId,
+                        BairroId = item.BairroID,
                         Descricao = item.Descricao,
-                        DataInclusaoRegistro = item.DataInclusaoRegistro
+                        DataInclusaoRegistro = item.DataInclusaoRegistro.ToString("yyyy-MM-dd HH:mm:ss")
                     };
                 }
             }
@@ -279,16 +279,16 @@ namespace FindBus.Models
 
         private IEnumerable<tblaplicativoDTO> RetornaTblAplicativos()
         {
-            using (findbusEntities fn = new findbusEntities())
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                foreach (var item in fn.tblaplicativo.ToList())
+                foreach (var item in fn.tblAplicativo.ToList())
                 {
                     yield return new tblaplicativoDTO()
                     {
                         AplicativoID = item.AplicativoID,
                         LocalAPK = item.LocalAPK,
                         VersaoAplicativo = item.VersaoAplicativo,
-                        DataInclusaoRegistro = item.DataInclusaoRegistro
+                        DataInclusaoRegistro = item.DataInclusaoRegistro.ToString("yyyy-MM-dd HH:mm:ss")
                     };
                 }
             }

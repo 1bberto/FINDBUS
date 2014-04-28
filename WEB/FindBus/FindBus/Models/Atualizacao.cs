@@ -14,10 +14,10 @@ namespace FindBus.Models
         
         public Atualizacao(string VersaoAplicativo, string VersaoBase, string urlServer)
         {
-            findbusEntities fn = new findbusEntities();
-            var retorno = (from p in fn.tblversao
-                           join bs in fn.tblbase on p.BaseID equals bs.BaseID
-                           join app in fn.tblaplicativo on p.AplicativoID equals app.AplicativoID
+            FindBusEntities fn = new FindBusEntities();
+            var retorno = (from p in fn.tblVersao
+                           join bs in fn.tblBase on p.BaseID equals bs.BaseID
+                           join app in fn.tblAplicativo on p.AplicativoID equals app.AplicativoID
                            select new
                            {
                                Versaoapp = app.VersaoAplicativo,
@@ -31,12 +31,12 @@ namespace FindBus.Models
                 if (string.Compare(VersaoAplicativo, retorno.Versaoapp) == -1)
                 {
                     this.VersaoAplicativo = retorno.Versaoapp;
-                    this.UrlAplicativo = string.Format("{0}{1}", urlServer, retorno.Urlapp);
+                    this.UrlAplicativo = string.Format("{0}{1}", urlServer.Remove(urlServer.Length-1), retorno.Urlapp);
                 }
                 if (string.Compare(VersaoBase, retorno.Versaobs) == -1)
                 {
                     this.VersaoBase = retorno.Versaobs;
-                    this.UrlBase = string.Format("{0}{1}", urlServer, retorno.Urlbase);
+                    this.UrlBase = string.Format("{0}{1}", urlServer.Remove(urlServer.Length - 1), retorno.Urlbase);
                 }
             }
         }

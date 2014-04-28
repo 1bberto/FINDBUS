@@ -1,40 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Linq;
 using System.Web;
 
 namespace FindBus.Models
 {
-    public class RotaEtinerario
+    public class RotaItinerario
     {
-        [Display(Name="Código")]        
-        public int RotaEtinerarioID { get; set; }
+        [Display(Name = "Código")]
+        public int RotaItinerarioID { get; set; }
         public Rota Rota { get; set; }
-        public List<Etinerario> Etinerario { get; set; }
-        public RotaEtinerario()
+        public List<Itinerario> Etinerario { get; set; }
+        public RotaItinerario()
         {
 
         }
-        public RotaEtinerario(int RotaEtinerarioID)
+        public IEnumerable<USP_SEL_Itinerario_Result> RetornarItinerarioRota(int RotaEtinerarioID)
         {
-            //db = new findbusEntities();
-        }
-        public IEnumerable<RotaEtinerario> RetornaRotas()
-        {
-            using (findbusEntities db = new findbusEntities())
+            using (FindBusEntities db = new FindBusEntities())
             {
-                var Rotas = (from rota in db.tblrota
-                             join etinerario in db.tblitinerario on rota.RotaId equals etinerario.RotaId into et
-                             from iti in et.DefaultIfEmpty()
-                             select new
-                             {
-                                 rotaEtinerarioID = iti == null ? 0 : iti.ItinerarioId,
-                                 rotaNome = rota.Descricao
-                             }).ToList().OrderBy(x => x.rotaEtinerarioID);
-                foreach (var rota in Rotas)
+                foreach (USP_SEL_Itinerario_Result itinerario in db.USP_SEL_Itinerario(RotaEtinerarioID))
                 {
-                    yield return new RotaEtinerario() { RotaEtinerarioID = rota.rotaEtinerarioID, Rota = new Rota() { Descricao = rota.rotaNome } };
+                    yield return itinerario;
+                }
+            }
+        }
+        public IEnumerable<RotaItinerario> RetornaRotas()
+        {
+            using (FindBusEntities db = new FindBusEntities())
+            {
+                foreach (var rota in db.tblRota)
+                {
+                    yield return new RotaItinerario() { RotaItinerarioID = rota.RotaID, Rota = new Rota() { Descricao = rota.Descricao } };
                 }
             }
         }

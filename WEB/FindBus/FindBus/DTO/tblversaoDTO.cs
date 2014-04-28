@@ -9,6 +9,6 @@ namespace FindBus.DTO
     {
         public int AplicativoID { get; set; }
         public int BaseID { get; set; }
-        public System.DateTime DataInclusaoRegistro { get; set; }
+        public string DataInclusaoRegistro { get; set; }
     }
 }

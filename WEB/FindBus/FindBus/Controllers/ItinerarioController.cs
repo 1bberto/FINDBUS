@@ -14,8 +14,13 @@ namespace FindBus.Controllers
 
         public ActionResult Index()
         {
-            return View(new RotaEtinerario().RetornaRotas());
+            return View(new RotaItinerario().RetornaRotas());
         }
-
+        [HttpGet()]        
+        public ActionResult ConsultaItinerario(int ItinerarioID)
+        {
+            //return Json(new RotaItinerario().RetornarItinerarioRota(ItinerarioID), JsonRequestBehavior.AllowGet);
+            return Json(new RotaItinerario().RetornarItinerarioRota(ItinerarioID), JsonRequestBehavior.AllowGet);
+        }
     }
 }

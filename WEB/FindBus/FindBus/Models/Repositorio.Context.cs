@@ -16,10 +16,10 @@ namespace FindBus.Models
     using System.Data.Objects.DataClasses;
     using System.Linq;
     
-    public partial class findbusEntities : DbContext
+    public partial class FindBusEntities : DbContext
     {
-        public findbusEntities()
-            : base("name=findbusEntities")
+        public FindBusEntities()
+            : base("name=FindBusEntities")
         {
         }
     
@@ -28,21 +28,58 @@ namespace FindBus.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<tblaplicativo> tblaplicativo { get; set; }
-        public DbSet<tblbairro> tblbairro { get; set; }
-        public DbSet<tblbairrorua> tblbairrorua { get; set; }
-        public DbSet<tblbase> tblbase { get; set; }
-        public DbSet<tblcidade> tblcidade { get; set; }
-        public DbSet<tblcidadebairro> tblcidadebairro { get; set; }
-        public DbSet<tblitinerario> tblitinerario { get; set; }
-        public DbSet<tbllogin> tbllogin { get; set; }
-        public DbSet<tblponto> tblponto { get; set; }
-        public DbSet<tblrota> tblrota { get; set; }
-        public DbSet<tblrotaponto> tblrotaponto { get; set; }
-        public DbSet<tblrua> tblrua { get; set; }
-        public DbSet<tblruaponto> tblruaponto { get; set; }
-        public DbSet<tblusuario> tblusuario { get; set; }
-        public DbSet<tblversao> tblversao { get; set; }
+        public DbSet<tblAplicativo> tblAplicativo { get; set; }
+        public DbSet<tblBairro> tblBairro { get; set; }
+        public DbSet<tblBairroRua> tblBairroRua { get; set; }
+        public DbSet<tblBase> tblBase { get; set; }
+        public DbSet<tblCidade> tblCidade { get; set; }
+        public DbSet<tblCidadeBairro> tblCidadeBairro { get; set; }
+        public DbSet<tblItinerario> tblItinerario { get; set; }
+        public DbSet<tblLogin> tblLogin { get; set; }
+        public DbSet<tblPonto> tblPonto { get; set; }
+        public DbSet<tblRota> tblRota { get; set; }
+        public DbSet<tblRotaPonto> tblRotaPonto { get; set; }
+        public DbSet<tblRua> tblRua { get; set; }
+        public DbSet<tblRuaPonto> tblRuaPonto { get; set; }
+        public DbSet<tblUsuario> tblUsuario { get; set; }
+        public DbSet<tblVersao> tblVersao { get; set; }
+    
+        public virtual int USP_INS_PONTO(string rua, string cidade, string uF, string bairro, string rota, string latitude, string longitude, Nullable<bool> pontoParada)
+        {
+            var ruaParameter = rua != null ?
+                new ObjectParameter("Rua", rua) :
+                new ObjectParameter("Rua", typeof(string));
+    
+            var cidadeParameter = cidade != null ?
+                new ObjectParameter("Cidade", cidade) :
+                new ObjectParameter("Cidade", typeof(string));
+    
+            var uFParameter = uF != null ?
+                new ObjectParameter("UF", uF) :
+                new ObjectParameter("UF", typeof(string));
+    
+            var bairroParameter = bairro != null ?
+                new ObjectParameter("Bairro", bairro) :
+                new ObjectParameter("Bairro", typeof(string));
+    
+            var rotaParameter = rota != null ?
+                new ObjectParameter("Rota", rota) :
+                new ObjectParameter("Rota", typeof(string));
+    
+            var latitudeParameter = latitude != null ?
+                new ObjectParameter("Latitude", latitude) :
+                new ObjectParameter("Latitude", typeof(string));
+    
+            var longitudeParameter = longitude != null ?
+                new ObjectParameter("Longitude", longitude) :
+                new ObjectParameter("Longitude", typeof(string));
+    
+            var pontoParadaParameter = pontoParada.HasValue ?
+                new ObjectParameter("PontoParada", pontoParada) :
+                new ObjectParameter("PontoParada", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_INS_PONTO", ruaParameter, cidadeParameter, uFParameter, bairroParameter, rotaParameter, latitudeParameter, longitudeParameter, pontoParadaParameter);
+        }
     
         public virtual ObjectResult<USP_SEL_Itinerario_Result> USP_SEL_Itinerario(Nullable<int> codigoRota)
         {

@@ -4,34 +4,34 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="42987f211ab54c918084a8315cd71bab" Name="Diagram1">
-        <EntityTypeShape EntityType="findbusModel.tblaplicativo" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="findbusModel.tblbairro" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="findbusModel.tblbairrorua" Width="1.5" PointX="10" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="findbusModel.tblbase" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="findbusModel.tblcidade" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="findbusModel.tblcidadebairro" Width="1.5" PointX="10" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="findbusModel.tblitinerario" Width="1.5" PointX="5" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="findbusModel.tbllogin" Width="1.5" PointX="10" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="findbusModel.tblponto" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="findbusModel.tblrota" Width="1.5" PointX="2.75" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="findbusModel.tblrotaponto" Width="1.5" PointX="5" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="findbusModel.tblrua" Width="1.5" PointX="2.75" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="findbusModel.tblruaponto" Width="1.5" PointX="5" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="findbusModel.tblusuario" Width="1.5" PointX="7.75" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="findbusModel.tblversao" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
-        <AssociationConnector Association="findbusModel.FK_tblAplicativo_AplicativoID" ManuallyRouted="false" />
-        <AssociationConnector Association="findbusModel.FK_tblBairroRua" ManuallyRouted="false" />
-        <AssociationConnector Association="findbusModel.FK_tblCidadeBairro2" ManuallyRouted="false" />
-        <AssociationConnector Association="findbusModel.FK_tblBairroRua2" ManuallyRouted="false" />
-        <AssociationConnector Association="findbusModel.FK_tblBase_BaseID" ManuallyRouted="false" />
-        <AssociationConnector Association="findbusModel.FK_tblCidadeBairro" ManuallyRouted="false" />
-        <AssociationConnector Association="findbusModel.FK_rotaitinerario" ManuallyRouted="false" />
-        <AssociationConnector Association="findbusModel.FK_tblLogin" ManuallyRouted="false" />
-        <AssociationConnector Association="findbusModel.FK_tblRotaPonto2" ManuallyRouted="false" />
-        <AssociationConnector Association="findbusModel.FK_tblRuaPonto2" ManuallyRouted="false" />
-        <AssociationConnector Association="findbusModel.FK_tblRotaPonto" ManuallyRouted="false" />
-        <AssociationConnector Association="findbusModel.FK_tblRuaPonto" ManuallyRouted="false" />
+      <Diagram DiagramId="bf054fc2cb224c739d0193ef571b75af" Name="Diagram1">
+        <EntityTypeShape EntityType="FindBusModel.tblAplicativo" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindBusModel.tblBairro" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindBusModel.tblBairroRua" Width="1.5" PointX="10" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindBusModel.tblBase" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindBusModel.tblCidade" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindBusModel.tblCidadeBairro" Width="1.5" PointX="10" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindBusModel.tblItinerario" Width="1.5" PointX="5" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindBusModel.tblLogin" Width="1.5" PointX="10" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindBusModel.tblPonto" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindBusModel.tblRota" Width="1.5" PointX="2.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindBusModel.tblRotaPonto" Width="1.5" PointX="5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindBusModel.tblRua" Width="1.5" PointX="2.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindBusModel.tblRuaPonto" Width="1.5" PointX="5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindBusModel.tblUsuario" Width="1.5" PointX="7.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindBusModel.tblVersao" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="FindBusModel.FK_tblVersao_tblAplicativo_AplicativoID" ManuallyRouted="false" />
+        <AssociationConnector Association="FindBusModel.FK_tblBairroRua_tblBairro_BairroID" ManuallyRouted="false" />
+        <AssociationConnector Association="FindBusModel.FK_tblCidadeBairro_tblBairro_BairroID" ManuallyRouted="false" />
+        <AssociationConnector Association="FindBusModel.FK_tblBairroRua_tblBairro_tblRua_RuaID" ManuallyRouted="false" />
+        <AssociationConnector Association="FindBusModel.FK_tblVersao_tblBase_BaseID" ManuallyRouted="false" />
+        <AssociationConnector Association="FindBusModel.FK_tblCidadeBairro_tblCidade_tblCidade" ManuallyRouted="false" />
+        <AssociationConnector Association="FindBusModel.FK_tblItinerario_tblRota_RotaID" ManuallyRouted="false" />
+        <AssociationConnector Association="FindBusModel.FK_tblLogin_tblUsuario_UsuarioID" ManuallyRouted="false" />
+        <AssociationConnector Association="FindBusModel.FK_tblRotaPonto_tblPonto_PontoID" ManuallyRouted="false" />
+        <AssociationConnector Association="FindBusModel.FK_tblRuaPonto_tblPonto_PontoID" ManuallyRouted="false" />
+        <AssociationConnector Association="FindBusModel.FK_tblRotaPonto_tblRota_RotaID" ManuallyRouted="false" />
+        <AssociationConnector Association="FindBusModel.FK_tblRuaPonto_tblRua_RuaID" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -24,7 +24,7 @@
             <td style="width: 35% !important">@Html.DisplayFor(modelItem => item.Descricao)</td>
             <td style="width: 20% !important">@Html.DisplayFor(modelItem => item.Uf)</td>
             <td style="width: 20% !important">@Html.DisplayFor(modelItem => item.DataInclusaoRegistro)</td>
-            <td style="width: 15% !important; text-align: center">
+            <td style="width: 15% !important; text-align: center">                
                 <div class="btn-group">
                     <a href="@Url.Action("Edit", "Cidade", new { id = item.CidadeID })" class="btn btn-success btn-large"><i class="icon-white icon-pencil"></i>Editar</a>
                     <a href="@Url.Action("Excluir", "Cidade", new { id = item.CidadeID })" class="btn btn-danger btn-large"><i class="icon-white icon-pencil"></i>Excluir</a>

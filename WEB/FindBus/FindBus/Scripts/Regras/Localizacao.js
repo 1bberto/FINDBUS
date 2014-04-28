@@ -27,8 +27,7 @@ var posicoesLista = "";
 var spinnerVisible = false;
 function InserirPontos() {
     var pontos = [];
-    if (markers.length == 0)
-    {
+    if (markers.length == 0) {
         $('<div></div>').html('<p>Nenhum ponto foi Inserido</p>')
            .dialog({
                closeOnEscape: false,
@@ -45,8 +44,7 @@ function InserirPontos() {
            });
         return;
     }
-    if ($("#NomeRota").val() == "")
-    {
+    if ($("#NomeRota").val() == "") {
         $('<div></div>').html('<p>Nome da Rota não foi Inserido</p>')
           .dialog({
               closeOnEscape: false,
@@ -79,7 +77,7 @@ function InserirPontos() {
                 Longitude: markers[i].getPosition().lng(),
                 PontoParada: markers[i].getIcon() == '../Content/images/bus (1).png',
                 OrdemPonto: i + 1,
-                DistanciaProximoPonto: google.maps.geometry.spherical.computeDistanceBetween(markers[i].getPosition(), markers[i - 1].getPosition()).toFixed(2)
+                DistanciaProximoPonto: google.maps.geometry.spherical.computeDistanceBetween(markers[i].getPosition(), markers[i - 1].getPosition()).toFixed(2).replace('.',',')
             }
         }
         pontos.push(Ponto);
@@ -153,7 +151,7 @@ function placeMarker(location) {
 }
 function addInfoMarker(marker) {
     var message = null;
-    var posicaomarker = marker.getPosition();   
+    var posicaomarker = marker.getPosition();
     google.maps.event.addListener(marker, 'click', function () {
         $.ajax({
             type: 'GET',
@@ -248,7 +246,7 @@ function montarPaginacaoPontos() {
     var pagina = 0;
     var TotalPontos = 0;
     $("#PaginacaoPontos").find('li').remove();
-    while (TotalPontos < markers.length) {
+    while (TotalPontos < markers.length - 1) {
         pontoInicial = (9 * pagina);
         TotalPontos += 9;
         if (TotalPontos < markers.length)
@@ -267,14 +265,24 @@ function ProcuraLocalizacao(mark, i, mark2) {
         cache: true,
         success: function (data) {
             if (i == 0) {
-                $('#ListPosicoes').append("<div id=divmarker" + i + " class=blocoMarker data-sort=" + (i + 1) + "><div onclick=FocoMarker(" + i + ") class=Marker>Bairro: " + data.Bairro +
+                if (markers[i].getIcon() == '../Content/images/bus (1).png')
+                    $('#ListPosicoes').append("<div id=divmarker" + i + " class=blocoMarkerPontoParada data-sort=" + (i + 1) + "><div onclick=FocoMarker(" + i + ") class=Marker>Bairro: " + data.Bairro +
+                      "<br/>Rua: " + data.Rua +
+                      "</div> <div class=MarkerRemover style='float:right' onclick=RemoveMarkerListaMapa(" + i + ")><b>X</b></div></div>");
+                else
+                    $('#ListPosicoes').append("<div id=divmarker" + i + " class=blocoMarkerPontoPassagem data-sort=" + (i + 1) + "><div onclick=FocoMarker(" + i + ") class=Marker>Bairro: " + data.Bairro +
                   "<br/>Rua: " + data.Rua +
                   "</div> <div class=MarkerRemover style='float:right' onclick=RemoveMarkerListaMapa(" + i + ")><b>X</b></div></div>");
             }
             else {
-                $('#ListPosicoes').append("<div id=divmarker" + i + "  class=blocoMarker  data-sort=" + (i + 1) + " ><div onclick=FocoMarker(" + i + ") class=Marker>Bairro: " + data.Bairro +
-                "<br/>Rua: " + data.Rua + "<br/>Distancia do ponto Anterior - " + google.maps.geometry.spherical.computeDistanceBetween(mark.getPosition(), mark2.getPosition()).toFixed(2) + " Metros</div> " +
-                "<div class=MarkerRemover style='float:right' onclick=RemoveMarkerListaMapa(" + i + ")><b>X</b></div></div></div>");
+                if (markers[i].getIcon() == '../Content/images/bus (1).png')
+                    $('#ListPosicoes').append("<div id=divmarker" + i + "  class=blocoMarkerPontoParada  data-sort=" + (i + 1) + " ><div onclick=FocoMarker(" + i + ") class=Marker>Bairro: " + data.Bairro +
+                    "<br/>Rua: " + data.Rua + "<br/>Distancia do ponto Anterior - " + google.maps.geometry.spherical.computeDistanceBetween(mark.getPosition(), mark2.getPosition()).toFixed(2) + " Metros</div> " +
+                    "<div class=MarkerRemover style='float:right' onclick=RemoveMarkerListaMapa(" + i + ")><b>X</b></div></div></div>");
+                else
+                    $('#ListPosicoes').append("<div id=divmarker" + i + "  class=blocoMarkerPontoPassagem  data-sort=" + (i + 1) + " ><div onclick=FocoMarker(" + i + ") class=Marker>Bairro: " + data.Bairro +
+                    "<br/>Rua: " + data.Rua + "<br/>Distancia do ponto Anterior - " + google.maps.geometry.spherical.computeDistanceBetween(mark.getPosition(), mark2.getPosition()).toFixed(2) + " Metros</div> " +
+                    "<div class=MarkerRemover style='float:right' onclick=RemoveMarkerListaMapa(" + i + ")><b>X</b></div></div></div>");
             }
         }
     });

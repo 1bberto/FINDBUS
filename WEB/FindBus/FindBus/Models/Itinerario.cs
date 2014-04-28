@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace FindBus.Models
 {
-    public class Etinerario
+    public class Itinerario
     {
         // Atributos
-        private int etinerarioID;
+        private int itinerarioID;
         private string diaSemana;
         private DateTime horaSaida;
         private DateTime horaChegada;
 
         // Propriedades
-        public int EtinerarioID
+        public int ItinerarioID
         {
-            get { return etinerarioID; }
-            set { etinerarioID = value; }
+            get { return itinerarioID; }
+            set { itinerarioID = value; }
         }
 
         public string DiaSemana

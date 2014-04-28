@@ -10,7 +10,7 @@ namespace FindBus.DTO
         public int UsuarioId { get; set; }
         public string NomeUsuario { get; set; }
         public string UsuarioSenha { get; set; }
-        public System.DateTime DataInclusaoRegistro { get; set; }
+        public string DataInclusaoRegistro { get; set; }
         public int NiveldoAcesso { get; set; }
     }
 }

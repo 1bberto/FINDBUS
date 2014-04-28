@@ -12,14 +12,14 @@ namespace FindBus.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tblitinerario
+    public partial class tblItinerario
     {
-        public int ItinerarioId { get; set; }
-        public int RotaId { get; set; }
+        public int ItinerarioID { get; set; }
+        public int RotaID { get; set; }
         public string DiaSemana { get; set; }
         public string HoraSaida { get; set; }
         public string HoraChegada { get; set; }
     
-        public virtual tblrota tblrota { get; set; }
+        public virtual tblRota tblRota { get; set; }
     }
 }

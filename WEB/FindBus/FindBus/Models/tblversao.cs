@@ -12,13 +12,13 @@ namespace FindBus.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tblversao
+    public partial class tblVersao
     {
         public int AplicativoID { get; set; }
         public int BaseID { get; set; }
         public System.DateTime DataInclusaoRegistro { get; set; }
     
-        public virtual tblaplicativo tblaplicativo { get; set; }
-        public virtual tblbase tblbase { get; set; }
+        public virtual tblAplicativo tblAplicativo { get; set; }
+        public virtual tblBase tblBase { get; set; }
     }
 }

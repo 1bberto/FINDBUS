@@ -12,11 +12,11 @@ namespace FindBus.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tblbase
+    public partial class tblBase
     {
-        public tblbase()
+        public tblBase()
         {
-            this.tblversao = new HashSet<tblversao>();
+            this.tblVersao = new HashSet<tblVersao>();
         }
     
         public int BaseID { get; set; }
@@ -24,6 +24,6 @@ namespace FindBus.Models
         public System.DateTime DataInclusaoRegistro { get; set; }
         public string VersaoBase { get; set; }
     
-        public virtual ICollection<tblversao> tblversao { get; set; }
+        public virtual ICollection<tblVersao> tblVersao { get; set; }
     }
 }

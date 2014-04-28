@@ -9,15 +9,15 @@ namespace FindBus.Controllers
 {
     public class CidadeController : Controller
     {
-        findbusEntities fn = new findbusEntities();
+        FindBusEntities fn = new FindBusEntities();
         //
         // GET: /Cidade/
         List<Cidade> cidades = new List<Cidade>();
         public ActionResult Index()
         {
-            foreach (tblcidade cidade in fn.tblcidade.ToList())
+            foreach (tblCidade cidade in fn.tblCidade.ToList())
             {
-                cidades.Add(new Models.Cidade { CidadeID = cidade.CidadeId, Descricao = cidade.Descricao, Uf = cidade.Uf, DataInclusaoRegistro = cidade.DataInclusaoRegistro });
+                cidades.Add(new Models.Cidade { CidadeID = cidade.CidadeID, Descricao = cidade.Descricao, Uf = cidade.UF, DataInclusaoRegistro = cidade.DataInclusaoRegistro });
             }
             return View(cidades);
         }
@@ -33,16 +33,16 @@ namespace FindBus.Controllers
                 return Json("Cidade deve ser preenchida");
             if (string.IsNullOrEmpty(cidade.Uf))
                 return Json("Estado deve ser preenchido");
-            tblcidade novacidade = (from cid in fn.tblcidade
-                                    where cid.Descricao.Equals(cidade.Descricao) && cid.Uf.Equals(cidade.Uf)
-                                    select cid).FirstOrDefault<tblcidade>();
+            tblCidade novacidade = (from cid in fn.tblCidade
+                                    where cid.Descricao.Equals(cidade.Descricao) && cid.UF.Equals(cidade.Uf)
+                                    select cid).FirstOrDefault<tblCidade>();
             if (novacidade != null)
             {
                 return Json("Cidade Ja Cadastrada!");
             }
             else
             {
-                fn.tblcidade.Add(new Models.tblcidade { Descricao = cidade.Descricao, Uf = cidade.Uf, DataInclusaoRegistro = DateTime.Now });
+                fn.tblCidade.Add(new Models.tblCidade { Descricao = cidade.Descricao, UF = cidade.Uf, DataInclusaoRegistro = DateTime.Now });
                 fn.SaveChanges();
                 return Json("Cidade Cadastrada com Sucesso");
             }

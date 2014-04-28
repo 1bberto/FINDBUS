@@ -9,7 +9,7 @@ namespace FindBus.DTO
     {
         public int BaseID { get; set; }
         public string LocalBase { get; set; }
-        public System.DateTime DataInclusaoRegistro { get; set; }
+        public string DataInclusaoRegistro { get; set; }
         public string VersaoBase { get; set; }
     }
 }
