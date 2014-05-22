@@ -26,14 +26,16 @@ body {
 
 .blocoMarkerPontoParada {
     border: 1px solid;
-    border-color: #1b7aca;
-    background-color: #c7cbd0;
+    border-color: #000000;
+    background-color: #62dd19;
     border-radius: 3px;
+    margin-bottom: 5px
 }
+
 .blocoMarkerPontoPassagem {
     border: 1px solid;
-    border-color: #1b7aca;
-    background-color: #acbae1;
+    border-color: #000;
+    background-color: #c7cbd0;
     border-radius: 3px;
 }
 

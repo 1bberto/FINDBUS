@@ -11,6 +11,7 @@ namespace FindBus.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class tblRota
     {
@@ -19,9 +20,11 @@ namespace FindBus.Models
             this.tblItinerario = new HashSet<tblItinerario>();
             this.tblRotaPonto = new HashSet<tblRotaPonto>();
         }
-    
+        [Display(Name="Código")]
         public int RotaID { get; set; }
+        [Display(Name = "Descrição")]
         public string Descricao { get; set; }
+        [Display(Name = "Data Cadastro")]
         public System.DateTime DataInclusaoRegistro { get; set; }
     
         public virtual ICollection<tblItinerario> tblItinerario { get; set; }

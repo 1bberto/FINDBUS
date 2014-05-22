@@ -262,6 +262,7 @@
     <Content Include="Content\images\bus %281%29.png" />
     <Content Include="Content\images\bus %282%29.png" />
     <Content Include="Content\images\bus.png" />
+    <Content Include="Content\images\excluir.png" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\findbus.png" />
     <Content Include="Content\images\Flaticon_14179 %281%29.png" />
@@ -334,10 +335,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\Libs\bootstrap.js" />
     <Content Include="Scripts\Libs\bootstrap.min.js" />
-    <Content Include="Scripts\Libs\jquery.tinysort.js" />
-    <Content Include="Scripts\Libs\jquery.tinysort.min.js" />
+    <Content Include="Scripts\Regras\LocalizacaoVisualizar.js" />
     <Content Include="Scripts\Regras\Itinerario.js" />
     <Content Include="Scripts\Regras\FindBus.js" />
+    <Content Include="Scripts\Regras\LocalizacaoExcluir.js" />
     <Content Include="Scripts\Regras\Localizacao.js" />
     <Content Include="Scripts\Regras\Principal.js" />
     <Content Include="Scripts\Regras\VersaoApp.js" />
@@ -419,6 +420,8 @@
     <Content Include="Views\VersaoApp\AdicionarVersao.cshtml" />
     <Content Include="Views\Localizacao\Index.cshtml" />
     <Content Include="Views\Itinerario\Index.cshtml" />
+    <Content Include="Views\Localizacao\AdicionaRota.cshtml" />
+    <Content Include="Views\Localizacao\VisualizaRota.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

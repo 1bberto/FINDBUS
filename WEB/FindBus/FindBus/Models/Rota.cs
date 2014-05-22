@@ -10,7 +10,7 @@ namespace FindBus.Models
     public class Rota
     {
         // Atributos
-        private int rotaID;        
+        private int rotaID;
         private string descricao;
         private DateTime dataInclusaoRegistro;
         private List<Itinerario> itinerario;
@@ -49,6 +49,15 @@ namespace FindBus.Models
         public Rota()
         {
 
+        }
+        public Rota(int rotaID)
+        {
+            using (FindBusEntities fn = new FindBusEntities())
+            {
+                tblRota tbRota = fn.tblRota.Where(x => x.RotaID == rotaID).Single<tblRota>();
+                this.rotaID = tbRota.RotaID;
+                this.descricao = tbRota.Descricao;
+            }
         }
     }
 }

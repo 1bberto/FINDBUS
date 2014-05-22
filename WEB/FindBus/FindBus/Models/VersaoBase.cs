@@ -14,8 +14,11 @@ namespace FindBus.Models
 {
     public class VersaoBase
     {
+        [Display(Name = "Codigo")]
         public int BaseID { get; set; }
+        [Display(Name = "Versão Base")]
         public string LocalBase { get; set; }
+        [Display(Name = "Versão Base")]
         public System.DateTime DataInclusaoRegistro { get; set; }
         [Display(Name = "Versão Base")]
         public string versaoBase { get; set; }
