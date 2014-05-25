@@ -106,7 +106,7 @@ namespace FindBus.Models
                                            cidade = g.Descricao,
                                            estado = g.UF
                                        }
-                                      ).SingleOrDefault();
+                                      ).ToList()[0];
                             this.Latitude = loc.Lati;
                             this.Longitude = loc.Longi;
                             this.Rua = loc.rua;

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace FindBus.Controllers
 {
+    [Authorize]
     public class ItinerarioController : Controller
     {
         //
@@ -16,7 +17,7 @@ namespace FindBus.Controllers
         {
             return View(new RotaItinerario().RetornaRotas());
         }
-        [HttpGet()]        
+        [HttpGet()]
         public ActionResult ConsultaItinerario(int ItinerarioID)
         {
             //return Json(new RotaItinerario().RetornarItinerarioRota(ItinerarioID), JsonRequestBehavior.AllowGet);

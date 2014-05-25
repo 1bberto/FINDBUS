@@ -8,8 +8,29 @@ $(function () {
     })
 
     iniciarMapa();
-    $("#btnSalvarRota").click(function () {
-        InserirPontos();
+
+    $("#btnSalvarRota").click(function () {        
+        var existeRota = verificaNomeRota();        
+        if (existeRota == false)
+            InserirPontos();
+        else {
+            $('<div></div>').html('<p>Já Existe uma Rota com esse Nome<br/> Favor Insira um Nome Diferente</p>')
+           .dialog({
+               closeOnEscape: false,
+               title: 'FINDBUS',
+               modal: true,
+               draggable: true,
+               show: 'clip',
+               hide: 'clip',
+               buttons: {
+                   Ok: function () {
+                       $(this).dialog("close");
+                       $("#NomeRota").val('');
+                       $("#NomeRota").focus();
+                   }
+               }
+           });
+        }
     });
 });
 var infowindow = null;
@@ -27,6 +48,23 @@ var urlpost = null;
 var posicoesLista = "";
 var spinnerVisible = false;
 var Localizacoes = [];
+function verificaNomeRota() {
+    var retorno = true;
+    $.ajax({
+        type: 'GET',
+        data: { nomeRota: $("#NomeRota").val() },
+        cache: true,
+        async: false,
+        url: '../Localizacao/VerificaNomeRota',
+        success: function (data) {
+            retorno = data.Retorno == true ? true : false;
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+        }
+    });
+    return retorno;
+}
 function InserirPontos() {
     var pontos = [];
     if (markers.length == 0) {
@@ -105,7 +143,7 @@ function InserirPontos() {
                 buttons: {
                     Ok: function () {
                         $(this).dialog("close");
-                        window.location = "../Localizacao/Index";                       
+                        window.location = "../Localizacao/Index";
                     }
                 }
             })
@@ -356,7 +394,7 @@ function ProcuraLocalizacao(mark, i) {
     return;
 }
 function RemoveMarkerListaMapa(ind) {
-    $('<div></div>').html("<p>Deseja Realmente Exclir Este Ponto?</p>")
+    $('<div></div>').html("<p>Deseja Realmente Excluir Este Ponto?</p>")
     .dialog({
         closeOnEscape: false,
         title: 'FINDBUS',

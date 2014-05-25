@@ -17,12 +17,14 @@ namespace FindBus
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            
+
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);            
-            FindBus.BootstrapBundleConfig.RegisterBundles(System.Web.Optimization.BundleTable.Bundles);            
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            FindBus.BootstrapBundleConfig.RegisterBundles(System.Web.Optimization.BundleTable.Bundles);
+            GlobalConfiguration.Configuration.Filters.Add(new System.Web.Http.AuthorizeAttribute());
         }
     }
+
 }

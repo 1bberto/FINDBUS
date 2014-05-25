@@ -11,20 +11,26 @@ namespace FindBus.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblUsuario
     {
         public tblUsuario()
         {
             this.tblLogin = new HashSet<tblLogin>();
         }
-    
+        [Display(Name = "Código do Usuário")]
         public int UsuarioID { get; set; }
+        [Display(Name = "Login")]
         public string NomeUsuario { get; set; }
+        [Display(Name = "Senha")]
+        [DataType(DataType.Password)]
         public string UsuarioSenha { get; set; }
+        [Display(Name = "Data de Cadastro")]
         public System.DateTime DataInclusaoRegistro { get; set; }
+        [Display(Name = "Nivel de Acesso")]
         public int NiveldoAcesso { get; set; }
-    
+
         public virtual ICollection<tblLogin> tblLogin { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace FindBus.Controllers
 {
+    [Authorize]
     public class LocalizacaoController : Controller
     {
         //
@@ -16,15 +17,14 @@ namespace FindBus.Controllers
         {
             return View(new FindBusEntities().tblRota.ToList());
         }
-        public ActionResult AlteraRota(int RotaID)
+        [HttpGet()]
+        public ActionResult AlteraRota(int rotaID)
         {
-
-            return View();
+            return View(new Rota(rotaID));
         }
         [HttpGet()]
         public ActionResult VisualizaRota(int rotaID)
         {
-
             return View(new Rota(rotaID));
         }
         public ActionResult AdicionaRota()
@@ -79,12 +79,18 @@ namespace FindBus.Controllers
         {
             try
             {
-                return Json(new PontoLocalizacao().RetornaPontosRota(rotaID).OrderBy(x=>x.OrdemPonto), JsonRequestBehavior.AllowGet);
+                return Json(new PontoLocalizacao().RetornaPontosRota(rotaID).OrderBy(x => x.OrdemPonto), JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        [HttpGet()]
+        public ActionResult VerificaNomeRota(string nomeRota)
+        {
+            return Json(new Rota().VerificaNomeRota(nomeRota), JsonRequestBehavior.AllowGet);
         }
     }
 }

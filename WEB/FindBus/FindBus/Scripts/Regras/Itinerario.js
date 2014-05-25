@@ -25,8 +25,7 @@ function VisualizarItinerarioRota(ItinerarioRotaID) {
                 + '<td><input type="checkbox" ' + (value.Quinta == 'x' ? "checked=checked" : "") + '/></td>'
                 + '<td><input type="checkbox" ' + (value.Sexta == 'x' ? "checked=checked" : "") + '/></td>'
                 + '<td><input type="checkbox" ' + (value.Sabado == 'x' ? "checked=checked" : "") + '/></td>'
-                + '<td><input type="checkbox" ' + (value.Domingo == 'x' ? "checked=checked" : "") + '/></td>'
-                + '<td><input type="checkbox" ' + (value.Segunda == 'x' ? "checked=checked" : "") + '/></td>'
+                + '<td><input type="checkbox" ' + (value.Domingo == 'x' ? "checked=checked" : "") + '/></td>'                
                 + '</tr>';
             });
             console.log(retorno);

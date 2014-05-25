@@ -26,19 +26,22 @@ namespace FindBus.Controllers
             Usuario user = new Usuario().Login(Login, Senha);
             if ((!string.IsNullOrEmpty(user.NomeUsuario)) && (!string.IsNullOrEmpty(user.Senha)))
             {
-                Session["UsuarioLogado"] = user.NomeUsuario;
-                Session["NivelAcesso"] = user.NivelAcesso;
+                System.Web.Security.FormsAuthentication.SetAuthCookie(user.NomeUsuario, false);
+                if (user.NivelAcesso == 1)
+                    Session["CriaUsuario"] = true;
                 return Json(string.Format("Seja Bem Vindo {0}", user.NomeUsuario));
             }
             else
             {
+                System.Web.Security.FormsAuthentication.SignOut();
+                Session["CriaUsuario"] = null;
                 return Json("Usuario ou Senha Incorretos");
             }
         }
         public ActionResult LogOff()
         {
-            Session["UsuarioLogado"] = null;
-            Session["NivelAcesso"] = null;
+            System.Web.Security.FormsAuthentication.SignOut();
+            Session["CriaUsuario"] = null;
             return RedirectToAction("Index", "Home");
         }
 

@@ -29,7 +29,7 @@ body {
     border-color: #000000;
     background-color: #62dd19;
     border-radius: 3px;
-    margin-bottom: 5px
+    margin-bottom: 5px;
 }
 
 .blocoMarkerPontoPassagem {
@@ -37,6 +37,7 @@ body {
     border-color: #000;
     background-color: #c7cbd0;
     border-radius: 3px;
+    margin-bottom: 5px;
 }
 
 body.modal-open,
@@ -70,4 +71,13 @@ body.loading {
 
 .pagination-centered {
     text-align: center !important;
+}
+
+.bs-example {
+    margin: 10px;
+}
+
+table tr td,
+table tr th {
+    text-align: center;
 }

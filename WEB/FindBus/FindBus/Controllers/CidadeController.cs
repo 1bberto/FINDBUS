@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace FindBus.Controllers
 {
+    [Authorize]
     public class CidadeController : Controller
     {
         FindBusEntities fn = new FindBusEntities();

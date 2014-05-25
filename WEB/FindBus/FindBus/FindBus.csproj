@@ -146,6 +146,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocalizacaoController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\VersaoAppController.cs" />
     <Compile Include="Controllers\VersaoBaseController.cs" />
     <Compile Include="Controllers\VersaoController.cs" />
@@ -335,6 +336,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\Libs\bootstrap.js" />
     <Content Include="Scripts\Libs\bootstrap.min.js" />
+    <Content Include="Scripts\Libs\maps.js" />
+    <Content Include="Scripts\Regras\LocalizacaoAlterar.js" />
     <Content Include="Scripts\Regras\LocalizacaoVisualizar.js" />
     <Content Include="Scripts\Regras\Itinerario.js" />
     <Content Include="Scripts\Regras\FindBus.js" />
@@ -422,6 +425,10 @@
     <Content Include="Views\Itinerario\Index.cshtml" />
     <Content Include="Views\Localizacao\AdicionaRota.cshtml" />
     <Content Include="Views\Localizacao\VisualizaRota.cshtml" />
+    <Content Include="Views\Localizacao\AlteraRota.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\AlterarUsuario.cshtml" />
+    <Content Include="Views\Usuario\AdicionarUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

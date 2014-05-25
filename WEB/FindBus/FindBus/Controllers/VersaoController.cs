@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace FindBus.Controllers
 {
+    [Authorize]
     public class VersaoController : Controller
     {
         FindBusEntities fn = new FindBusEntities();
@@ -30,7 +31,7 @@ namespace FindBus.Controllers
 
                 if (versaoAtual != null)
                 {
-                    return new FileStreamResult(new FileStream(string.Format("{0}{1}",Server.MapPath("/"), versaoAtual.VersaoAPK), FileMode.Open), "application/vnd.android.package-archive")
+                    return new FileStreamResult(new FileStream(string.Format("{0}{1}", Server.MapPath("/"), versaoAtual.VersaoAPK), FileMode.Open), "application/vnd.android.package-archive")
                     {
                         FileDownloadName = "FindBus.apk"
                     };

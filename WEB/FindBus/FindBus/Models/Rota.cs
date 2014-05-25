@@ -59,5 +59,16 @@ namespace FindBus.Models
                 this.descricao = tbRota.Descricao;
             }
         }
+        public object VerificaNomeRota(string nomeRota)
+        {
+            using (FindBusEntities fn = new FindBusEntities())
+            {
+                int qtdRota = (from p in fn.tblRota
+                               where p.Descricao.Equals(nomeRota)
+                               select p).Count();
+
+                return qtdRota > 0 ? new { Retorno = true } : new { Retorno = false };
+            }
+        }
     }
 }

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace FindBus.Controllers
 {
+    [Authorize]
     public class VersaoBaseController : Controller
     {
         //

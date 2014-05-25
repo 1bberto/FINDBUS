@@ -1,62 +1,41 @@
-﻿@model FindBus.Models.Localizacao
+﻿@model IEnumerable<FindBus.Models.tblRota>
 @{
-    ViewBag.Title = "Atualização";
-    ViewBag.Pagina = "Atualização";
+    ViewBag.Title = "Rotas";
+    ViewBag.Pagina = "Lista de Rotas";
     Layout = "~/Views/Shared/_BootstrapLayout.basic.cshtml";
 }
 @Html.ValidationSummary(true)
-<div class="row-fluid">
-    <div class="row-fluid">
-        <div class="col-lg-12">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Nome da Rota" id="NomeRota">
-                <span class="input-group-btn">
-                    <button class="btn btn-large btn-info" type="button" id="btnSalvarRota">Salvar</button>
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class="row-fluid" style="text-align:center">        
-        <ul class="pagination pull-center" id="PaginacaoPontos">            
-        </ul>
-    </div>
-    <div class="row-fluid">
-        <div class="col-md-5 col-md-offset-0">
-            <div id="map" style="width: 730px; height: 500px">
-            </div>
-        </div>
-        <div class="col-md-4 col-md-offset-3">
-            <input type="radio"
-                name="radSize"
-                id="sizeSmall"
-                value="small"
-                checked="checked" onclick="DefineTipoImagemPonto()" />
-            <label for="sizeSmall">Ponto de Onibus</label>
-            <input type="radio"
-                name="radSize"
-                id="sizeMed"
-                value="medium" onclick="DefineTipoImagemPassagem()" />
-            <label for="sizeMed">Ponto Passagem</label>
-            <div id="Localizacoes" style="overflow: auto; height: 500px">
-                <b>Localizações</b>
-                <div id="ListPosicoes" class="pontoPassagem"></div>
-                <div class="row-fluid">
-                    <div class="span6 pull-right">
-                        <br />
-                    </div>
+<p style="text-align: right">
+    <a href="@Url.Action("AdicionaRota", "Localizacao")" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Adicionar</a>
+    <a onclick="window.history.back()" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Voltar</a>
+</p>
+<table class="table table-bordered table-striped responsive-utilities table table-responsive">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.RotaID)</th>
+        <th>@Html.DisplayNameFor(model => model.Descricao)</th>
+        <th>@Html.DisplayNameFor(model => model.DataInclusaoRegistro)</th>
+        <th>Ações</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="width: 10% !important">@Html.DisplayFor(modelItem => item.RotaID)</td>
+            <td style="width: 30% !important">@Html.DisplayFor(modelItem => item.Descricao)</td>
+            <td style="width: 20% !important">@Html.DisplayFor(modelItem => item.DataInclusaoRegistro)</td>
+            <td style="width: 20% !important; text-align: center">
+                <div class="btn-group">
+                    <a href="@Url.Action("VisualizaRota", "Localizacao", new { rotaID = item.RotaID })" class="btn btn-info btn-large"><i class="icon-white icon-pencil"></i>Visualizar</a>
+                    <a href="@Url.Action("AlteraRota", "Localizacao", new { rotaID = item.RotaID })" class="btn btn-success btn-large"><i class="icon-white icon-pencil"></i>Editar</a>
+                    <a onclick="ExcluirRota(@item.RotaID)" class="btn btn-danger btn-large"><i class="icon-white icon-pencil"></i>Excluir</a>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+            </td>
+        </tr>
+    }
+</table>
 @section Scripts {
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCuzGQQHQEajGCANlCPhwU8YdG9Qm9VbIQ&sensor=true"></script>        
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCuzGQQHQEajGCANlCPhwU8YdG9Qm9VbIQ&sensor=true"></script>   
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/Scripts/Regras/Localizacao.js")
-
+    @Scripts.Render("~/Scripts/Regras/LocalizacaoExcluir.js")
 }
-
-
-

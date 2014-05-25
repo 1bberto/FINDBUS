@@ -1,5 +1,6 @@
 ﻿/// <reference path="../Libs/jquery-2.0.3.js" />
 /// <reference path="../Libs/jquery-ui-1.10.3.js" />
+/// <reference path="../Libs/maps.js" />
 $(function () {
     $body = $("body");
     $(document).on({
@@ -24,6 +25,8 @@ var urlpost = null;
 var posicoesLista = "";
 var spinnerVisible = false;
 var Localizacoes = [];
+var infowindow = null;
+var LocationsData = [];
 function iniciarMapa() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -37,7 +40,7 @@ function iniciarMapa() {
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             map = new google.maps.Map(document.getElementById("map"), mapOptions);
-            map.mapDataProviders = "FindBus"
+            map.setTilt(45);
             directionsDisplay.setMap(map);
             var directionRendererOptions = {
                 suppressMarkers: true,
@@ -48,7 +51,6 @@ function iniciarMapa() {
                 }
             };
             directionsDisplay.setOptions(directionRendererOptions);
-            //google.maps.event.addDomListener(window, 'load', initialize);
             CarregaTodosPontosRota(map, $("#RotaID").val())
         });
     }
@@ -145,14 +147,14 @@ function montarListaPontos() {
                 "<i>Cidade</i>: <b>" + Localizacoes[i].Cidade + "</b>" +
                 "<br/><i>Bairro</i>: <b>" + Localizacoes[i].Bairro + "</b>" +
                 "<br/><i>Rua</i>: <b>" + Localizacoes[i].Rua + "</b>" +
-                //"<br/><i>Distancia do ponto Anterior</i>: <b>" + google.maps.geometry.spherical.computeDistanceBetween(markers[i].getPosition(), markers[i - 1].getPosition()).toFixed(2) + " Metros </b></div> " +
+                "<br/><i>Distancia do ponto Anterior</i>: <b>" + google.maps.geometry.spherical.computeDistanceBetween(markers[i].getPosition(), markers[i - 1].getPosition()).toFixed(2) + " Metros </b></div> " +
                 "</div></div>");
             else
                 $('#ListPosicoes').append("<div id=divmarker" + i + "  class=blocoMarkerPontoPassagem  data-sort=" + (i + 1) + " ><div onclick=FocoMarker(" + i + ") class=Marker>" +
                 "<i>Cidade</i>: <b>" + Localizacoes[i].Cidade + "</b>" +
                 "<br/><i>Bairro</i>: <b>" + Localizacoes[i].Bairro + "</b>" +
                 "<br/><i>Rua</i>: <b>" + Localizacoes[i].Rua + "</b>" +
-                //"<br/><i>Distancia do ponto Anterior</i>: <b>" + google.maps.geometry.spherical.computeDistanceBetween(markers[i].getPosition(), markers[i - 1].getPosition()).toFixed(2) + " Metros </b> </div> " +
+                "<br/><i>Distancia do ponto Anterior</i>: <b>" + google.maps.geometry.spherical.computeDistanceBetween(markers[i].getPosition(), markers[i - 1].getPosition()).toFixed(2) + " Metros </b> </div> " +
                 "</div></div>");
         }
     }
@@ -183,34 +185,18 @@ function ProcuraLocalizacao(mark, i) {
         success: function (data) {
             console.log(data);
             if (i == 0) {
-                if (markers[i].getIcon() == '../Content/images/bus (1).png') {
-                    var Localizacao = {
-                        Bairro: data.Bairro,
-                        Cidade: data.Cidade,
-                        Estado: data.Estado,
-                        Rua: data.Rua,
-                        Latitude: markers[i].getPosition().lat(),
-                        Longitude: markers[i].getPosition().lng(),
-                        PontoParada: markers[i].getIcon() == '../Content/images/bus (1).png',
-                        OrdemPonto: i + 1,
-                        DistanciaPontoAnterior: 0
-                    };
-                    Localizacoes.push(Localizacao);
-                }
-                else {
-                    var Localizacao = {
-                        Bairro: data.Bairro,
-                        Cidade: data.Cidade,
-                        Estado: data.Estado,
-                        Rua: data.Rua,
-                        Latitude: markers[i].getPosition().lat(),
-                        Longitude: markers[i].getPosition().lng(),
-                        PontoParada: markers[i].getIcon() == '../Content/images/bus (1).png',
-                        OrdemPonto: i + 1,
-                        DistanciaPontoAnterior: 0
-                    };
-                    Localizacoes.push(Localizacao);
-                }
+                var Localizacao = {
+                    Bairro: data.Bairro,
+                    Cidade: data.Cidade,
+                    Estado: data.Estado,
+                    Rua: data.Rua,
+                    Latitude: markers[i].getPosition().lat(),
+                    Longitude: markers[i].getPosition().lng(),
+                    PontoParada: markers[i].getIcon() == '../Content/images/bus (1).png',
+                    OrdemPonto: i + 1,
+                    DistanciaPontoAnterior: 0
+                };
+                Localizacoes.push(Localizacao);
             }
             else {
                 var Localizacao = {
@@ -222,7 +208,7 @@ function ProcuraLocalizacao(mark, i) {
                     Longitude: markers[i].getPosition().lng(),
                     PontoParada: markers[i].getIcon() == '../Content/images/bus (1).png',
                     OrdemPonto: i + 1,
-                    DistanciaPontoAnterior: 0//google.maps.geometry.spherical.computeDistanceBetween(markers[i].getPosition(), markers[i - 1].getPosition()).toFixed(2).replace('.', ',')
+                    DistanciaPontoAnterior: google.maps.geometry.spherical.computeDistanceBetween(markers[i].getPosition(), markers[i - 1].getPosition()).toFixed(2).replace('.', ',')
                 };
                 Localizacoes.push(Localizacao);
             }
@@ -289,8 +275,7 @@ function CarregaTodosPontosRota(mapa, rotaID) {
         data: { rotaID: rotaID },
         contentType: 'application/json',
         error: function (data) {
-            console.log(data);
-            alert(data);
+            console.log(data);            
         },
         success: function (data) {
             $.each(data, function (index, value) {
@@ -299,11 +284,35 @@ function CarregaTodosPontosRota(mapa, rotaID) {
                     position: myLatLng,
                     map: mapa,
                     icon: value.PontoParada == true ? image : imagempassagem,
-                    title: 'Ponto ' + (index + 1),
+                    title: 'Ponto-' + (index + 1) + '\n' + retornaDadosPonto(myLatLng, value.PontoParada)
                 });
                 markers.push(marker);
+                google.maps.event.addListener(marker, 'click', function () {
+                    map.setCenter(this.getPosition());                    
+                });
             })
             atualizaPosicoesMarkersLista();
         }
     })
+}
+function retornaDadosPonto(position, pontoParada) {    
+    var mensagemRetorno = null;
+    $.ajax({
+        type: 'GET',
+        url: '/Localizacao/VerificaLocalizacao',
+        data: { Lat: position.lat(), Long: position.lng() },
+        cache: true,
+        async: false,
+        success: function (data) {
+            mensagemRetorno = "Bairro: " + data.Bairro + "\n";
+            mensagemRetorno += "Cidade: " + data.Cidade + "\n";
+            mensagemRetorno += "Estado: " + data.Estado + "\n";
+            mensagemRetorno += "Rua: " + data.Rua + "\n";
+            mensagemRetorno += "Ponto de Parada: " + (pontoParada == true ? "Sim" : "Não") + "\n";
+        },
+        error: function (xhr, status, error) {
+            alert(error);
+        }
+    });
+    return mensagemRetorno;
 }

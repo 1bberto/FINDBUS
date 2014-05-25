@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace FindBus.Models
 {
@@ -21,19 +23,19 @@ namespace FindBus.Models
             get { return usuarioID; }
             set { usuarioID = value; }
         }
-
+        [Display(Name = "Login")]
         public string NomeUsuario
         {
             get { return nomeUsuario; }
             set { nomeUsuario = value; }
         }
-
+        [Display(Name = "Senha")]
         public string Senha
         {
             get { return senha; }
             set { senha = value; }
         }
-
+        [Display(Name = "Nivel de Acesso")]
         public int NivelAcesso
         {
             get { return nivelAcesso; }
@@ -54,21 +56,105 @@ namespace FindBus.Models
             DataInclusaoRegistro = DateTime.Now;
         }
 
-        FindBusEntities fn = new FindBusEntities();
         public Usuario Login(string login, string senha)
         {
-            var usuario = (from p in fn.tblUsuario
-                           where p.NomeUsuario.Equals(login) && p.UsuarioSenha.Equals(senha)
-                           select p).SingleOrDefault();
-            if (usuario != null)
+            using (FindBusEntities fn = new FindBusEntities())
             {
-                this.usuarioID = usuario.UsuarioID;
-                this.NomeUsuario = usuario.NomeUsuario;
-                this.senha = usuario.UsuarioSenha;
-                this.nivelAcesso = usuario.NiveldoAcesso;
-                this.dataInclusaoRegistro = usuario.DataInclusaoRegistro;
+                var usuario = (from p in fn.tblUsuario
+                               where p.NomeUsuario.Equals(login) && p.UsuarioSenha.Equals(senha)
+                               select p).SingleOrDefault();
+                if (usuario != null)
+                {
+                    this.usuarioID = usuario.UsuarioID;
+                    this.NomeUsuario = usuario.NomeUsuario;
+                    this.senha = usuario.UsuarioSenha;
+                    this.nivelAcesso = usuario.NiveldoAcesso;
+                    this.dataInclusaoRegistro = usuario.DataInclusaoRegistro;
+                }
+                return this;
             }
-            return this;
+        }
+        public List<SelectListItem> RetornaNiveisAcesso()
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+            items.Add(new SelectListItem { Text = "Administrador", Value = "1" });
+            items.Add(new SelectListItem { Text = "Comum", Value = "2" });
+            return items;
+        }
+
+        public IEnumerable<Usuario> RetornaUsuarios()
+        {
+            using (FindBusEntities fn = new FindBusEntities())
+            {
+                List<tblUsuario> tbUsuario = fn.tblUsuario.ToList<tblUsuario>();
+                foreach (tblUsuario tbusu in tbUsuario)
+                {
+                    yield return new Usuario
+                    {
+                        UsuarioID = tbusu.UsuarioID,
+                        NomeUsuario = tbusu.NomeUsuario,
+                        Senha = tbusu.UsuarioSenha,
+                        NivelAcesso = tbusu.NiveldoAcesso,
+                        DataInclusaoRegistro = tbusu.DataInclusaoRegistro
+                    };
+                }
+            }
+        }
+        public void InserirUsuario(Usuario usuario)
+        {
+            using (FindBusEntities fn = new FindBusEntities())
+            {
+                fn.tblUsuario.Add(new tblUsuario { NomeUsuario = usuario.NomeUsuario, UsuarioSenha = usuario.Senha, NiveldoAcesso = usuario.NivelAcesso, DataInclusaoRegistro = usuario.DataInclusaoRegistro });
+                fn.SaveChanges();
+            }
+        }
+        public void AlterarUsuario(Usuario usuario)
+        {
+            using (FindBusEntities fn = new FindBusEntities())
+            {
+                tblUsuario tbusuario = fn.tblUsuario.Find(usuario.UsuarioID);
+                if (tbusuario != null)
+                {
+                    tbusuario.NomeUsuario = usuario.NomeUsuario;
+                    tbusuario.UsuarioSenha = usuario.Senha;
+                    tbusuario.NiveldoAcesso = usuario.NivelAcesso;
+                    fn.SaveChanges();
+                }
+            }
+        }
+        public void ExcluirUsuario(int usuID)
+        {
+            using (FindBusEntities fn = new FindBusEntities())
+            {
+                fn.tblUsuario.Remove(fn.tblUsuario.Find(usuID));
+                fn.SaveChanges();
+            }
+        }
+        public Usuario retornaUsuario(int usuID)
+        {
+            using (FindBusEntities fn = new FindBusEntities())
+            {
+                tblUsuario tbusu = fn.tblUsuario.Find(usuID);
+                return new Usuario
+                {
+                    UsuarioID = tbusu.UsuarioID,
+                    NomeUsuario = tbusu.NomeUsuario,
+                    Senha = tbusu.UsuarioSenha,
+                    NivelAcesso = tbusu.NiveldoAcesso,
+                    DataInclusaoRegistro = tbusu.DataInclusaoRegistro
+                };
+            }
+        }
+        public object VerificaNomeUsuario(string nomeUsuario)
+        {
+            using (FindBusEntities fn = new FindBusEntities())
+            {
+                int qtdRota = (from p in fn.tblUsuario
+                               where p.NomeUsuario.Equals(nomeUsuario)
+                               select p).Count();
+
+                return qtdRota > 0 ? new { Retorno = true } : new { Retorno = false };
+            }
         }
     }
 }
