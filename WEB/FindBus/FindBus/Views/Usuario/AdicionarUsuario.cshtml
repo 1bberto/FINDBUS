@@ -1,0 +1,36 @@
+﻿@model FindBus.Models.Usuario
+@{
+    ViewBag.Title = "Adicionar Usuário";
+    Layout = "~/Views/Shared/_BootstrapLayout.basic.cshtml";
+    ViewBag.Pagina = "Adicionar Usuário";
+}
+@Html.ValidationSummary(true)
+<div class="control-group">
+    <div class="controls">
+        <label for="@Html.LabelFor(model => model.NomeUsuario)" class="col-lg-2 control-label">@Html.LabelFor(model => model.NomeUsuario)</label>
+        <input type="text" class="form-control" id="Login" placeholder="Login" value="@Html.DisplayFor(model => model.NomeUsuario)">
+    </div>
+</div>
+<br />
+<div class="control-group">
+    <label for="@Html.LabelFor(model => model.Senha)" class="col-lg-2 control-label">@Html.LabelFor(model => model.Senha)</label>
+    <input type="password" class="form-control" id="Senha" placeholder="Senha" value="@Html.DisplayFor(model => model.Senha)">
+</div>
+<br />
+<div class="control-group">
+    <label class="control-label" for="selectbasic">Nivel de Acesso</label>
+    <div class="controls">
+        @Html.DropDownListFor(model => model.NivelAcesso, new FindBus.Models.Usuario().RetornaNiveisAcesso(), new { @class = "form-control" })
+    </div>
+</div>
+<br />
+<input type="submit" class="btn btn-success" value="Salvar" onclick="AdicionarUsuario('@Url.Action("AdicionarUsuario", "Usuario")    ');" />
+<a href="@Url.Action("Index", "Versao")" class="btn btn-info">Voltar</a>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/scripts")
+}

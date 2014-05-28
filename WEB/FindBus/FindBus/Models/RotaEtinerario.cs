@@ -17,14 +17,31 @@ namespace FindBus.Models
         {
 
         }
-        public IEnumerable<USP_SEL_Itinerario_Result> RetornarItinerarioRota(int RotaEtinerarioID)
+        public List<USP_SEL_Itinerario_Result> RetornarItinerarioRota(int RotaEtinerarioID)
         {
             using (FindBusEntities db = new FindBusEntities())
             {
-                foreach (USP_SEL_Itinerario_Result itinerario in db.USP_SEL_Itinerario(RotaEtinerarioID))
+                List<USP_SEL_Itinerario_Result> itinerarios = new List<USP_SEL_Itinerario_Result>();
+                USP_SEL_Itinerario_Result itinerario;
+                foreach (USP_SEL_Itinerario_Result iti in db.USP_SEL_Itinerario(RotaEtinerarioID))
                 {
-                    yield return itinerario;
+                    itinerario = new USP_SEL_Itinerario_Result
+                    {
+                        rotaid = iti.rotaid,
+                        Descricao = iti.Descricao,
+                        HoraSaida = iti.HoraSaida,
+                        HoraChegada = iti.HoraChegada,
+                        Segunda = iti.Segunda,
+                        Terca = iti.Terca,
+                        Quarta = iti.Quarta,
+                        Quinta =iti.Quinta,
+                        Sexta = iti.Sexta,
+                        Sabado = iti.Sabado,
+                        Domingo = iti.Domingo
+                    };
+                    itinerarios.Add(itinerario);                    
                 }
+                return itinerarios;
             }
         }
         public IEnumerable<RotaItinerario> RetornaRotas()

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<FindBus.Models.USP_SEL_Itinerario_Result>
+
+<table class="table table-bordered table-striped responsive-utilities table table-responsive" id="tableItinerario">
+    <tr>
+        <th style="vertical-align: middle; font-size: 12px">@Html.DisplayNameFor(model => model.Descricao)</th>
+        <th style="vertical-align: middle; font-size: 12px">@Html.DisplayNameFor(model => model.HoraSaida)</th>
+        <th style="vertical-align: middle; font-size: 12px">@Html.DisplayNameFor(model => model.HoraChegada)</th>
+        <th style="vertical-align: middle; font-size: 12px">@Html.DisplayNameFor(model => model.Segunda)</th>
+        <th style="vertical-align: middle; font-size: 12px">@Html.DisplayNameFor(model => model.Terca)</th>
+        <th style="vertical-align: middle; font-size: 12px">@Html.DisplayNameFor(model => model.Quarta)</th>
+        <th style="vertical-align: middle; font-size: 12px">@Html.DisplayNameFor(model => model.Quinta)</th>
+        <th style="vertical-align: middle; font-size: 12px">@Html.DisplayNameFor(model => model.Sexta)</th>
+        <th style="vertical-align: middle; font-size: 12px">@Html.DisplayNameFor(model => model.Sabado)</th>
+        <th style="vertical-align: middle; font-size: 12px">@Html.DisplayNameFor(model => model.Domingo)</th>
+        <th style="vertical-align: middle; font-size: 12px">Ações</th>
+    </tr>
+    @{var contador = 0;}
+    @foreach (var item in Model)
+    {        
+        <tr id="ListaItinerario@(++contador)">
+            @Html.Hidden("RotaID", item.rotaid)
+            @Html.Hidden("Descricao", item.Descricao)
+            <td style="width: 10% !important; vertical-align: middle; font-size: 12px">@Html.DisplayFor(modelItem => item.Descricao)</td>
+            <td style="width: 10% !important; vertical-align: middle; font-size: 12px">@Html.TextBoxFor(modelItem => item.HoraSaida, new { @class = "form-control", @placeholder = "Hora", @maxlength = "5", @textalign = "center", @disabled = "", @id = "HoraSaida" + contador, @Style = "text-align: center !important", @onblur = "ValidaHorario(this)" })</td>
+            <td style="width: 8% !important; vertical-align: middle; font-size: 12px">@Html.TextBoxFor(modelItem => item.HoraChegada, new { @class = "form-control", @placeholder = "Hora", @maxlength = "5", @textalign = "center", @disabled = "", @id = "HoraChegada" + contador, @Style = "text-align: center !important", @onblur = "ValidaHorario(this)" })</td>
+            <td style="width: 7% !important; vertical-align: middle; font-size: 12px">@Html.CheckBox("Segunda", item.Segunda.Equals("x"), new { @disabled = "", @id = "Segunda" + contador })</td>
+            <td style="width: 7% !important; vertical-align: middle; font-size: 12px">@Html.CheckBox("Terca", item.Terca.Equals("x"), new { @disabled = "", @id = "Terca" + contador })</td>
+            <td style="width: 7% !important; vertical-align: middle; font-size: 12px">@Html.CheckBox("Quarta", item.Quarta.Equals("x"), new { @disabled = "", @id = "Quarta" + contador })</td>
+            <td style="width: 7% !important; vertical-align: middle; font-size: 12px">@Html.CheckBox("Quinta", item.Quinta.Equals("x"), new { @disabled = "", @id = "Quinta" + contador })</td>
+            <td style="width: 7% !important; vertical-align: middle; font-size: 12px">@Html.CheckBox("Sexta", item.Sexta.Equals("x"), new { @disabled = "", @id = "Sexta" + contador })</td>
+            <td style="width: 7% !important; vertical-align: middle; font-size: 12px">@Html.CheckBox("Sabado", item.Sabado.Equals("x"), new { @disabled = "", @id = "Sabado" + contador })</td>
+            <td style="width: 7% !important; vertical-align: middle; font-size: 12px">@Html.CheckBox("Domingo", item.Domingo.Equals("x"), new { @disabled = "", @id = "Domingo" + contador })</td>
+            <td style="width: 20% !important; text-align: center; font-size: 12px">
+                <div class="btn-group" id="grupo@(contador)">
+                    <a onclick="HabilitarEdicao(@contador)" class="btn btn-info btn-large" id="btnEditar@(contador)" style="visibility:visible">Editar</a>
+                    <a onclick="ExcluirItinerario(@contador)" class="btn btn-danger btn-large">Excluir</a>
+                </div>
+            </td>
+        </tr>        
+    }
+</table>
+<p style="text-align: right; float: right">
+    <a onclick="adicionarItinerario(@(++contador))" class="btn btn-warning btn-large">Adicionar</a>
+</p>

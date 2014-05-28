@@ -15,6 +15,7 @@
     </tr>
     @foreach (var item in Model)
     {
+        @Html.Hidden("Descricao" + item.RotaItinerarioID, item.Rota.Descricao);
         <tr>
             <td style="width: 10% !important">@Html.DisplayFor(modelItem => item.RotaItinerarioID)</td>
             <td style="width: 35% !important">@Html.DisplayFor(modelItem => item.Rota.Descricao)</td>

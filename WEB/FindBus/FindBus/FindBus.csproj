@@ -429,6 +429,7 @@
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\AlterarUsuario.cshtml" />
     <Content Include="Views\Usuario\AdicionarUsuario.cshtml" />
+    <Content Include="Views\Itinerario\RetornaItinerarioRota.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

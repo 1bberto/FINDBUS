@@ -81,3 +81,13 @@ table tr td,
 table tr th {
     text-align: center;
 }
+
+#CamposItinerario {
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+}
+
+.table .table-bordered .table-striped .responsive-utilities .table .table-responsive {
+    font-size: 10px;
+}

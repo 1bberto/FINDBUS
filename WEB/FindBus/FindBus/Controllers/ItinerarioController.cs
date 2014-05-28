@@ -23,5 +23,15 @@ namespace FindBus.Controllers
             //return Json(new RotaItinerario().RetornarItinerarioRota(ItinerarioID), JsonRequestBehavior.AllowGet);
             return Json(new RotaItinerario().RetornarItinerarioRota(ItinerarioID), JsonRequestBehavior.AllowGet);
         }
+        public ActionResult RetornaItinerarioRota(int rotaID)
+        {
+            return PartialView("RetornaItinerarioRota", new RotaItinerario().RetornarItinerarioRota(rotaID));
+        }
+        [HttpPost()]
+        public ActionResult InserirItinerarioRota(USP_SEL_Itinerario_Result itinerario)
+        {
+            new Itinerario().InserirItinerarioRota(itinerario);
+            return Json("Itinerário Incluido com Sucesso!", JsonRequestBehavior.AllowGet);
+        }
     }
 }
