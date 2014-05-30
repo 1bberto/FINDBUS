@@ -10,9 +10,6 @@ namespace FindBus.Controllers
     [Authorize]
     public class ItinerarioController : Controller
     {
-        //
-        // GET: /Etinerario/
-
         public ActionResult Index()
         {
             return View(new RotaItinerario().RetornaRotas());
@@ -20,7 +17,6 @@ namespace FindBus.Controllers
         [HttpGet()]
         public ActionResult ConsultaItinerario(int ItinerarioID)
         {
-            //return Json(new RotaItinerario().RetornarItinerarioRota(ItinerarioID), JsonRequestBehavior.AllowGet);
             return Json(new RotaItinerario().RetornarItinerarioRota(ItinerarioID), JsonRequestBehavior.AllowGet);
         }
         public ActionResult RetornaItinerarioRota(int rotaID)
@@ -32,6 +28,12 @@ namespace FindBus.Controllers
         {
             new Itinerario().InserirItinerarioRota(itinerario);
             return Json("Itinerário Incluido com Sucesso!", JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost()]
+        public ActionResult ExcluirItinerarioRota(USP_SEL_Itinerario_Result itinerario)
+        {
+            new Itinerario().ExcluirItinerarioRota(itinerario);
+            return Json("Itinerário Excluido com Sucesso!", JsonRequestBehavior.AllowGet);
         }
     }
 }

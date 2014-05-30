@@ -57,10 +57,10 @@ function AdicionaCidade(url) {
         }
     });
 }
-function RealizaLogin(url) {
+function RealizaLogin() {
     $.ajax({
         type: 'POST',
-        url: url,
+        url: '../Login/RealizaLogin',
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify({ Login: $("#Login").val(), Senha: $("#Senha").val() }),
         contentType: 'application/json',

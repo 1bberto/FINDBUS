@@ -23,7 +23,6 @@ namespace FindBus.Models
         [Display(Name = "Versão Base")]
         public string versaoBase { get; set; }
 
-
         public void GerarBaseDados(string local)
         {
             using (FindBusEntities fn = new FindBusEntities())

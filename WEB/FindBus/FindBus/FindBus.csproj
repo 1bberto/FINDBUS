@@ -140,7 +140,6 @@
     <Compile Include="BootstrapSupport\ControlGroupExtensions.cs" />
     <Compile Include="BootstrapSupport\ViewHelperExtensions.cs" />
     <Compile Include="Controllers\AtualizacaoController.cs" />
-    <Compile Include="Controllers\BootstrapBaseController.cs" />
     <Compile Include="Controllers\CidadeController.cs" />
     <Compile Include="Controllers\ItinerarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -155,7 +154,6 @@
     </Compile>
     <Compile Include="Models\Atualizacao.cs" />
     <Compile Include="Models\Banco.cs" />
-    <Compile Include="Models\BDAcess.cs" />
     <Compile Include="Models\Cidade.cs" />
     <Compile Include="Models\Itinerario.cs" />
     <Compile Include="Models\Repositorio.Context.cs">
@@ -367,6 +365,9 @@
       <DependentUpon>Repositorio.edmx</DependentUpon>
       <LastGenOutput>Repositorio.cs</LastGenOutput>
     </Content>
+    <Content Include="Diagramas\Controllers.cd" />
+    <Content Include="Diagramas\DTO.cd" />
+    <Content Include="Diagramas\Models.cd" />
     <None Include="Properties\PublishProfiles\findbus.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\Libs\jquery-2.0.3.intellisense.js" />
@@ -400,20 +401,10 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Cidade\Index.cshtml" />
     <Content Include="Views\Cidade\Adicionar.cshtml" />
-    <Content Include="Views\Shared\_html5shiv.cshtml" />
-    <Content Include="Views\Shared\Index.cshtml" />
-    <Content Include="Views\Shared\Details.cshtml" />
-    <Content Include="Views\Shared\Create.cshtml" />
-    <Content Include="Views\Shared\_validationSummary.cshtml" />
-    <Content Include="Views\Shared\_BootstrapLayout.narrow.cshtml" />
-    <Content Include="Views\Shared\_BootstrapLayout.empty.cshtml" />
-    <Content Include="Views\Shared\_BootstrapLayout.basic.cshtml" />
-    <Content Include="Views\Shared\_alerts.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Versao\Index.cshtml" />
     <Content Include="Views\Versao\AlterarVersao.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />

@@ -2,12 +2,12 @@
 @{
     ViewBag.Title = "Rotas";
     ViewBag.Pagina = "Lista de Rotas";
-    Layout = "~/Views/Shared/_BootstrapLayout.basic.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @Html.ValidationSummary(true)
 <p style="text-align: right">
-    <a href="@Url.Action("AdicionaRota", "Localizacao")" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Adicionar</a>
-    <a onclick="window.history.back()" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Voltar</a>
+    <a href="@Url.Action("AdicionaRota", "Localizacao")" class="btn btn-success btn-large"><i class="icon-white icon-plus-sign"></i>Adicionar</a>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Voltar</a>
 </p>
 <table class="table table-bordered table-striped responsive-utilities table table-responsive">
     <tr>
@@ -33,7 +33,7 @@
     }
 </table>
 @section Scripts {
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCuzGQQHQEajGCANlCPhwU8YdG9Qm9VbIQ&sensor=true"></script>   
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCuzGQQHQEajGCANlCPhwU8YdG9Qm9VbIQ&sensor=true"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/modernizr")

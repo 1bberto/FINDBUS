@@ -2,17 +2,19 @@
 @{
     ViewBag.Title = "Versão";
     ViewBag.Pagina = "Versão";
-    Layout = "~/Views/Shared/_BootstrapLayout.basic.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";    
 }
-
-<h2>Versão</h2>
+<p style="text-align: right">
+    <a href="@Url.Action("Index", "Home")" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Voltar</a>
+</p>
 @Html.DisplayNameFor(model => model.VersaoAPK) : @Html.DisplayFor(model => model.VersaoAPK)
 <br />
 @Html.DisplayNameFor(model => model.VersaoBase) : @Html.DisplayFor(model => model.VersaoBase)
 <br />
 @Html.DisplayNameFor(model => model.DataInclusaoRegistro) : @Html.DisplayFor(model => model.DataInclusaoRegistro)
 <br />
+<br />
 <div>
-    <a href="@Url.Action("AlterarVersao", "Versao")" class="btn btn-info">Atualizar Versão</a>
+    <a href="@Url.Action("AlterarVersao", "Versao")" class="btn btn-success">Atualizar Versão</a>
     <a href="@Url.Action("Index", "Home")" class="btn btn-info">Voltar</a>
 </div>

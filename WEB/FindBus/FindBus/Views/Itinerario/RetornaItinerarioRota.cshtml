@@ -20,9 +20,9 @@
         <tr id="ListaItinerario@(++contador)">
             @Html.Hidden("RotaID", item.rotaid)
             @Html.Hidden("Descricao", item.Descricao)
-            <td style="width: 10% !important; vertical-align: middle; font-size: 12px">@Html.DisplayFor(modelItem => item.Descricao)</td>
-            <td style="width: 10% !important; vertical-align: middle; font-size: 12px">@Html.TextBoxFor(modelItem => item.HoraSaida, new { @class = "form-control", @placeholder = "Hora", @maxlength = "5", @textalign = "center", @disabled = "", @id = "HoraSaida" + contador, @Style = "text-align: center !important", @onblur = "ValidaHorario(this)" })</td>
-            <td style="width: 8% !important; vertical-align: middle; font-size: 12px">@Html.TextBoxFor(modelItem => item.HoraChegada, new { @class = "form-control", @placeholder = "Hora", @maxlength = "5", @textalign = "center", @disabled = "", @id = "HoraChegada" + contador, @Style = "text-align: center !important", @onblur = "ValidaHorario(this)" })</td>
+            <td style="width: 10% !important; vertical-align: middle; font-size: 12px">@Html.DisplayFor(modelItem => item.Descricao)</td>            
+            <td style="width: 10% !important; vertical-align: middle; font-size: 12px">@Html.TextBoxFor(modelItem => item.HoraSaida, new { @class = "form-control", @placeholder = "Hora Saida'", @maxlength = "5", @textalign = "center", @disabled = "", @id = "HoraSaida" + contador, @Style = "text-align: center !important", @onblur = "ValidaHorario(this)" })</td>
+            <td style="width: 8% !important; vertical-align: middle; font-size: 12px">@Html.TextBoxFor(modelItem => item.HoraChegada, new { @class = "form-control", @placeholder = "Hora Chagada'", @maxlength = "5", @textalign = "center", @disabled = "", @id = "HoraChegada" + contador, @Style = "text-align: center !important", @onblur = "ValidaHorario(this)" })</td>
             <td style="width: 7% !important; vertical-align: middle; font-size: 12px">@Html.CheckBox("Segunda", item.Segunda.Equals("x"), new { @disabled = "", @id = "Segunda" + contador })</td>
             <td style="width: 7% !important; vertical-align: middle; font-size: 12px">@Html.CheckBox("Terca", item.Terca.Equals("x"), new { @disabled = "", @id = "Terca" + contador })</td>
             <td style="width: 7% !important; vertical-align: middle; font-size: 12px">@Html.CheckBox("Quarta", item.Quarta.Equals("x"), new { @disabled = "", @id = "Quarta" + contador })</td>

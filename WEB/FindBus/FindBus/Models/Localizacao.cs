@@ -22,13 +22,9 @@ namespace FindBus.Models
         public string Rua { get; set; }
         private string urlGoogle = "http://maps.googleapis.com/maps/api/geocode/json?latlng={0},{1}&sensor=true";
         private int pontoId;
-        public Localizacao()
-        {
-
-        }
+        public Localizacao() { }
         public Localizacao(string Lat, string Long)
         {
-
             try
             {
                 if (!string.IsNullOrEmpty(Lat) && !string.IsNullOrEmpty(Long))
@@ -140,7 +136,6 @@ namespace FindBus.Models
                         new SqlParameter { ParameterName = "Longitude", Value = ponto.Longitude },
                         new SqlParameter { ParameterName = "PontoParada", Value = ponto.PontoParada }
                     };
-                    this.pontoId = fn.USP_INS_PONTO(this.Rua, this.Cidade, this.Estado, this.Bairro, NomeRota, ponto.Latitude, ponto.Longitude, ponto.PontoParada);
                     this.pontoId = fn.Database.SqlQuery<int>("exec [dbo].[USP_INS_PONTO] @Rua,@Cidade,@UF,@Bairro,@Rota,@Latitude,@Longitude,@PontoParada", parameters).ToList<int>()[0];
                     fn.tblRotaPonto.Add(new tblRotaPonto()
                     {

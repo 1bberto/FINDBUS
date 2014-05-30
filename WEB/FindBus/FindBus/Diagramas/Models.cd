@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="FindBus.Models.Atualizacao">
+    <Position X="8.25" Y="9.75" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAEAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Models\Atualizacao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.Banco">
+    <Position X="30" Y="6" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>IBCAAIBLAAAAEAQoAAUAgAFgIAIAAFABIAMALAAAAAA=</HashCode>
+      <FileName>Models\Banco.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.Cidade">
+    <Position X="25.75" Y="6" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAIEAAADAAAAAQAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Cidade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.FindBusEntities">
+    <Position X="10.75" Y="0.5" Width="8.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQABAIABRAAAABAAYAABEAEgIAAAAAEQACAAACA=</HashCode>
+      <FileName>Models\Repositorio.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.Itinerario">
+    <Position X="22.75" Y="9.5" Width="6.75" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAEABAAAAAQAEACAABJAAAACAAAAAwAA=</HashCode>
+      <FileName>Models\Itinerario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.Localizacao">
+    <Position X="10.75" Y="5.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAEAAAAIAAAAIIACAAAAAAIAAAAAAAAQQAAo=</HashCode>
+      <FileName>Models\Localizacao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.PontoLocalizacao">
+    <Position X="17.75" Y="10.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAEAAAAQAAAAIAAAAAAAAAIAAAAAAAAAACAA=</HashCode>
+      <FileName>Models\PontoLocalizacao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.Rota">
+    <Position X="4.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAGAEAABhBAAAAQAAAAAAAEAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Rota.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.RotaItinerario">
+    <Position X="26.5" Y="0.5" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAEAAAAAAEAAAAQAQAAAAAAAAAA=</HashCode>
+      <FileName>Models\RotaEtinerario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.RotaPonto">
+    <Position X="22.75" Y="5.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>CAAIACAAAAAgAAAAAAAAAAAAAAAIAAAABCAAAAQgCAA=</HashCode>
+      <FileName>Models\RotaPonto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.tblAplicativo">
+    <Position X="4.5" Y="7.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAEAAIAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Models\tblAplicativo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.tblBairro">
+    <Position X="13.25" Y="10.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAABAAAAAAAAAAAAAAAABAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Models\tblBairro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.tblBairroRua">
+    <Position X="8" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAgAgBAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Models\tblBairroRua.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.tblBase">
+    <Position X="0.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAEAAAAAAAAAAAAAACAAAAIAAACA=</HashCode>
+      <FileName>Models\tblBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.tblCidade">
+    <Position X="26.5" Y="3" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAABAAAAAAAAgAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\tblCidade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.tblCidadeBairro">
+    <Position X="4.5" Y="10" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAEAAAgBAAAAAAAACAAAAA=</HashCode>
+      <FileName>Models\tblCidadeBairro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.tblItinerario">
+    <Position X="8" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAABEABAAAAAAAEAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\tblItinerario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.tblLogin">
+    <Position X="8" Y="4.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAIEAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\tblLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.tblPonto">
+    <Position X="0.5" Y="3" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAEAMAAAAQAAAAIAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Models\tblPonto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.tblRota">
+    <Position X="0.5" Y="6" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAASAEAAABAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Models\tblRota.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.tblRotaPonto">
+    <Position X="19.25" Y="8.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAKAAAAAABAAAAAAAAAAAAAEIAAAABAAAAAAACAA=</HashCode>
+      <FileName>Models\tblRotaPonto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.tblRua">
+    <Position X="15.5" Y="5.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAIABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAEA=</HashCode>
+      <FileName>Models\tblRua.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.tblRuaPonto">
+    <Position X="8" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAEAAAAAAAAAAIQAAEA=</HashCode>
+      <FileName>Models\tblRuaPonto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.tblUsuario">
+    <Position X="4.5" Y="4.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAQAAIAAAAAAAAAIAAAAAAAAAAAgAAIAA=</HashCode>
+      <FileName>Models\tblUsuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.tblVersao">
+    <Position X="15.75" Y="8.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAEAAAAAAAAABAAAAAAAAAAIAAACAAAAAAAAAA=</HashCode>
+      <FileName>Models\tblVersao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.USP_SEL_Itinerario_Result">
+    <Position X="0.5" Y="8.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAIACQAABABBAAABAACACAAEAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\USP_SEL_Itinerario_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.Usuario">
+    <Position X="22.75" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAIEAQAAAAAAAIAAoAAABKAAAAYCAAAQAhAACAA=</HashCode>
+      <FileName>Models\Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.Versao">
+    <Position X="19.25" Y="5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAGAAACAAAAAAAAAAAAQEAAAABAAAAAAIAAAAA=</HashCode>
+      <FileName>Models\Versao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.VersaoApp">
+    <Position X="19.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\VersaoApp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FindBus.Models.VersaoBase">
+    <Position X="19.5" Y="2.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAACAAAAAAEAAAAAAAAAAAAAACAAAAAAAAAE=</HashCode>
+      <FileName>Models\VersaoBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

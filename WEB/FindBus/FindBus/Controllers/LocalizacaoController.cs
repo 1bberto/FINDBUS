@@ -10,9 +10,6 @@ namespace FindBus.Controllers
     [Authorize]
     public class LocalizacaoController : Controller
     {
-        //
-        // GET: /Localizacao/
-
         public ActionResult Index()
         {
             return View(new FindBusEntities().tblRota.ToList());

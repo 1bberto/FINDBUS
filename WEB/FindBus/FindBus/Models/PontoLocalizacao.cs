@@ -13,7 +13,6 @@ namespace FindBus.Models
         public int OrdemPonto { get; set; }
         public decimal DistanciaPontoAnterior { get; set; }
 
-
         public IEnumerable<PontoLocalizacao> RetornaPontosRota(int rotaID)
         {
             using (FindBusEntities fn = new FindBusEntities())

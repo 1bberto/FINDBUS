@@ -12,7 +12,6 @@ namespace FindBus.Controllers
     public class VersaoController : Controller
     {
         FindBusEntities fn = new FindBusEntities();
-        // GET: /Versao/        
         public ActionResult Index()
         {
             return View(new Versao().RetornaVersao());

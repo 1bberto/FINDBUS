@@ -1,32 +1,33 @@
 ﻿@model IEnumerable<FindBus.Models.RotaItinerario>
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_BootstrapLayout.basic.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Pagina = "Itinerário";
 }
-<p style="text-align: right">    
-    <a onclick="window.history.back()" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Voltar</a>
+<p style="text-align: right">
+    <a href="@Url.Action("Index", "Home")" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Voltar</a>
 </p>
-<table class="table table-bordered table-striped responsive-utilities">
+<table class="table table-bordered table-striped responsive-utilities table table-responsive">
     <tr>
         <th>@Html.DisplayNameFor(model => model.RotaItinerarioID)</th>
         <th>@Html.DisplayNameFor(model => model.Rota.Descricao)</th>
         <th>Ações</th>
     </tr>
     @foreach (var item in Model)
-    {
-        @Html.Hidden("Descricao" + item.RotaItinerarioID, item.Rota.Descricao);
+    {        
         <tr>
+            @Html.Hidden("Descricao" + item.RotaItinerarioID, item.Rota.Descricao)
             <td style="width: 10% !important">@Html.DisplayFor(modelItem => item.RotaItinerarioID)</td>
             <td style="width: 35% !important">@Html.DisplayFor(modelItem => item.Rota.Descricao)</td>
             <td style="width: 15% !important; text-align: center">
                 <div class="btn-group">
-                    <a class="btn btn-primary btn-large" onclick="VisualizarItinerarioRota(@Html.DisplayFor(modelItem => item.RotaItinerarioID))">Visualizar</a>                    
+                    <a class="btn btn-primary btn-large" onclick="VisualizarItinerarioRota(@Html.DisplayFor(modelItem => item.RotaItinerarioID),'@Html.DisplayFor(modelItem => item.Rota.Descricao)')">Editar / Visualizar</a>
                 </div>
             </td>
         </tr>
     }
 </table>
+<div id="dialog"></div>
 @section Scripts{
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")

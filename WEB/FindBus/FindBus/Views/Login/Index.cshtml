@@ -1,7 +1,7 @@
 ﻿@model FindBus.Models.Usuario
 @{
     ViewBag.Title = "Login";
-    Layout = "~/Views/Shared/_BootstrapLayout.basic.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Pagina = "Login";
 }
 
@@ -20,7 +20,7 @@
         </div>
         <br />
         <div class="col-md-offset-10">
-            <input type="submit" class="btn btn-large btn-success" value="Login" onclick="RealizaLogin('@Url.Action("RealizaLogin", "Login")    ');"/>
+            <input type="submit" class="btn btn-large btn-primary" value="Login" onclick="RealizaLogin()"/>
         </div>
     </div>
 </div>

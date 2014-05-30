@@ -2,13 +2,14 @@
 @{
     ViewBag.Title = "Versão Base";
     ViewBag.Pagina = "Versão Base";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using (Html.BeginForm("AdicionarVersaoBase", "VersaoBase", FormMethod.Post, new { @id = "formVersaoBase" }))
 {
     <div class="control-group">
         <div class="controls">
             <label for="@Html.LabelFor(model => model.versaoBase)" class="col-lg-2 control-label">@Html.LabelFor(model => model.versaoBase)</label>
-            <input type="text" class="form-control" id="versao" placeholder="Versão Base">
+            <input type="number" class="form-control" id="versao" placeholder="Versão Base">
         </div>
     </div>    
     <br />    

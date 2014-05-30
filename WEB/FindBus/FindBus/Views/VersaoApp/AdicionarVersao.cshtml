@@ -2,13 +2,14 @@
 @{
     ViewBag.Title = "Versão Aplicativo";
     ViewBag.Pagina = "Versão Aplicatvo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using (Html.BeginForm("AdicionarVersaoApp", "VersaoBase", FormMethod.Post, new { @id = "formVersaoApp" }))
 {
     <div class="control-group">
         <div class="controls">
             <label for="@Html.LabelFor(model => model.versaoApp)" class="col-lg-2 control-label">@Html.LabelFor(model => model.versaoApp)</label>
-            <input type="text" class="form-control" id="versao" placeholder="Versão App" required="required">
+            <input type="number" class="form-control" id="versao" placeholder="Versão App" required="required">
         </div>
     </div>
     <div class="control-group">
@@ -16,7 +17,7 @@
     </div>
     <br />
     <div style="float: left; width: 100%; position: relative">
-        <input type="file" title="Selecione a Versao do Aplicativo" id="arquivo" required="required"/>
+        <input type="file" title="Selecione a Versao do Aplicativo" id="arquivo" required="required" />
     </div>
     <br />
     <br />

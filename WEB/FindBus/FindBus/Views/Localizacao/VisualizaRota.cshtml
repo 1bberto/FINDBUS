@@ -1,7 +1,7 @@
 ﻿@model FindBus.Models.Rota
 @{
     ViewBag.Title = "VisualizaRota";
-    Layout = "~/Views/Shared/_BootstrapLayout.basic.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Pagina = "Visualizar Rota - " + Model.Descricao.ToString();
 }
 @Html.Hidden("RotaID", Model.RotaID)

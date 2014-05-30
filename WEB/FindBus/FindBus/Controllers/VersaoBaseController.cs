@@ -11,19 +11,22 @@ namespace FindBus.Controllers
     [Authorize]
     public class VersaoBaseController : Controller
     {
-        //
-        // GET: /VersaoBase/
         FindBusEntities fn;
         List<VersaoBase> versoesBase;
         public ActionResult Index()
         {
-            fn = new FindBusEntities();
-            versoesBase = new List<VersaoBase>();
-            foreach (tblBase vbase in fn.tblBase.ToList())
+            if (Session["CriaUsuario"] != null)
             {
-                versoesBase.Add(new VersaoBase() { BaseID = vbase.BaseID, versaoBase = vbase.VersaoBase, LocalBase = vbase.LocalBase, DataInclusaoRegistro = vbase.DataInclusaoRegistro });
+                fn = new FindBusEntities();
+                versoesBase = new List<VersaoBase>();
+                foreach (tblBase vbase in fn.tblBase.ToList())
+                {
+                    versoesBase.Add(new VersaoBase() { BaseID = vbase.BaseID, versaoBase = vbase.VersaoBase, LocalBase = vbase.LocalBase, DataInclusaoRegistro = vbase.DataInclusaoRegistro });
+                }
+                return View(versoesBase);
             }
-            return View(versoesBase);
+            else
+                return RedirectToAction("Index", "Home");
         }
         public ActionResult AdicionarVersao()
         {

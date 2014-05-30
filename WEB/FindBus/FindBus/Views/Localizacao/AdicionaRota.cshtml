@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Rota - Cadastro";
     ViewBag.Pagina = "Cadastro de Rota";
-    Layout = "~/Views/Shared/_BootstrapLayout.basic.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @Html.ValidationSummary(true)
 <div class="row-fluid">
@@ -11,7 +11,7 @@
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Nome da Rota" id="NomeRota" maxlength="50">
                 <span class="input-group-btn">
-                    <button class="btn btn-large btn-info" type="button" id="btnSalvarRota">Salvar</button>
+                    <button class="btn btn-large btn-success" type="button" id="btnSalvarRota">Salvar</button>
                 </span>
             </div>
         </div>
@@ -31,7 +31,7 @@
                 id="sizeSmall"
                 value="small"
                 checked="checked" onclick="DefineTipoImagemPonto()" />
-            <label for="sizeSmall" style="margin-right:20px"><img src="~/Content/images/bus (1).png" style="margin-right:5px"/>Ponto de Onibus</label>               
+            <label for="sizeSmall" style="margin-right:15px"><img src="~/Content/images/bus (1).png" style="margin-right:5px"/>Ponto de Onibus</label>               
             <input type="radio"
                 name="radSize"
                 id="sizeMed"

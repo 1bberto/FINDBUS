@@ -13,10 +13,7 @@ namespace FindBus.Models
         public int RotaItinerarioID { get; set; }
         public Rota Rota { get; set; }
         public List<Itinerario> Etinerario { get; set; }
-        public RotaItinerario()
-        {
-
-        }
+        public RotaItinerario() { }
         public List<USP_SEL_Itinerario_Result> RetornarItinerarioRota(int RotaEtinerarioID)
         {
             using (FindBusEntities db = new FindBusEntities())
@@ -34,12 +31,12 @@ namespace FindBus.Models
                         Segunda = iti.Segunda,
                         Terca = iti.Terca,
                         Quarta = iti.Quarta,
-                        Quinta =iti.Quinta,
+                        Quinta = iti.Quinta,
                         Sexta = iti.Sexta,
                         Sabado = iti.Sabado,
                         Domingo = iti.Domingo
                     };
-                    itinerarios.Add(itinerario);                    
+                    itinerarios.Add(itinerario);
                 }
                 return itinerarios;
             }

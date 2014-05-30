@@ -194,24 +194,24 @@ function addInfoMarker(marker) {
     var message = null;
     var posicaomarker = marker.getPosition();
     google.maps.event.addListener(marker, 'click', function () {
-        $.ajax({
-            type: 'GET',
-            url: 'Localizacao/VerificaLocalizacao',
-            contentType: 'application/json; charset=utf-8',
-            data: { Lat: posicaomarker.lat(), Long: posicaomarker.lng() },
-            contentType: 'application/json',
-            error: function (data) {
-                alert(data);
-            },
-            success: function (data) {
-                message = '<div> <b>Ponto ' + markers.indexOf(marker) + 1 + '</b><br/>';
-                message += data.Estado + data.Cidade + data.Bairro + data.Rua + '</div>';
-            }
-        });
-        var infowindow = new google.maps.InfoWindow({
-            content: "asdas"
-        });
-        infowindow.open(map, marker);
+        //$.ajax({
+        //    type: 'GET',
+        //    url: 'Localizacao/VerificaLocalizacao',
+        //    contentType: 'application/json; charset=utf-8',
+        //    data: { Lat: posicaomarker.lat(), Long: posicaomarker.lng() },
+        //    contentType: 'application/json',
+        //    error: function (data) {
+        //        alert(data);
+        //    },
+        //    success: function (data) {
+        //        message = '<div> <b>Ponto ' + markers.indexOf(marker) + 1 + '</b><br/>';
+        //        message += data.Estado + data.Cidade + data.Bairro + data.Rua + '</div>';
+        //    }
+        //});
+        //var infowindow = new google.maps.InfoWindow({
+        //    content: "asdas"
+        //});
+        //infowindow.open(map, marker);
         map.setCenter(posicaomarker);
     });
 }

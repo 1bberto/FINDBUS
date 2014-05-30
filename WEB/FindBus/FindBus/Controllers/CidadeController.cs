@@ -76,7 +76,8 @@ namespace FindBus.Controllers
             items.Add(new SelectListItem { Text = "Santa Catarina", Value = "SC" });
             items.Add(new SelectListItem { Text = "Sergipe", Value = "SE" });
             items.Add(new SelectListItem { Text = "São Paulo", Value = "SP" });
-            items.Add(new SelectListItem { Text = "Tocatins", Value = "TO" }); return items;
+            items.Add(new SelectListItem { Text = "Tocatins", Value = "TO" });
+            return items;
         }
     }
 }

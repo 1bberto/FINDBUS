@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<FindBus.Models.VersaoApp>
 @{
     ViewBag.Title = "Cadatro de Versão do Aplicativo";
-    Layout = "~/Views/Shared/_BootstrapLayout.basic.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Pagina = "Versão Aplicativo";
 }
 
 <p style="text-align: right">
-    <a href="@Url.Action("AdicionarVersao", "VersaoApp")" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Adicionar</a>
-    <a onclick="window.history.back()" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Voltar</a>
+    <a href="@Url.Action("AdicionarVersao", "VersaoApp")" class="btn btn-success btn-large"><i class="icon-white icon-plus-sign"></i>Adicionar</a>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Voltar</a>
 </p>
 <table class="table table-bordered table-striped responsive-utilities">
     <tr>

@@ -9,9 +9,6 @@ namespace FindBus.Controllers
 {
     public class UsuarioController : Controller
     {
-        //
-        // GET: /Usuario/
-
         public ActionResult Index()
         {
             if (Session["CriaUsuario"] != null)

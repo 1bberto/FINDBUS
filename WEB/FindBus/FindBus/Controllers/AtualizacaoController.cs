@@ -9,6 +9,9 @@ using System.Web;
 
 namespace FindBus.Controllers
 {
+    /// <summary>
+    /// Classe API que é responsavel por informar ao usuario se a versao da do app e a versao da base de dados estao ok
+    /// </summary>
     public class AtualizacaoController : ApiController
     {
         /// <summary>

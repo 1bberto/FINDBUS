@@ -16,7 +16,6 @@ namespace FindBus.Models
         private List<Itinerario> itinerario;
         private List<RotaPonto> pontos;
 
-
         // Propriedades
         public List<RotaPonto> Pontos
         {
@@ -46,10 +45,8 @@ namespace FindBus.Models
             get { return itinerario; }
             set { itinerario = value; }
         }
-        public Rota()
-        {
 
-        }
+        public Rota() { }
         public Rota(int rotaID)
         {
             using (FindBusEntities fn = new FindBusEntities())

@@ -60,7 +60,13 @@ namespace FindBus.Models
                     InsereItinerarioDiaSemana(itinerario, fn, "Domingo");
             }
         }
-
+        public void ExcluirItinerarioRota(USP_SEL_Itinerario_Result itinerario)
+        {
+            using (FindBusEntities fn = new FindBusEntities())
+            {
+                RemoveItinerarioRota(itinerario, fn);
+            }
+        }
         private static void InsereItinerarioDiaSemana(USP_SEL_Itinerario_Result itinerario, FindBusEntities fn, string diaSemana)
         {
             fn.tblItinerario.Add(new tblItinerario
