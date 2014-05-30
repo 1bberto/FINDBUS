@@ -8,10 +8,11 @@ using System.Web.Mvc;
 
 namespace FindBus.Controllers
 {
-    [Authorize]
+
     public class VersaoController : Controller
     {
         FindBusEntities fn = new FindBusEntities();
+        [Authorize]
         public ActionResult Index()
         {
             return View(new Versao().RetornaVersao());
@@ -39,10 +40,12 @@ namespace FindBus.Controllers
                     return RedirectToAction("Index", "Home");
             }
         }
+        [Authorize]
         public ActionResult AlterarVersao()
         {
             return View();
         }
+        [Authorize]
         [HttpPost]
         public ActionResult AlterarVersao(string VersaoAPK, string VersaoBase)
         {

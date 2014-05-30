@@ -2,7 +2,7 @@
 function AtualizaVersao(url) {
     $.ajax({
         type: 'POST',
-        url: url,
+        url: '../Versao/AlterarVersao/',
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify({ VersaoAPK: $("#VersaoAPK").val(), VersaoBase: $("#VersaoBase").val() }),
         contentType: 'application/json',
