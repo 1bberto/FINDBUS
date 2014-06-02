@@ -1,0 +1,44 @@
+﻿@model IEnumerable<FindBus.Models.Usuario>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Pagina = "Lista de Usuários";
+}
+
+<p style="text-align: right">
+    <a href="@Url.Action("AdicionarUsuario", "Usuario")" class="btn btn-success btn-large"><i class="icon-white icon-plus-sign"></i>Adicionar</a>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Voltar</a>
+</p>
+<table class="table table-bordered table-striped responsive-utilities table table-responsive">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.UsuarioID)</th>
+        <th>@Html.DisplayNameFor(model => model.NomeUsuario)</th>
+        <th>@Html.DisplayNameFor(model => model.NivelAcesso)</th>
+        <th>@Html.DisplayNameFor(model => model.DataInclusaoRegistro)</th>
+        <th>Ações</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="width: 10% !important">@Html.DisplayFor(modelItem => item.UsuarioID)</td>
+            <td style="width: 35% !important">@Html.DisplayFor(modelItem => item.NomeUsuario)</td>
+            <td style="width: 20% !important">@if (item.NivelAcesso == 1)
+                                              {<text>Administrador</text>}
+                                              else
+                                              {<text>Comum</text>}  </td>
+            <td style="width: 20% !important">@Html.DisplayFor(modelItem => item.DataInclusaoRegistro)</td>
+            <td style="width: 15% !important; text-align: center">
+                <div class="btn-group">
+                    <a href="@Url.Action("AlterarUsuario", "Usuario", new { usuID = item.UsuarioID })" class="btn btn-success btn-large"><i class="icon-white icon-pencil"></i>Editar</a>
+                    <a onclick="ExcluirUsuario(@item.UsuarioID)" class="btn btn-danger btn-large"><i class="icon-white icon-pencil"></i>Excluir</a>
+                </div>
+            </td>
+        </tr>
+    }
+</table>
+@section Scripts{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/Regras/FindBus.js")
+}

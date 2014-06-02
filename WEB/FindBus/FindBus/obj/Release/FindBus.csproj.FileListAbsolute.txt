@@ -36,6 +36,8 @@ C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\bin\Antlr3.Runtim
 C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\bin\EntityFramework.dll
 C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\bin\Microsoft.Web.Mvc.dll
+C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\bin\MySql.Data.dll
+C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\bin\MySql.Web.dll
 C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\bin\Newtonsoft.Json.dll
 C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\bin\System.Net.Http.Formatting.dll
 C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\bin\System.Web.Http.dll
@@ -58,6 +60,6 @@ C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\bin\System.Web.Ra
 C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\bin\System.Web.WebPages.xml
 C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\bin\System.Web.WebPages.Razor.xml
-C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\obj\Release\FindBus.csprojResolveAssemblyReference.cache
 C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\obj\Release\FindBus.dll
 C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\obj\Release\FindBus.pdb
+C:\Users\Humberto\Documents\GitHub\FINDBUS\WEB\FindBus\FindBus\obj\Release\FindBus.csprojResolveAssemblyReference.cache
