@@ -1,0 +1,62 @@
+﻿@model FindBus.Models.Rota
+@{
+    ViewBag.Title = "VisualizaRota";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Pagina = "Alterar Rota - " + Model.Descricao.ToString();
+}
+@Html.Hidden("RotaID", Model.RotaID)
+@Html.Hidden("NomeRota", Model.Descricao)
+@Html.ValidationSummary(true)
+<div class="row-fluid">
+    <div class="row-fluid">
+        <div class="col-lg-12">            
+                <p style="text-align: right">
+                    <a id="btnSalvarRota" class="btn btn-success btn-large"><i class="icon-white icon-plus-sign"></i>Adicionar</a>
+                    <a onclick="window.history.back()" class="btn btn-info btn-large"><i class="icon-white icon-plus-sign"></i>Voltar</a>
+                </p>            
+        </div>
+        <div class="row-fluid" style="text-align: center">
+            <ul class="pagination pull-center" id="PaginacaoPontos">
+            </ul>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="col-md-5 col-md-offset-0">
+            <div id="map" style="width: 730px; height: 500px">
+            </div>
+        </div>
+        <div class="col-md-4 col-md-offset-3">
+            <input type="radio"
+                name="radSize"
+                id="sizeSmall"
+                value="small"
+                checked="checked" onclick="DefineTipoImagemPonto()" />
+            <label for="sizeSmall" style="margin-right: 20px">
+                <img src="~/Content/images/bus (1).png" style="margin-right: 5px" />Ponto de Onibus</label>
+            <input type="radio"
+                name="radSize"
+                id="sizeMed"
+                value="medium" onclick="DefineTipoImagemPassagem()" />
+            <label for="sizeMed">
+                <img src="http://labs.google.com/ridefinder/images/mm_20_green.png" style="margin-right: 5px" />Ponto Passagem</label>
+            <div id="Localizacoes" style="overflow: auto; height: 500px">
+                <b>Localizações</b>
+                <div id="ListPosicoes" class="pontoPassagem">
+                </div>
+                <div class="row-fluid">
+                    <div class="span6 pull-right">
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCuzGQQHQEajGCANlCPhwU8YdG9Qm9VbIQ&sensor=true"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=geometry"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/Regras/LocalizacaoAlterar.js")
+}
